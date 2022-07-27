@@ -1,0 +1,12 @@
+.attribute {
+    color:#090807;
+    font-weight: bold;
+}
+
+.children_profile{
+    background-color: #f2f2f2;
+}
+
+.negative_button {
+    color:#090807 !important;
+}

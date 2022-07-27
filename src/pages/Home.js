@@ -33,7 +33,7 @@ function Home() {
                 <img src={homeImage} alt="school bus" width="500px" height="370px"/>
             </div>
          </div> 
-         <Footer/>  
+         <Footer/>   
         </div>
         
     </>
