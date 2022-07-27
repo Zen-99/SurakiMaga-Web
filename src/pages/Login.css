@@ -1,0 +1,19 @@
+.total_login{
+    background-color: white;
+    border: 1px solid #ff8c01;
+    border-radius: 5px;
+
+}
+
+.login_form {
+    padding:10px !important;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #ff8c01 !important;
+    border-color: #ff8c01  !important;
+}
+
+.home {
+    min-height:675px !important;
+}
