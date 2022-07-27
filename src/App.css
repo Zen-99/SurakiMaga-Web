@@ -1,11 +1,16 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
     font-family: 'PT Sans', sans-serif;
     width:100%;
+    top: 0%;
+    right: 0%;
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
+  :root {
+    background: #f2f2f2;
   }
   body::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */

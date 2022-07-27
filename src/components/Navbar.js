@@ -15,13 +15,13 @@ function Navbar() {
     <nav className='navbar'>
       <div className='navbar-container'>
       <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          <i className={click ? 'fas fa-times close-menu-btn' : 'fas fa-bars'} />
         </div>
         <div className='nav-logo'>
         <Link to='/' onClick={closeMobileMenu}>
         <img src={logo} className="logo" style={{
-            height:'84px',
-            width:'84px',
+            height:'64px',
+            width:'64px',
             }} alt="Logo"/></Link>
         </div>
         <div className='nav-menu-items'>

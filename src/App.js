@@ -4,7 +4,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
 import Login from './pages/Login';
-import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
+import OwnerAdvertiestments from './pages/school-van-owner/OwnerAdvertiestments';
+import OwnerProfile from './pages/school-van-owner/OwnerProfile';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
           <Route path='/FAQ' element={<FAQ />}/>
           <Route path='/log-in' element={<Login />}/>
           {/* <Route path='/sign-up' element={<SignUp />}/> */}
-          <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
+          <Route path='/OwnerAdvertiestments' element={<OwnerAdvertiestments />}/>
+          <Route path='/OwnerProfile' element={<OwnerProfile />}/>
         </Routes>
     </BrowserRouter>
     </>      

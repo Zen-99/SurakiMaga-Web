@@ -1,6 +1,6 @@
 .navbar {
     background-color: #ffffff;
-    height: 100px;
+    height: 80px;
     width :100%;
     /* min-width: 300px; */
     display: flex;
@@ -10,6 +10,8 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    padding: 10px;
+    min-width: fit-content;
   }
   
   .navbar-container {
@@ -18,11 +20,12 @@
     align-items: center; */
     height: 100%;
     width:100%;
-    max-width: 1500px;
+    /* max-width: fit-content; */
     z-index: 999;
+    justify-content: space-around;
   }
   .logo {
-    margin-left: 50px;
+    margin-left: 30px;
   }
   .fa-typo3 {
     margin-left: 0.5rem;
@@ -30,20 +33,23 @@
   }
   
   .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
+    display: flex;
     list-style: none;
     text-align: center;
     width: 100%;
-    justify-content: end;
-    margin-right: 2rem;
+    height: 100%;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    margin-bottom: 0;
   }
   .nav-menu-items{
     display: flex;
+    height: 100%;
+    align-items: center;
   }
   .nav-item {
-    height: 80px;
+    height: 64px;
+    min-width: 90px;
   }
   
   .nav-links {
@@ -76,24 +82,26 @@
   }
 
   .signup-button{
-    color: #ff8c01;
+    color: #ffffff;
     display: flex;
+    background-color: #ff8c01;
     align-items: center;
     text-decoration: none;
     padding: 5px 5px 5px 5px;
-    height: 60px;
+    height: 50px;
     border: solid #ff8c01;
     border-radius: 1rem;
     transition: all 0.3s ease-out;
-    width: 200px;
+    width: 150px;
     justify-content: space-evenly;
-    margin-top: 10px;
+    margin-right: 10px;
   }
 
   .signup-button:hover{
-        color: #28231f;
+        color: #ff8c01;
         border-radius: 1rem;
-        border:solid #28231f;
+        background-color: #ffffff;
+        border:solid #ff8c01;
         text-decoration: none;
   }
   
@@ -103,8 +111,9 @@
     }
 
     .logo {
-      margin-left: 0;
-      margin-right: 25px;
+      display: block;
+    margin-left: auto;
+    margin-right: auto;
     }
     .nav-logo {
       display: flex;
@@ -124,7 +133,7 @@
       width: 250px;
       height: 90vh;
       position: absolute;
-      top: 100px;
+      top: 80px;
       left: -100%;
       opacity: 1;
       justify-content: top;
@@ -139,6 +148,8 @@
       transition: all 0.5s ease;
       z-index: -1;
       display: block;
+      padding-left: 0px;
+
     }
 
     .nav-item{
@@ -170,14 +181,15 @@
       display: block;
       top: 0;
       margin-left: 50px;
+      margin-bottom: 50px;
       transform: translate(-100%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
       width: fit-content;
-      height: fit-content;
+      /* height: fit-content; */
     }
   
-    .fa-times {
+    .close-menu-btn {
       color: #ff8c01;
       font-size: 2rem;
     }
