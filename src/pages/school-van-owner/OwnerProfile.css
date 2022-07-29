@@ -2,8 +2,89 @@
     padding: 1%;
     display:flex;
     width:100%;
-    height: 400px;
+    height: 100%;
+    justify-content: space-evenly;
 }
-.profile-container{
-    background-color: green;
+.OwnerProfile-container{
+   width: 100%;
+   height: 100%;
+   /* max-width: fit-content; */
+   justify-content: center;
+}
+.OwnerProfilecontainer{
+    width: 60%;
+    height: 1000px;
+
+}
+.OwnerProfile-photo, .OwnerProfile-photo-edit{
+    width:100%;
+    border-right: none;
+    border-bottom: solid;
+    border-width: thin;
+}
+.OwnerProfile-image{
+    width: fit-content;
+}
+.OwnerProfile-image img {
+    width: 200px;
+    height: 200px;
+    border: solid;
+    border-width: thin;
+}
+.OwnerProfile-image .add-image-btn {
+    width: 30px;
+    height: 30px;
+    transform: translate(500%, -150%);
+    border: solid;
+    border-width: thin;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+.OwnerProfile-image i {
+    width: 20px;
+    height: f20px;
+}
+.OwnerProfile-details,.OwnerProfile-details-edit{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+}
+.OwnerProfile-details-row{
+    display: flex;
+    flex-direction: row;
+}
+.fa-pen{
+    width: fit-content;
+}
+.OwnerProfile-edit-container-hide, .OwnerProfile-container-hide {
+    display: none;
+}
+@media screen and (max-width: 800px){
+    .OwnerProfile-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .OwnerProfilecontainer{
+        width: 100%;
+    }
+    .OwnerProfile-photo{
+        width:100%;
+        border-right: none;
+        border-bottom: solid;
+        border-width: thin;
+    }
+    .OwnerProfile-details{
+        width:100%;
+    }
+    
+}
+@media screen and (max-width: 400px){
+    .OwnerProfile-details-row{
+        flex-direction: column;
+    }
 }
