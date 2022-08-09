@@ -10,6 +10,9 @@ import Signup from './pages/Signup';
 import ParentDashboard from './pages/Parent/dashboard';
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
 import MyChildren from './pages/Parent/children';
+import AddChild from './pages/Parent/AddChild'
+import ParentNavbar from './components/ParentNavbar';
+import VehicleView from './pages/Parent/VehicleView';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,6 +32,9 @@ function App() {
           <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
           <Route path='/ParentDashboard' element={<ParentDashboard />}/>
           <Route path='/MyChildren' element={<MyChildren/>}/>
+          <Route path='/AddChild' element={<AddChild/>}/>
+          <Route path='/ParentNavbar' element={<ParentNavbar/>}/>
+          <Route path='/VehicleView' element={<VehicleView/>}/>
         </Routes>
     </BrowserRouter>
     </>      

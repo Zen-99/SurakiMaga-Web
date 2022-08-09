@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './children.css';
-import Navbar from '../../components/Navbar';
+import ParentNavbar from '../../components/ParentNavbar';
+import LeaveVan from '../../components/LeaveVan';
 import StarRating from '../../components/StarRating';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,6 +16,7 @@ const homeImage = require('../../assests/schoolbus.png');
 const profileImage = require('../../assests/Faalil.jpeg');
 
 function MyChildren() {
+    const [modalShow, setModalShow] = React.useState(false);
     const [rating, setRating] = useState(0) // initial rating value
 
   // Catch Rating value
@@ -25,7 +27,7 @@ function MyChildren() {
     return (
         <>
         <div>
-        <Navbar/>
+        <ParentNavbar/>
         <Container>
             <Row>
                 <Col xs={6} md={3} className="border children_profile" >
@@ -59,14 +61,14 @@ function MyChildren() {
                     <Carousel className="bg-white">
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={homeImage}
                             alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={homeImage}
                             alt="Second slide"
                             />
@@ -74,14 +76,14 @@ function MyChildren() {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={homeImage}
                             alt="Third slide"
                             />
 
                         </Carousel.Item>
                     </Carousel>
-                            <Card className='border-0 bg-primary p-3'>
+                            <Card className='border-0 p-3'>
                             <Card.Body>
                                 <Card.Title className='font-weight-bold '>Van Details</Card.Title>
                                 <Card.Text>
@@ -142,7 +144,11 @@ function MyChildren() {
                                     </Card.Text>
                                     <div className='d-flex flex-column gap-4'>
                                         <Button className='w-50 mt-1 mx-auto bg-white text-dark'>Make a Complaint</Button>
-                                        <Button className='w-50 mx-auto bg-white text-dark'>Leave From this Van</Button>
+                                        <Button className='w-50 mx-auto bg-white text-dark' onClick={() => setModalShow(true)}>Leave From this Van</Button>
+                                        <LeaveVan
+                                                    show={modalShow}
+                                                    onHide={() => setModalShow(false)}
+                                                />
                                     </div>
                                 </Card.Body>
                             </Card>

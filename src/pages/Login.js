@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React from 'react';
+=======
 import React, { Component } from 'react';
+>>>>>>> edea91f14864b527b7436dbbe25eb3254f60550f
 import Navbar from '../components/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,9 +16,9 @@ function Login() {
         <>
         <div className="home pt-1 pb-5">
         <Navbar/>
-        <div className ="container p-5 d-flex flex-row justify-content-center">  
+        <div className ="container p-5 d-flex flex-row justify-content-center ">  
         
-        <div className='container d-flex flex-row total_login'>
+        <div className='container d-flex flex-row total_login shadow bg-white rounded mt-3'>
         <div >
         <img src={homeImage} alt="school bus" width="500px" height="370px"/>
         </div>
