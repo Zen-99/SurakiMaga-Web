@@ -43,10 +43,10 @@ function OwnerNavbar() {
         </div>
         <div className='nav-menu-items'>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item-o'>  </li>
-          <li className='nav-item-o'><Link to='/OwnerAdvertiestments' className='nav-links' onClick={closeMobileMenu}>Advertiestments</Link></li>
-          <li className='nav-item-o'><Link to='/' className='nav-links' onClick={closeMobileMenu}>My School vans</Link></li>
-          <li className='nav-item-o'><Link to='/' className='nav-links' onClick={closeMobileMenu}>complaints & reviews</Link></li>
+          <li className='navbar-item-o'>  </li>
+          <li className='navbar-item-o'><Link to='/OwnerAdvertiestments' className='navbar-links' onClick={closeMobileMenu}>Advertiestments</Link></li>
+          <li className='navbar-item-o'><Link to='/' className='navbar-links' onClick={closeMobileMenu}>My School vans</Link></li>
+          <li className='navbar-item-o'><Link to='/' className='navbar-links' onClick={closeMobileMenu}>complaints & reviews</Link></li>
         </ul>
         <div class="profile">
             <img src={bell} style={{height:'30px', width:'30px'}} alt=""/>
