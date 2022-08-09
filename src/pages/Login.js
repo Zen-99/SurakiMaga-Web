@@ -1,24 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-//import '../App.css';
-import './Home.css';
-import {Link} from 'react-router-dom';
-import Navbar from "../components/Navbar";
-import Footer from '../components/Footer';
-
-function Login() {
-    return(
-        <div className="home">
-            <Navbar/>
-            <div className="home-home">
-            <Link to='/OwnerAdvertiestments' >Log in</Link>
-            </div>
-            <Footer/>
-        </div>
-    )
-}
-=======
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -32,9 +12,9 @@ function Login() {
         <>
         <div className="home pt-1 pb-5">
         <Navbar/>
-        <div className ="container p-5 d-flex flex-row justify-content-center">  
+        <div className ="container p-5 d-flex flex-row justify-content-center ">  
         
-        <div className='container d-flex flex-row total_login'>
+        <div className='container d-flex flex-row total_login shadow bg-white rounded mt-3'>
         <div >
         <img src={homeImage} alt="school bus" width="500px" height="370px"/>
         </div>
@@ -73,5 +53,4 @@ function Login() {
   
 }
 
->>>>>>> 91d6428fd802a007f0ebc679bdd620028b409c1a
 export default Login;
