@@ -9,6 +9,8 @@ import './Login.css'
 const homeImage = require('../assests/schoolbus.png');
 
 function Signup() {
+
+  
     return (
         <>
         <div className="home pt-1 pb-5">
@@ -29,10 +31,10 @@ function Signup() {
                 justify fill
               >
               <Tab eventKey="parent" title="Parent">
-                <LoginForm />
+                <LoginForm type="Parent" />
               </Tab>
               <Tab eventKey="owner" title="Owner">
-                <LoginForm />
+                <LoginForm type="Owner" />
               </Tab>
 
             </Tabs>
