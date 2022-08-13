@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './children.css';
 import ParentNavbar from '../../components/ParentNavbar';
 import LeaveVan from '../../components/LeaveVan';
+import Review from '../../components/Review';
 import StarRating from '../../components/StarRating';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -17,6 +18,7 @@ const profileImage = require('../../assests/Faalil.jpeg');
 
 function MyChildren() {
     const [modalShow, setModalShow] = React.useState(false);
+    const [ReviewModal, setReviewModal] = React.useState(false);
     const [rating, setRating] = useState(0) // initial rating value
 
   // Catch Rating value
@@ -143,7 +145,11 @@ function MyChildren() {
                                     
                                     </Card.Text>
                                     <div className='d-flex flex-column gap-4'>
-                                        <Button className='w-50 mt-1 mx-auto bg-white text-dark'>Make a Complaint</Button>
+                                        <Button className='w-50 mt-1 mx-auto bg-white text-dark' onClick={() => setReviewModal(true)}>Make a Complaint</Button>
+                                        <Review
+                                                    show={ReviewModal}
+                                                    onHide={() => setReviewModal(false)}
+                                                />
                                         <Button className='w-50 mx-auto bg-white text-dark' onClick={() => setModalShow(true)}>Leave From this Van</Button>
                                         <LeaveVan
                                                     show={modalShow}

@@ -15,10 +15,12 @@
     "react-bootstrap": "^2.4.0",
     "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-simple-star-rating": "^4.0.5",
     "reactjs-popup": "^2.0.5",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

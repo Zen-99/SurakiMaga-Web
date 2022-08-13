@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
-import React, { Component } from 'react';
->>>>>>> edea91f14864b527b7436dbbe25eb3254f60550f
+import React, { useState}  from 'react';
 import Navbar from '../components/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +8,7 @@ import './Login.css'
 const homeImage = require('../assests/schoolbus.png');
 
 function Login() {
+  
     return (
         <>
         <div className="home pt-1 pb-5">
