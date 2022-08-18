@@ -13,6 +13,9 @@ import MyChildren from './pages/Parent/children';
 import AddChild from './pages/Parent/AddChild'
 import ParentNavbar from './components/ParentNavbar';
 import VehicleView from './pages/Parent/VehicleView';
+import Dashboard from './pages/Admin/Dashboard';
+import Complaints from './pages/Admin/Complaints';
+import Requests from './pages/Admin/Requests';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,6 +38,9 @@ function App() {
           <Route path='/AddChild' element={<AddChild/>}/>
           <Route path='/ParentNavbar' element={<ParentNavbar/>}/>
           <Route path='/VehicleView' element={<VehicleView/>}/>
+          <Route exact path="/Dashboard" element={<Dashboard />}  />
+          <Route path="/Requests" element={<Requests/>}/>
+          <Route path="/Complaints" element={<Complaints />} />
         </Routes>
     </BrowserRouter>
     </>      
