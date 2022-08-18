@@ -1,54 +1,68 @@
 import React, { useState}  from 'react';
-import ReactDOM from 'react-dom';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link} from "react-router-dom";
+import apiClient from '../Services/ApiClient';
 import '../pages/Home.css';
-import '../pages/Login.css'
-
+import '../pages/Login.css';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useForm } from "react-hook-form";
 
 
 function Loginform(props) {
 
-  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    trigger,
+  } = useForm();
+
+
   const [inputs, setInputs] = useState({
-    email: "",
+    contact: "",
     password: "",
     username: ""
   });
 
   
   var type = props.type;
-  const { email, password, username } = inputs;
+  // alert(type);
+  const {contact, password, username } = inputs;
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name] : e.target.value });
 
-  const onSubmitForm = async e => {
-    // alert(props.type);
+  const onSubmitForm =async (data,e) => {
+    console.log(data);
     e.preventDefault();
-    try {
-      const body = { email, password, username,type};
-      const response = await fetch(
-        "http://localhost:3001/auth/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json"
-          },
-          body: JSON.stringify(body)
-        }
-      );
-      const parseRes = await response.json();
-      console.log(parseRes);
-    } catch (err) {
-      console.error(err.message);
+      const { dataresponse, error } = await apiClient.registerUser({
+         type,
+         username : data['username'],
+         contact  : data['contact'],
+         password : data['password']
+    })
+      // const parseRes = await response.json();
+      if (dataresponse) {
+        alert("Logged in Success");
+        setInputs('');
+        // localStorage.setItem("token", parseRes.jwtToken);
+        // setAuth(true);
+        toast.success("Logged in Successfully");
+      } else {
+        // setAuth(false);
+        alert(error);
+        toast.error(error.message);
+      }
     }
-  };
+
     return (
         <>
         
-      <Form className="px-5 py-3 login-form" onSubmit={onSubmitForm}>
+      <Form className="px-5 py-3 login-form" onSubmit={handleSubmit(onSubmitForm)}>
      
         <Form.Group className="mb-2" controlId="formBasicfullname">
           <FloatingLabel
@@ -56,20 +70,43 @@ function Loginform(props) {
             label="Full Name"
             className="mb-1"
           >
-            <Form.Control type="text" name="username" value={username}  placeholder="Full Name"
-          onChange={e => onChange(e)} />
+            <Form.Control 
+              type="text" 
+              name="username" 
+              // value={username}  
+              placeholder="Full Name"
+              // onChange={e => onChange(e)}
+              {...register("username", { required: "Username is Required" })} />
           </FloatingLabel>
+            {errors.username && (
+                <small className="text-danger">{errors.username.message}</small>
+              )}
         </Form.Group> 
 
         <Form.Group className="mb-2" controlId="formBasicemail">
           <FloatingLabel
             controlId="floatingInput"
-            label="Email"
+            label="Contact"
             className="mb-1"
           >
-            <Form.Control type="email" name="email"  placeholder="Email" value={email}
-          onChange={e => onChange(e)} />
+            <Form.Control 
+              type="text" 
+              name="contact"  
+              placeholder="Contact Number" 
+              // value={contact}
+              onChange={e => onChange(e)}
+              {...register("contact", { required: "Email is Required" ,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Invalid Contact Number",
+              }})}
+              onKeyUp={() => {
+                trigger("contact");
+              }} />
           </FloatingLabel>
+          {errors.contact && (
+                <small className="text-danger">{errors.contact.message}</small>
+              )}
         </Form.Group>
 
         <Form.Group className="mb-2" controlId="formBasicpassword">
@@ -78,9 +115,22 @@ function Loginform(props) {
             label="Password"
             className="mb-1"
           >
-            <Form.Control type="password" name="password"  placeholder="Password" value={password}
-          onChange={e => onChange(e)}/>
+            <Form.Control 
+              type="password" 
+              name="password"  
+              placeholder="Password" 
+              // value={password}
+              onChange={e => onChange(e)}
+              {...register("password", {
+                required: true,
+                minLength: 5,
+                maxLength: 20,
+              })}
+            />
           </FloatingLabel>
+          {errors.contact && (
+                <small className="text-danger">{errors.contact.message}</small>
+              )}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicconfirmpassword">
@@ -99,7 +149,7 @@ function Loginform(props) {
        </Button>
        </div>
        <p className="forgot-password text-center mt-2">
-           Already have an account ? Login
+           Already have an account ?   <Link to="/log-in">Login</Link>
         </p>
       </Form> 
     

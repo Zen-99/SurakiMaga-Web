@@ -27,3 +27,29 @@
 /* .tabclass:active{
     color:red;
 } */
+/* .nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link {
+    color:black !important;
+} */
+
+/* .nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link.active {
+    color:orange !important;
+} */
+
+/* .nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link.active {
+    color:orange !important;
+} */
+
+
+
+/* .nav {
+   color: green !important;
+} */
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    background-color: #FFD29B!important;
+}
+
+.nav-tabs .nav-link{
+    color:black !important;
+}

@@ -1,0 +1,13 @@
+
+  
+   .accordion-button:focus {
+    border-color:  red !important;
+  } 
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #F2F2F2 !important;
+    color:black !important;
+    font-weight: bold;
+  }
+
+
