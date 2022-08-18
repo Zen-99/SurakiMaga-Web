@@ -10,11 +10,11 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import ChildProfile from '../../components/ChildProfile';
 
 
 
 const homeImage = require('../../assests/schoolbus.png');
-const profileImage = require('../../assests/Faalil.jpeg');
 
 function MyChildren() {
     const [modalShow, setModalShow] = React.useState(false);
@@ -33,7 +33,7 @@ function MyChildren() {
         <Container>
             <Row>
                 <Col xs={6} md={3} className="border children_profile" >
-                    <Container className="p-2 my-2">
+                    {/* <Container className="p-2 my-2">
                         <Card className='border-0 '>
                            <Card.Img variant="img-fluid rounded-circle img-fluid rounded-circle  border-4 w-75 p-2 mt-1 mx-auto"  src={profileImage} />
                                 <Card.Body>
@@ -54,7 +54,8 @@ function MyChildren() {
                                         </Card.Text>
                                 </Card.Body>
                         </Card>
-                    </Container>
+                    </Container> */}
+                    <ChildProfile/>
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
