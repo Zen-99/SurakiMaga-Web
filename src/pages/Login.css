@@ -47,7 +47,8 @@
 
 .nav-tabs .nav-link.active {
     font-weight: bold;
-    background-color: #FFD29B!important;
+    /* background-color: #FFD29B!important; */
+    border-bottom: 2px solid  #ff8c01  !important;
 }
 
 .nav-tabs .nav-link{

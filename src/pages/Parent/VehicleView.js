@@ -6,28 +6,30 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import { SocialIcon } from 'react-social-icons';
 
 const homeImage = require('../../assests/schoolbus.png');
-const profileImage = require('../../assests/three-wheeler.png');
+const bus1Image = require('../../assests/schoolbus1.jpg');
+const bus2Image = require('../../assests/schoolbus2.jpg');
 const mapImage = require('../../assests/map.jpg');
 
 export default function VehicleView() {
   return (
     <div>
        <ParentNavbar/>
-       <Container className='border'>
-        <div className='d-flex'>
-        <div className='my-auto fixed'><h3>Piliyandala Bus Service</h3></div>
+       <Container className='border mb-3'>
+        <div className='d-flex mb-1'>
+        <div className='my-auto fixed'><h3 className="fw-bold">School Bus Service from Piliyandala to Townhall</h3></div>
         <Button className='w-25 m-2 p-2'>Request Vehicle</Button>
         </div>
             <Row>
                 <Col xs={12} md={8} className="border">
                   <div className='p-3'>
-                    <Carousel className='bg-secondary'>
+                    <Carousel className='bg-light'>
                     <Carousel.Item className=''>
                         <img
                         className="d-block mx-auto"
-                        src={profileImage} style={{
+                        src={homeImage} style={{
                             height:'400px',
                             width:'500px',
                             }}
@@ -37,7 +39,7 @@ export default function VehicleView() {
                     <Carousel.Item className='align-items-center center'>
                         <img
                         className="d-block mx-auto"
-                        src={homeImage} style={{
+                        src={bus1Image } style={{
                             height:'400px',
                             width:'500px',
                             }}
@@ -47,7 +49,7 @@ export default function VehicleView() {
                     <Carousel.Item>
                         <img
                         className="d-block mx-auto" 
-                        src={profileImage} style={{
+                        src={bus2Image } style={{
                             height:'400px',
                             width:'500px',
                             }}
@@ -85,9 +87,22 @@ export default function VehicleView() {
                         
                     </div>
                     </div>
-
+                    <hr class="bg-danger border-2 border-top border-danger"/>
                     <div className="mt-3">
-                        <h4 className='text-dark '>Vehicle Details</h4>
+                        <h4 className='text-dark mb-3'>Vehicle Description</h4>
+                        <p> This school van is in a good condition. This goes in the optimum speed which is ideal for 
+                            the students to travel. All tyres are in a good conditon. The A/C is also working fine in the school
+                            vans. The van will be starting its tour at 5:00 am.
+                        </p>
+                    </div>
+                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <div className="mt-3">
+                        <h4 className='text-dark mb-3 text-center fw-bold'> Share this transport with others</h4>
+                        <div className='d-flex justify-content-center gap-2'> 
+                        <SocialIcon network="telegram"  />
+                        <SocialIcon network="facebook"  />
+                        <SocialIcon network="whatsapp" />
+                        </div>
                     </div>
                 </div>
                 </Col>

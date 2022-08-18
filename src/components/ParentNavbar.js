@@ -3,12 +3,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
+import Logout from './Logout';
 
 const logo = require('../assests/logo.png');
 const profileImage = require('../assests/Faalil.jpeg');
 
 
 export default function ParentNavbar() {
+
+  const [logoutShow, setlogoutShow] = React.useState(false);
+
   return (
     <div >
         <Navbar expand="lg" className='mb-3 bg-secondary bg-light' justify >
@@ -50,8 +54,12 @@ export default function ParentNavbar() {
               
               <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="AddChild">
+              <NavDropdown.Item onClick={() => setlogoutShow(true)}>
                 Log out
+                <Logout
+                  show={logoutShow}
+                  onHide={() => setlogoutShow(false)}
+                />
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

@@ -1,4 +1,4 @@
-export const FAQData = [
+const FAQData = [
     {
       question: 'What do you call a dog magician?',
       answer: 'A labracadabrador.'
@@ -12,3 +12,5 @@ export const FAQData = [
       answer: 'I Apollo-gize.'
     }
   ];
+
+  export default FAQData;

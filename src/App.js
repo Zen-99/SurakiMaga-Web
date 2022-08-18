@@ -13,6 +13,7 @@ import MyChildren from './pages/Parent/children';
 import AddChild from './pages/Parent/AddChild'
 import ParentNavbar from './components/ParentNavbar';
 import VehicleView from './pages/Parent/VehicleView';
+import RouteChild from './pages/Parent/RouteChild';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,6 +36,7 @@ function App() {
           <Route path='/AddChild' element={<AddChild/>}/>
           <Route path='/ParentNavbar' element={<ParentNavbar/>}/>
           <Route path='/VehicleView' element={<VehicleView/>}/>
+          <Route path='/RouteChild' element={<RouteChild/>}/>
         </Routes>
     </BrowserRouter>
     </>      

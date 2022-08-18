@@ -29,9 +29,7 @@ function Loginform(props) {
   });
 
   
-  var type = props.type;
-  // alert(type);
-  const {contact, password, username } = inputs;
+
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name] : e.target.value });
@@ -40,7 +38,7 @@ function Loginform(props) {
     console.log(data);
     e.preventDefault();
       const { dataresponse, error } = await apiClient.registerUser({
-         type,
+         type     : props.type,
          username : data['username'],
          contact  : data['contact'],
          password : data['password']
@@ -48,7 +46,7 @@ function Loginform(props) {
       // const parseRes = await response.json();
       if (dataresponse) {
         alert("Logged in Success");
-        setInputs('');
+        reset();
         // localStorage.setItem("token", parseRes.jwtToken);
         // setAuth(true);
         toast.success("Logged in Successfully");
