@@ -13,7 +13,7 @@ function Home() {
     <>
         <div className="home">
         <Navbar/>
-        <div className="home-home">
+        <div className="home-home p-5">
             <div className="home-content">
                 <div className="home-title">
                     <h2 className="home-title-title">Get Started With Suraki Maga</h2>

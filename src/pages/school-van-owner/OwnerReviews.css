@@ -1,0 +1,75 @@
+.OwnerReviews-home{
+    width: 100%;
+    padding: 4%;
+}
+.OwnerReviews-home h3, .OwnerReviews-home h5 {
+    color: #28231f;
+    width: fit-content;
+}
+.Ownerreviews-col{
+    width: 100%;
+}
+.OwnerReviews-home table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.OwnerReview-card {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.rating_circle {
+    width: 130px;
+    height: 130px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 70px;
+    background-color: #FBC02D;
+    color: #fff
+}
+
+.rating-label {
+    font-weight: bold;
+    width:100px;
+}
+
+.rating-bar {
+    padding: 8px;
+    border-radius: 5px
+}
+
+
+.OwnerReviews-home td {
+    padding-bottom: 10px
+}
+
+.star-active {
+    color: #FBC02D;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.star-active:hover {
+    color: #F9A825;
+    cursor: pointer
+}
+
+.star-inactive {
+    color: #CFD8DC;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+@media screen and (max-width: 850px){
+    .ratings-tr{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+}

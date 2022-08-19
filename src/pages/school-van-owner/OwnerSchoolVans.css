@@ -1,0 +1,133 @@
+.owner-select-scl-van-container{
+    min-width: fit-content;
+}
+.owner-select-scl-van{
+    width: 150px;
+    min-width: fit-content;
+    font-size: large;
+    font-weight: bold;
+}
+.owner-Select-vehical-btns{
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+.owner-add-new-vehicle-btn{
+    width: fit-content;
+}
+.owner-scl-van-details{
+    width: 70%;
+    /* width: 80%; */
+    display: flex;
+
+}
+.owner-scl-van-driver-details{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.owner-scl-van-driver-details button{
+    width: fit-content;
+}
+.OwnerschvanReq h5 , .addnewdrivermodel h5{
+    color: #28231f;
+    width: fit-content;
+}
+.OwnerschvanReq button{
+    width: fit-content;
+}
+.OwnerschvanReq p3{
+    width: fit-content;
+    color: #28231f;
+    font-size: larger;
+    font-weight: bold;
+}
+/* .owner-vehicle-info{
+    width: 50%;
+    border-right: solid;
+    border-width: thin;
+}
+.owner-driver-info{
+    width:50%;
+} */
+/* .owner-vehicle-info img , .owner-driver-info img {
+    width: 200px;
+    height: 200px;
+    border: solid;
+    border-width: thin;
+} */
+.owner-vehicle-info img  {
+    width: 200px;
+    height: 200px;
+    border: solid;
+    border-width: thin;
+}
+.owner-scl-van-driver-details img, .addnewdrivermodel img{
+    width: 60px;
+    height: 60px;
+    border: solid;
+    border-width: thin;
+}
+.owner-vehicle-info h4 , .owner-scl-van-driver-details h4 {
+    /* width: fit-content; */
+    display: flex;
+    justify-content: center;
+}
+.owner-vehicle-image{
+    width: fit-content;
+}
+.fa-pen{
+    width: fit-content;
+}
+/* OwnerAddNewVehicle */
+.owner-scl-van-details-form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: solid;
+    border-width: thin;
+}
+.OwnerSclVans-home h3 {
+    width: fit-content;
+}
+.OwnerSclVans-home{
+    padding: 5%;
+}
+@media screen and (max-width: 800px){
+    .owner-Select-vehical-btns{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .owner-scl-van-details{
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    .owner-driver-info {
+        width: 100%;
+    }
+    .owner-vehicle-info{
+        width:100%;
+        border-right: none;
+        border-bottom: solid;
+        border-width: thin;
+    }
+    .fa-pen {
+        width: -webkit-fill-available;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    /* OwnerAddNewVehicle */
+    .owner-scl-van-details-form{
+        flex-direction: column;
+        width: 100%;
+    }
+    .OwnerSclVans-home{
+        padding: 2%;
+    }
+}

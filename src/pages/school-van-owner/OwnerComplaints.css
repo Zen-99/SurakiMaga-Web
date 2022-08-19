@@ -1,0 +1,42 @@
+.OwnerComplaints-home{
+    width: 100%;
+    padding: 4%;
+}
+.OwnerComplaints-home h3, .OwnerComplaints-home h5 {
+    color: #28231f;
+    width: fit-content;
+}
+.vl1 , .vl2, .vl3 {
+    width: fit-content;
+  }
+.vl1 {
+    border-left: 6px solid green;
+}
+.vl2 {
+    border-left: 6px solid aqua;
+}
+.vl3 {
+    border-left: 6px solid #ff8c01;
+}
+.OwnerComplaints-home table {
+    table-layout: fixed;
+    width: 100%;
+}
+/* .tbl-column1 {
+    width :30%;
+}
+.tbl-column2 {
+    width: 20%;
+}
+.tbl-column3 {
+    width: 50%;
+} */
+.nav-tabs .nav-link.active{
+    color: #ff8c10;
+}
+.nav-link {
+    color: #28231f;
+}
+.nav-tabs .nav-link:hover{
+    color: #ff8c10;
+}

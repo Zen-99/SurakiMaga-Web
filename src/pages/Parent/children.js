@@ -81,7 +81,7 @@ function MyChildren() {
 
                         </Carousel.Item>
                     </Carousel>
-                            <Card className='border-0 bg-primary p-3'>
+                            <Card className='border-0 p-3'>
                             <Card.Body>
                                 <Card.Title className='font-weight-bold '>Van Details</Card.Title>
                                 <Card.Text>
