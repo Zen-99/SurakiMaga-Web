@@ -4,7 +4,7 @@ import './OwnerNavbar.css';
 import '../../components/Navbar.css';
 
 const logo = require('../../assests/logo.png');
-const profile = require('../../assests/profile.png');
+const profile = require('../../assests/avatar7.png');
 const bell = require('../../assests/bell_icon.png');
 
 function OwnerNavbar() {
@@ -45,24 +45,23 @@ function OwnerNavbar() {
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='navbar-item-o'>  </li>
           <li className='navbar-item-o'><Link to='/OwnerAdvertiestments' className='navbar-links' onClick={closeMobileMenu}>Advertiestments</Link></li>
-          <li className='navbar-item-o'><Link to='/' className='navbar-links' onClick={closeMobileMenu}>My School vans</Link></li>
-          <li className='navbar-item-o'><Link to='/' className='navbar-links' onClick={closeMobileMenu}>complaints & reviews</Link></li>
+          <li className='navbar-item-o'><Link to='/OwnerSchoolVans' className='navbar-links' onClick={closeMobileMenu}>School vans</Link></li>
+          <li className='navbar-item-o'><Link to='/OwnerComplaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
         </ul>
         <div class="profile">
             <img src={bell} style={{height:'30px', width:'30px'}} alt=""/>
-            <img src={profile} alt=""/>
+            <img src={profile} alt="" class="rounded-circle"/>
             <div className='menu-dropdown-icon' onClick={handleClickDropdown}>
-            <i class={clickDropdown ? 'fas fa-times-circle' : 'fas fa-chevron-circle-down'}></i>
+            <i class='fa fa-caret-down'></i>
             </div>
         </div>
         </div>
         <div className='menu-dropdown' id='menu-dropdown-list'>
           <ul className={clickDropdown ? 'card p-3 dropdown-active' : 'dropdown-hide'}>
-            <li className='dropdown-list-item' onClick={handleClickDropdown}><i class="fas fa-chevron-circle-up"></i></li>
             <li className='dropdown-list-item'><Link to='/OwnerProfile' className='dropdown-links' onClick={closeDropdownMenu}>Profile</Link></li>
-            <li className='dropdown-list-item'><Link to='/' className='dropdown-links' onClick={closeDropdownMenu}>Payments</Link></li>
-            <li className='dropdown-list-item'><Link to='/' className='dropdown-links' onClick={closeDropdownMenu}>Requests</Link></li>
-            <li className='dropdown-list-item'><Link to='/' className='dropdown-links' onClick={closeDropdownMenu}>Feedbacks</Link></li>
+            <li className='dropdown-list-item'><Link to='/OwnerPayments' className='dropdown-links' onClick={closeDropdownMenu}>Payments</Link></li>
+            <li className='dropdown-list-item'><Link to='/OwnerRequests' className='dropdown-links' onClick={closeDropdownMenu}>Requests</Link></li>
+            <li className='dropdown-list-item'><Link to='/OwnerReviews' className='dropdown-links' onClick={closeDropdownMenu}>Reviews</Link></li>
             <li class="dropdown-list-item"><hr></hr></li>
             <li className='dropdown-list-item'><a href='/' className='dropdown-links' onClick={closeDropdownMenu}>Log Out</a></li>
           </ul>

@@ -2,9 +2,9 @@ import React, { useState} from "react";
 import './OwnerProfile.css';
 import '../Home.css';
 import OwnerNavbar from "./OwnerNavbar";
-// import Popup from 'reactjs-popup';
+import { Link } from "react-router-dom";
 
-function OwnerProfile (){
+function Owner_DriverProfile (){
 
     const [Editdetails, setEditdetails] = useState(false);
 
@@ -16,11 +16,11 @@ function OwnerProfile (){
                     <div className={Editdetails ? "OwnerProfile-container-hide":"OwnerProfile-container  d-flex flex-column align-items-center"}>
                     <div className="OwnerProfile-photo p-3 d-flex flex-column align-items-center text-center">
                         <div className="OwnerProfile-image">
-                        <img src={require('../../assests/avatar7.png')} alt="" class="rounded-circle"/>
+                        <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                         </div>
                         
                         <div class="mt-3">
-                            <h4>Roshan Senevirathne</h4>
+                            <h4>Damitha Wickramasinghe</h4>
                             <p class="text-secondary mb-1">2019cs161@ucsc.cmb.ac.lk</p>
                             <p class="text-secondary font-size-sm">0711234567</p>
                         </div>
@@ -46,19 +46,10 @@ function OwnerProfile (){
                   <hr/>
                   <div class="OwnerProfile-details-row justify-content-evenly">
                     <div class="col-sm-5">
-                      <h6 class="mb-0">School service reg no.</h6>
+                      <h6 class="mb-0">License number</h6>
                     </div>
                     <div class="col-sm-5 text-secondary">
                       ABC12345
-                    </div>
-                  </div>
-                  <hr/>
-                  <div class="OwnerProfile-details-row justify-content-evenly">
-                    <div class="col-sm-5">
-                      <h6 class="mb-0">Bank Acc</h6>
-                    </div>
-                    <div class="col-sm-5 text-secondary">
-                      (239) 816-9029
                     </div>
                   </div>
                   <hr/>
@@ -72,9 +63,10 @@ function OwnerProfile (){
                   </div>
                   <hr/>
                   <div class="OwnerProfile-details-row justify-content-evenly">
-                    <div class="col-sm-12">
+                    <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                     <button type="Button" class="btn btn-primary" onClick={() => setEditdetails(true)}>
                         <i class="fas fa-pen me-2"></i>Edit Profile</button>
+                      <Link to='/OwnerSchoolVans' class="btn btn-primary" onClick={() => setEditdetails(true)}>Back</Link>
                     </div>
                   </div>
                 </div>
@@ -137,19 +129,10 @@ function OwnerProfile (){
                   <hr/>
                   <div class="OwnerProfile-details-row justify-content-evenly">
                     <div class="col-sm-5">
-                      <h6 class="mb-0">School service reg no.</h6>
+                      <h6 class="mb-0">License number</h6>
                     </div>
                     <div class="col-sm-5 text-secondary">
                     <input type="text" class="form-control border-0 p-0" id="inputReg" name="inputReg" value={"ABC12345"}/>
-                    </div>
-                  </div>
-                  <hr/>
-                  <div class="OwnerProfile-details-row justify-content-evenly">
-                    <div class="col-sm-5">
-                      <h6 class="mb-0">Bank Acc</h6>
-                    </div>
-                    <div class="col-sm-5 text-secondary">
-                    <input type="text" class="form-control border-0 p-0" id="inputAcc" name="inputAcc" value={"(239) 816-9029"}/>
                     </div>
                   </div>
                   <hr/>
@@ -164,7 +147,7 @@ function OwnerProfile (){
                   <hr/>
                   <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                         <button type="submit" value="Submit" class="btn btn-primary">Save</button>
-                    <button type="Button" class="btn btn-primary" onClick={() => setEditdetails(false)}><i class="fas fa-pen me-2"></i>Cancel</button>
+                    <button type="Button" class="btn btn-primary" onClick={() => setEditdetails(false)}>Cancel</button>
                   </div>
                 </div>
                 </form>
@@ -176,4 +159,4 @@ function OwnerProfile (){
     )
 }
 
-export default OwnerProfile;
+export default Owner_DriverProfile;

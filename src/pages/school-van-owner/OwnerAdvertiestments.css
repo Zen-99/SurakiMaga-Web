@@ -37,14 +37,17 @@ input.form-control:focus{
 	background-color: #ffffff;
 	letter-spacing: 1px;
 }
-.btn-search{
+.input-group-append{
 	background-color: #ff8c01!important;
 	border-radius: 7px;
     border-top-left-radius:0px ;
     border-bottom-left-radius: 0px;
     border: #ff8c01;
     color:#fff;
-    height:39px;
+    height:38px;
+}
+.fa-search{
+    color:#fff;
 }
 .btn-primary{
     background-color: #ff8c01;

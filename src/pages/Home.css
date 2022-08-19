@@ -12,7 +12,7 @@
     
   }
    .home-home{
-    padding: 30px;
+    padding: 6rem;
     padding-left: 50px;
     padding-right: 10px;
     display: flex;
@@ -33,13 +33,13 @@
 }
 .home-title-title{
     font-weight:700;
-    font-family: cursive;
+    /* font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; */
 }
 .home-description{
     margin-top: 30px;
     font-size: large;
     font-weight: lighter;
-    font-family: Quicksand;
+    /* font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; */
 }
 .home-signup-button{
     margin-top: 20px;

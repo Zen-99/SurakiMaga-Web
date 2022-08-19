@@ -16,8 +16,7 @@
     min-width: 150px;
   }
 
-  .fa-chevron-circle-down , .fa-chevron-circle-up{
-    color:#ff8c01;
+  .fa-caret-down{
     cursor: pointer;
   }
   .fa-times-circle{
