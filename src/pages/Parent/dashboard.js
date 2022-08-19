@@ -1,12 +1,7 @@
 import React from "react";
 import "./dashboard.css";
-import Navbar from '../../components/Navbar';
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import ParentNavbar from "../../components/ParentNavbar";
 import SearchItem from "../../components/SearchItem";
-// import { format } from "date-fns";
-// import { DateRange } from "react-date-range";
-
 
 
 const ParentDashboard = () => {
@@ -18,18 +13,22 @@ const ParentDashboard = () => {
 
   return (
     <div>
-      <Navbar />
+      <ParentNavbar />
       <div className="d-flex justify-content-center mt-20">
         <div className="d-flex w-75 gap-3">
           <div className="listSearch">
-            <h1 className="lsTitle">Search</h1>
+            <h1 className="lsTitle text-center">Search Ideal Vehicle for your child</h1>
             <div className="lsItem">
               <label>School</label>
               <input placeholder='Enter School' type="text" />
             </div>
             <div className="lsItem">
+              <label>Pickup Location</label>
+              <select> dbdnjnjnjdnjdn</select>
             </div>
             <div className="lsItem">
+            <label>Type of Vehicle</label>
+              <select> dbdnjnjnjdnjdn</select>
             </div>
             <button>Search</button>
           </div>

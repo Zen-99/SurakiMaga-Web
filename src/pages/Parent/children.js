@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './children.css';
-import Navbar from '../../components/Navbar';
+import ParentNavbar from '../../components/ParentNavbar';
+import LeaveVan from '../../components/LeaveVan';
+import Review from '../../components/Review';
 import StarRating from '../../components/StarRating';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,13 +10,15 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import ChildProfile from '../../components/ChildProfile';
 
 
 
 const homeImage = require('../../assests/schoolbus.png');
-const profileImage = require('../../assests/Faalil.jpeg');
 
 function MyChildren() {
+    const [modalShow, setModalShow] = React.useState(false);
+    const [ReviewModal, setReviewModal] = React.useState(false);
     const [rating, setRating] = useState(0) // initial rating value
 
   // Catch Rating value
@@ -25,11 +29,11 @@ function MyChildren() {
     return (
         <>
         <div>
-        <Navbar/>
+        <ParentNavbar/>
         <Container>
             <Row>
                 <Col xs={6} md={3} className="border children_profile" >
-                    <Container className="p-2 my-2">
+                    {/* <Container className="p-2 my-2">
                         <Card className='border-0 '>
                            <Card.Img variant="img-fluid rounded-circle img-fluid rounded-circle  border-4 w-75 p-2 mt-1 mx-auto"  src={profileImage} />
                                 <Card.Body>
@@ -50,7 +54,8 @@ function MyChildren() {
                                         </Card.Text>
                                 </Card.Body>
                         </Card>
-                    </Container>
+                    </Container> */}
+                    <ChildProfile/>
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
@@ -59,14 +64,14 @@ function MyChildren() {
                     <Carousel className="bg-white">
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={homeImage}
                             alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={homeImage}
                             alt="Second slide"
                             />
@@ -74,7 +79,7 @@ function MyChildren() {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-100"
+                            className="d-block w-100 h-auto"
                             src={homeImage}
                             alt="Third slide"
                             />
@@ -141,8 +146,16 @@ function MyChildren() {
                                     
                                     </Card.Text>
                                     <div className='d-flex flex-column gap-4'>
-                                        <Button className='w-50 mt-1 mx-auto bg-white text-dark'>Make a Complaint</Button>
-                                        <Button className='w-50 mx-auto bg-white text-dark'>Leave From this Van</Button>
+                                        <Button className='w-50 mt-1 mx-auto bg-white text-dark' onClick={() => setReviewModal(true)}>Make a Complaint</Button>
+                                        <Review
+                                                    show={ReviewModal}
+                                                    onHide={() => setReviewModal(false)}
+                                                />
+                                        <Button className='w-50 mx-auto bg-white text-dark' onClick={() => setModalShow(true)}>Leave From this Van</Button>
+                                        <LeaveVan
+                                                    show={modalShow}
+                                                    onHide={() => setModalShow(false)}
+                                                />
                                     </div>
                                 </Card.Body>
                             </Card>

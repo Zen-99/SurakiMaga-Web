@@ -11,6 +11,16 @@ import Signup from './pages/Signup';
 import ParentDashboard from './pages/Parent/dashboard';
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
 import MyChildren from './pages/Parent/children';
+import AddChild from './pages/Parent/AddChild'
+import ParentNavbar from './components/ParentNavbar';
+import VehicleView from './pages/Parent/VehicleView';
+
+import Dashboard from './pages/Admin/Dashboard';
+import Complaints from './pages/Admin/Complaints';
+import Requests from './pages/Admin/Requests';
+
+import RouteChild from './pages/Parent/RouteChild';
+
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import OwnerSchoolVans from './pages/school-van-owner/OwnerSchoolVans';
@@ -43,6 +53,16 @@ function App() {
           <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
           <Route path='/ParentDashboard' element={<ParentDashboard />}/>
           <Route path='/MyChildren' element={<MyChildren/>}/>
+          <Route path='/AddChild' element={<AddChild/>}/>
+          <Route path='/ParentNavbar' element={<ParentNavbar/>}/>
+          <Route path='/VehicleView' element={<VehicleView/>}/>
+
+          <Route  path="/Dashboard" element={<Dashboard />}  />
+          <Route path="/Requests" element={<Requests/>}/>
+          <Route path="/Complaints" element={<Complaints />} />
+
+          <Route path='/RouteChild' element={<RouteChild/>}/>
+
         </Routes>
     </BrowserRouter>
     </>      
