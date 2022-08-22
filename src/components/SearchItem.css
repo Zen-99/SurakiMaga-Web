@@ -100,7 +100,7 @@
   
   .siCheckButton{
     background-color: white;
-    color: #ff8c01;
+    color: #ff8c01 !important;
     font-weight: bold;
     padding: 10px 5px;
     border: none;

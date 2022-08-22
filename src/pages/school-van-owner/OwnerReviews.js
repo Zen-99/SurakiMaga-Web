@@ -14,9 +14,9 @@ function OwnerReviews (){
                 <div class="OwnerReview-card card">
                 <div class="row justify-content-left d-flex">
                     <div class="col-md-4 d-flex flex-column text-center">
-                        <div class="rating_circle">
-                            <h1 class="pt-4">4.0</h1>
-                            <p class="">out of 5</p>
+                        <div className="rating_circle">
+                            <h1 className="pt-4">4.0</h1>
+                            <p className="">out of 5</p>
                         </div>
                         <div className="d-flex flex-row"> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> </div>
                     </div>

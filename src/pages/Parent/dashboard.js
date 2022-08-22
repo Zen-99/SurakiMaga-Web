@@ -2,6 +2,8 @@ import React from "react";
 import "./dashboard.css";
 import ParentNavbar from "../../components/ParentNavbar";
 import SearchItem from "../../components/SearchItem";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 
 
 const ParentDashboard = () => {
@@ -17,20 +19,54 @@ const ParentDashboard = () => {
       <div className="d-flex justify-content-center mt-20">
         <div className="d-flex w-75 gap-3">
           <div className="listSearch">
-            <h1 className="lsTitle text-center">Search Ideal Vehicle for your child</h1>
+            <h1 className="lsTitle text-center">Search the Ideal Vehicle for your child</h1>
             <div className="lsItem">
-              <label>School</label>
-              <input placeholder='Enter School' type="text" />
+            <Form.Group>
+            <Form.Label>Search</Form.Label>
+        <Form.Control 
+          type="text" 
+          name="username" 
+          placeholder="Search"/>  
+      </Form.Group>
             </div>
             <div className="lsItem">
-              <label>Pickup Location</label>
-              <select> dbdnjnjnjdnjdn</select>
+              <Form.Group>
+                <Form.Label> Select the Pickup Location</Form.Label>
+              
+            <Form.Select aria-label="Default select example">
+              <option>Select Location</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+            </Form.Group>
             </div>
             <div className="lsItem">
-            <label>Type of Vehicle</label>
-              <select> dbdnjnjnjdnjdn</select>
+              <Form.Group>
+                <Form.Label>Category</Form.Label>
+                  <Form.Check
+                  inline
+                  label="Bus"
+                  name="group1"
+                />
+                 <Form.Check
+                  inline
+                  label="Van"
+                  name="Van"
+                />
+                 <Form.Check
+                  inline
+                  label="Air Conditioned"
+                  name="Air Conditioned"
+                />
+                 <Form.Check
+                  inline
+                  label="FM Radio"
+                  name="FM Radio"
+                />
+          </Form.Group>
             </div>
-            <button>Search</button>
+            <Button className="mt-2">Search</Button>
           </div>
           <div className="listResult">
             <SearchItem />

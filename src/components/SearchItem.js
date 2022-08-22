@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./SearchItem.css";
+import { Link} from "react-router-dom";
 const homeImage = require('../assests/schoolbus.png');
 
 
@@ -34,7 +35,7 @@ const SearchItem = () => {
         <div className="siDetailTexts">
           <span className="siPrice">Rs.4500</span>
           {/* <span className="siTaxOp">Includes taxes and fees</span> */}
-          <button className="siCheckButton">See More Details</button>
+          <button className="siCheckButton"> <Link to="/VehicleView">See More Details</Link></button>
         </div>
       </div>
     </div>

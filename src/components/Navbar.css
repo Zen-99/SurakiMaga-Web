@@ -19,7 +19,7 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
-    /* justify-content: space-around; */
+    justify-content: space-around;
   }
 
   .nav-logo{
