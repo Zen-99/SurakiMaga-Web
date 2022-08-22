@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import ParentNavbar from '../../components/ParentNavbar';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import { SocialIcon } from 'react-social-icons';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import RequestVan from '../../components/RequestVan';
 
 const homeImage = require('../../assests/schoolbus.png');
 const bus1Image = require('../../assests/schoolbus1.jpg');
@@ -14,13 +16,19 @@ const bus2Image = require('../../assests/schoolbus2.jpg');
 const mapImage = require('../../assests/map.jpg');
 
 export default function VehicleView() {
+    const [requestvehiclemodalShow, setRequestVehicleModalShow] = useState(false);
+
   return (
     <div>
        <ParentNavbar/>
        <Container className='border mb-3'>
         <div className='d-flex mb-1'>
         <div className='my-auto fixed'><h3 className="fw-bold">School Bus Service from Piliyandala to Townhall</h3></div>
-        <Button className='w-25 m-2 p-2'>Request Vehicle</Button>
+        <Button onClick={() => setRequestVehicleModalShow(true)} className='w-25 m-2 p-2'>Request Vehicle</Button>
+        <RequestVan
+            show={requestvehiclemodalShow}
+            onHide={() => setRequestVehicleModalShow(false)}
+        />
         </div>
             <Row>
                 <Col xs={12} md={8} className="border">
@@ -164,6 +172,12 @@ export default function VehicleView() {
                                 <div> +94 77 1234567</div>
                             </div>
                             <hr class="bg-danger border-2 border-top border-dark"/>
+                            <div>
+      <ProgressBar variant="success" now={40} />
+      <ProgressBar variant="info" now={20} />
+      <ProgressBar variant="warning" now={60} />
+      <ProgressBar variant="danger" now={80} />
+    </div>
 
                             
                     </div>

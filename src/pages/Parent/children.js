@@ -17,8 +17,8 @@ import ChildProfile from '../../components/ChildProfile';
 const homeImage = require('../../assests/schoolbus.png');
 
 function MyChildren() {
-    const [modalShow, setModalShow] = React.useState(false);
-    const [ReviewModal, setReviewModal] = React.useState(false);
+    const [modalShow, setModalShow] = useState(false);
+    const [ReviewModal, setReviewModal] = useState(false);
     const [rating, setRating] = useState(0) // initial rating value
 
   // Catch Rating value

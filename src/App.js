@@ -1,28 +1,20 @@
 import './App.css';
-//import Navbar from './components/Navbar';
-import Home from './pages/Home';
 import * as React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import Navbar from './components/Navbar';
+
+//Landing pages
+import Home from './pages/Home';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
+
+//OwnerComponents
 import OwnerAdvertiestments from './pages/school-van-owner/OwnerAdvertiestments';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
-import Signup from './pages/Signup';
-import ParentDashboard from './pages/Parent/dashboard';
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
-import MyChildren from './pages/Parent/children';
-import AddChild from './pages/Parent/AddChild'
-import ParentNavbar from './components/ParentNavbar';
-import VehicleView from './pages/Parent/VehicleView';
-
-import Dashboard from './pages/Admin/Dashboard';
-import Complaints from './pages/Admin/Complaints';
-import Requests from './pages/Admin/Requests';
-
-import RouteChild from './pages/Parent/RouteChild';
-
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import OwnerSchoolVans from './pages/school-van-owner/OwnerSchoolVans';
 import OwnerAddNewVehicle from './pages/school-van-owner/OwnerAddNewVehicle';
 import OwnerComplaints from './pages/school-van-owner/OwnerComplaints';
@@ -30,6 +22,19 @@ import OwnerPayments from './pages/school-van-owner/OwnerPayments';
 import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
 import Owner_DriverProfile from './pages/school-van-owner/Owner_DriverProfile';
+
+//ParentComponents
+import ParentDashboard from './pages/Parent/dashboard';
+import RouteChild from './pages/Parent/RouteChild';
+import MyChildren from './pages/Parent/children';
+import AddChild from './pages/Parent/AddChild'
+import ParentNavbar from './components/ParentNavbar';
+import VehicleView from './pages/Parent/VehicleView';
+import Dashboard from './pages/Admin/Dashboard';
+import Complaints from './pages/Admin/Complaints';
+import Requests from './pages/Admin/Requests';
+
+
 
 function App() {
   return (
@@ -62,7 +67,6 @@ function App() {
           <Route path="/Complaints" element={<Complaints />} />
 
           <Route path='/RouteChild' element={<RouteChild/>}/>
-
         </Routes>
     </BrowserRouter>
     </>      

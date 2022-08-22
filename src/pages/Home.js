@@ -9,10 +9,14 @@ import Footer from '../components/Footer';
 const homeImage = require('../assests/schoolbus.png')
 
 function Home() {
+    console.log(process.env.REACT_APP_MAP_API);
+
     return(
     <>
+    
         <div className="home">
         <Navbar/>
+        
         <div className="home-home p-5">
             <div className="home-content">
                 <div className="home-title">
