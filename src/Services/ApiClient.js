@@ -74,7 +74,6 @@ class ApiClient{
         return await this.request({ endpoint: `owner/getownerdetails`, method: `GET`})
     }
     async registerDriver(credentials){
-        
         return await this.request({endpoint:`owner/registerDriver`,method:`POST`,data:credentials})
     }
 }

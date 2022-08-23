@@ -20,10 +20,10 @@ function OwnerProfile (){
   })
   useEffect(() => {
     async function getownerdetails() { 
-        const{data,error} = await apiClient.loadownerDetails()
-        console.log(data)
+        const{dataresponse,error} = await apiClient.loadownerDetails()
+        console.log(dataresponse)
         // console.log("dilshi")
-        setFetchData({ name:data.result.name,contact:data.result.contact,email:data.result.email,nic:data.result.nic,bank_acc:data.result.bank_acc,scl_service_regno:data.result.scl_service_regno,experience:data.result.experience })
+        setFetchData({ name:dataresponse.result.name,contact:dataresponse.result.contact,email:dataresponse.result.email,nic:dataresponse.result.nic,bank_acc:dataresponse.result.bank_acc,scl_service_regno:dataresponse.result.scl_service_regno,experience:dataresponse.result.experience })
     }
     getownerdetails();
 }, []);

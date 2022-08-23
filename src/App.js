@@ -15,8 +15,6 @@ import Signup from './pages/Signup';
 import OwnerAdvertiestments from './pages/school-van-owner/OwnerAdvertiestments';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
 import OwnerEditProfile from './pages/school-van-owner/OwnerEditProfile'
-import Signup from './pages/Signup';
-import ParentDashboard from './pages/Parent/dashboard';
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
 import OwnerSchoolVans from './pages/school-van-owner/OwnerSchoolVans';
 import OwnerAddNewVehicle from './pages/school-van-owner/OwnerAddNewVehicle';
