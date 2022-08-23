@@ -10,7 +10,9 @@ function About() {
         <div className="home">
             <Navbar/>
             <div className="home-home">
-
+                <div>
+                    cbhbjcdj
+                </div>
             </div>
             <Footer/>
         </div>

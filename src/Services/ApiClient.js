@@ -40,13 +40,11 @@ class ApiClient{
         console.log("hello",headers,data,url,method)
         try {
             const res = await axios({url, method, data, headers })
-            console.log(res)
-            return { data: res.data, error: null }
+            return { dataresponse: res.data, error: null }
         } catch (error) {
-            // console.error("APIclient.makeRequest.error:")
-            // console.error({ errorResponse: error.response })
-            // const message = error?.response?.data?.error?.message
-            const message = "error"
+            console.error("APIclient.makeRequest.error:")
+            console.error({ errorResponse: error.response })
+            const message = error.response.data.error.message
             return { data: null, error: message || String(error) }
         }
     }
