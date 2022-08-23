@@ -19,17 +19,17 @@ function OwnerAdvertiestments() {
 return(
     <div className="home">
         <OwnerNavbar/>
-            <div className="advertiestments-home">
+            <div className="advertiestments-home gap-3 p-5">
                 <div className="advertiestments-search">
                     <div class="input-group ">
                         <input type="text" class="form-control" placeholder="Search by School.."/>
                         <div class="input-group-append"><button class="btn btn-search"><i class="fas fa-search"></i></button></div>
                     </div>
-                    <div>
+                    {/* <div>
                     <button type="button" class="btn btn-outline-success d-flex flex-row justify-content-center">
                         <i class="fas fa-map-marker-alt"></i><div className="location-btn-text">Location</div>
                     </button>
-                    </div>
+                    </div> */}
                     <div className="select-vehical-type">
                         <label class="check">
 				            <input type="checkbox" />

@@ -20,20 +20,12 @@ function OwnerAddNewAd (){
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="inputLocation" class="form-label">Location</label>
-                    <input type="text" class="form-control" id="inputLocation" placeholder="Start Location of Van" required/>
-                </div>
-                <div class="col-12">
                     <label for="inputDescription" class="form-label">Description</label>
                     <textarea class="form-control" id="inputDescription" rows="3" required></textarea>
                 </div>
-                <div class="mb-3">
-                <label for="formFile" class="form-label">Add image</label>
-                <input class="form-control" type="file" id="formFile" required/>
-                </div>
                 <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                 </div>
                 </form>
             </div>

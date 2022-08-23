@@ -1,12 +1,13 @@
-import React ,{useState}from 'react'
-import Cancelation from '../components/Cancelation'
-import Varification from '../components/Varification'
+import React ,{useState}from 'react';
+import Cancelation from '../../components/Cancelation';
+import Varification from '../../components/Varification';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Verified from '../components/Verified';
+import Verified from '../../components/Verified';
+import AdminNavbar from './AdminNavbar'
 
 
 const Requests = () => {
@@ -14,6 +15,7 @@ const Requests = () => {
 
     return (
         <>
+        <AdminNavbar/>
         <Container>
             <Row className="text-center">
                 <h2>Requests</h2>
@@ -40,4 +42,4 @@ const Requests = () => {
     )
 }
 
-export default Requests
+export default Requests;

@@ -1,7 +1,6 @@
 import React from "react";
 import './OwnerSchoolVans.css';
 import '../Home.css';
-import OwnerNavbar from "./OwnerNavbar";
 import { Link } from "react-router-dom";
 
 function OwnerAddNewVehicle() {
@@ -17,28 +16,18 @@ function OwnerAddNewVehicle() {
                             <div className="p-3">
                                 <hr/>
                                 <div class="row align-items-center">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Vehicle No</h6>
-                                    </div>
-                                    <div class="col-sm-8 text-secondary">
-                                    <input type="text" class="form-control"/>
-                                    </div>
+                                    <div class="col-sm-3"><h6 class="mb-0">Vehicle No</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control"/></div>
                                 </div>
                                 <hr/>
                                 <div class="row align-items-center">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Vehicle Name</h6>
-                                    </div>
-                                    <div class="col-sm-8 text-secondary">
-                                    <input type="text" class="form-control"/>
-                                    </div>
+                                    <div class="col-sm-3"><h6 class="mb-0">Vehicle Name</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control"/></div>
                                 </div>
                                 <hr/>
                                 <div class="row align-items-center">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Vehicle type</h6>
-                                    </div>
-                                    <div class="col-sm-8 text-secondary">
+                                    <div class="col-sm-3"><h6 class="mb-0">Vehicle type</h6></div>
+                                    <div class="col-sm-8 text-secondary d-flex flex-row">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio"/>
                                             <label class="form-check-label" for="inlineRadio1">Van</label>
@@ -55,18 +44,17 @@ function OwnerAddNewVehicle() {
                                 </div>
                                 <hr/>
                                 <div class="row align-items-center">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Add images</h6>
-                                    </div>
-                                    <div class="col-sm-8 text-secondary">
-                                        <input class="form-control" type="file" id="formFile" multiple required/>
-                                    </div>
+                                    <div class="col-sm-3"><h6 class="mb-0">Model</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control"/></div>
                                 </div>
                                 <hr/>
                                 <div class="row align-items-center">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Driver</h6>
-                                    </div>
+                                    <div class="col-sm-3"><h6 class="mb-0">Add images</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input class="form-control" type="file" id="formFile" multiple required/></div>
+                                </div>
+                                <hr/>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3"><h6 class="mb-0">Driver</h6></div>
                                     <div class="col-sm-8 text-secondary">
                                     <div class="input-group mb-3">
                                         <select class="form-select" id="inputGroupSelect01">
@@ -77,6 +65,21 @@ function OwnerAddNewVehicle() {
                                         </select>
                                     </div>
                                     </div>
+                                </div>
+                                <hr/>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3"><h6 class="mb-0">Start location</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control"/></div>
+                                </div>
+                                <hr/>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3"><h6 class="mb-0">Monthly charge</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control"/></div>
+                                </div>
+                                <hr/>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-3"><h6 class="mb-0">Schools</h6></div>
+                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control" multiple/></div>
                                 </div>
                                 <hr/>
                             </div>
@@ -125,8 +128,8 @@ function OwnerAddNewVehicle() {
                         </div> */}
                     </div>
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <Link to='/OwnerSchoolVans' className="btn btn-primary">Cancel</Link>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <Link to='/OwnerSchoolVans' className="btn btn-danger">Cancel</Link>
                 </div>
                 </div>
                 </form>

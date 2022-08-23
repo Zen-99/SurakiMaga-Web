@@ -95,6 +95,16 @@
     padding: 5%;
 }
 @media screen and (max-width: 800px){
+    .OwnerSclVans-home{
+        display: flex;
+        flex-direction: column;
+    }
+    .owner-scl-van-driver-details{
+        width: 100%;
+    }
+    .ownervehicleinfo{
+        flex-direction: column;
+    }
     .owner-Select-vehical-btns{
         width: 100%;
         flex-direction: column;
@@ -114,12 +124,6 @@
         border-right: none;
         border-bottom: solid;
         border-width: thin;
-    }
-    .fa-pen {
-        width: -webkit-fill-available;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
     }
 
     /* OwnerAddNewVehicle */

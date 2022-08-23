@@ -40,12 +40,13 @@ class ApiClient{
         console.log("hello",headers,data,url,method)
         try {
             const res = await axios({url, method, data, headers })
-            //console.log(res)
+            console.log(res)
             return { data: res.data, error: null }
         } catch (error) {
             // console.error("APIclient.makeRequest.error:")
             // console.error({ errorResponse: error.response })
-            const message = error?.response?.data?.error?.message
+            // const message = error?.response?.data?.error?.message
+            const message = "error"
             return { data: null, error: message || String(error) }
         }
     }
@@ -71,9 +72,16 @@ class ApiClient{
     async loadDetails(){
         return await this.request({ endpoint: `driverauth/details`, method: `GET`})
     }
+    async loadownerDetails(){
+        return await this.request({ endpoint: `owner/getownerdetails`, method: `GET`})
+    }
+    async registerDriver(credentials){
+        
+        return await this.request({endpoint:`owner/registerDriver`,method:`POST`,data:credentials})
+    }
 }
 
 
-const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://192.168.56.1:3001")
+const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://192.168.8.116:3001")
 
 export default API

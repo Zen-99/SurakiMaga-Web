@@ -6,8 +6,8 @@ import { Link} from "react-router-dom";
 import apiClient from '../Services/ApiClient';
 import '../pages/Home.css';
 import '../pages/Login.css';
-import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+// import { toast } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
 
 
@@ -49,11 +49,11 @@ function Loginform(props) {
         reset();
         // localStorage.setItem("token", parseRes.jwtToken);
         // setAuth(true);
-        toast.success("Logged in Successfully");
+        // toast.success("Logged in Successfully");
       } else {
         // setAuth(false);
         alert(error);
-        toast.error(error.message);
+        // toast.error(error.message);
       }
     }
 

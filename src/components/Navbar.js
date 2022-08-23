@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <>
-    <nav className='navbar'>
+    <nav className='navbar fixed-top'>
       <div className='navbar-container'>
       <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times close-menu-btn' : 'fas fa-bars'} />
