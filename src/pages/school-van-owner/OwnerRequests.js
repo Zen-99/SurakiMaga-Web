@@ -13,19 +13,19 @@ function OwnerRequests (){
                         <h3>Join Requests</h3>
                         <ul class="list-group gap-2 p-3">
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request to school van 1</p>
+                                <p>Sandra Tennyson sent a request to ABC123</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request to school bus 1</p>
+                                <p>Sandra Tennyson sent a request to ACD345</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request school van 2</p>
+                                <p>Sandra Tennyson sent a request BN567</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request school van 1</p>
+                                <p>Sandra Tennyson sent a request ABC123</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                         </ul>
@@ -53,7 +53,7 @@ function OwnerRequests (){
                                                     <h6 class="mb-0">Child Name</h6>
                                                 </div>
                                                 <div class="col-sm-5 text-secondary">
-                                                    Benjamin Kirby Tennyson
+                                                    Benjamin Tennyson
                                                 </div>
                                             </div>
                                             <hr/>
@@ -107,7 +107,7 @@ function OwnerRequests (){
                         <h3>Leaving Notifications</h3>
                             <ul class="list-group gap-2 p-3">
                                 <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                    <p>Sandra Tennyson notified leaving the school van 1 form August</p>
+                                    <p>Sandra Tennyson notified leaving the ABC123 form August</p>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                                         <label class="form-check-label" for="flexCheckDefault">
@@ -116,7 +116,7 @@ function OwnerRequests (){
                                     </div>
                                 </li>
                                 <li class="list-group-item d-flex flex-row gap-4 justify-content-between align-items-center">
-                                    <p>Sandra Tennyson notified leaving the school van 2 form August</p>
+                                    <p>Sandra Tennyson notified leaving the ACD345 form August</p>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                                         <label class="form-check-label" for="flexCheckDefault">

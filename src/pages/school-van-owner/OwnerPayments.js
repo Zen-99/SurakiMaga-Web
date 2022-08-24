@@ -50,17 +50,17 @@ function OwnerPayments (){
                         <tbody>
                             <tr>
                             <td>2022-11-15</td>
-                            <td>Benjamin Kirby Tennyson</td>
+                            <td>Benjamin Tennyson</td>
                             <td>5000</td>
                             </tr>
                             <tr>
                             <td>2022-11-15</td>
-                            <td>Benjamin Kirby Tennyson</td>
+                            <td>Benjamin Tennyson</td>
                             <td>5000</td>
                             </tr>
                             <tr>
                             <td>2022-11-15</td>
-                            <td>Benjamin Kirby Tennyson</td>
+                            <td>Benjamin Tennyson</td>
                             <td>5000</td>
                             </tr>
                         </tbody>
@@ -77,15 +77,15 @@ function OwnerPayments (){
                         </thead>
                         <tbody>
                             <tr>
-                            <td>Benjamin Kirby Tennyson</td>
+                            <td>Benjamin Tennyson</td>
                             <td>5000</td>
                             </tr>
                             <tr>
-                            <td>Benjamin Kirby Tennyson</td>
+                            <td>Benjamin Tennyson</td>
                             <td>5000</td>
                             </tr>
                             <tr>
-                            <td>Benjamin Kirby Tennyson</td>
+                            <td>Benjamin Tennyson</td>
                             <td>5000</td>
                             </tr>
                         </tbody>

@@ -12,7 +12,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 //OwnerComponents
-import OwnerAdvertiestments from './pages/school-van-owner/OwnerAdvertiestments';
+import OwnerAdvertisetments from './pages/school-van-owner/OwnerAdvertisetments';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
 import OwnerEditProfile from './pages/school-van-owner/OwnerEditProfile'
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
@@ -49,7 +49,7 @@ function App() {
           <Route path='/About' element={<About />}/>
           <Route path='/FAQ' element={<FAQ />}/>
           <Route path='/log-in' element={<Login />}/>
-          <Route path='/OwnerAdvertiestments' element={<OwnerAdvertiestments />}/>
+          <Route path='/OwnerAdvertisetments' element={<OwnerAdvertisetments />}/>
           <Route path='/OwnerSchoolVans' element={<OwnerSchoolVans />}/>
           <Route path='/OwnerProfile' element={<OwnerProfile />}/>
           <Route path='/OwnerEditProfile' element={<OwnerEditProfile/>}/>

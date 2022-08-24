@@ -1,12 +1,12 @@
 import React from "react";
-import './OwnerAdvertiestments.css';
+import './OwnerAdvertisetments.css';
 
 function OwnerAddNewAd (){
     return(
         <>
             <div class="new-Ad-container card" >
                 <form class="row g-3 p-3 needs-validation">
-                <h4>New Advertiestment</h4>
+                <h4>New Advertisetment</h4>
                 <div class="col-md-10">
                     <label for="inputTitle" class="form-label">Title</label>
                     <input type="text" class="form-control" id="inputTitle" required/>
@@ -14,9 +14,9 @@ function OwnerAddNewAd (){
                 <div class="col-7">
                     <label for="inputSchoolvan" class="form-label">School Van</label>
                     <select id="inputSchoolvan" class="form-select" placeholder="Choose.." required>
-                    <option>School van 1</option>
-                    <option>School bus 1</option>
-                    <option>School van 2</option>
+                    <option>ABC123</option>
+                    <option>ACD345</option>
+                    <option>BN567</option>
                     </select>
                 </div>
                 <div class="col-12">

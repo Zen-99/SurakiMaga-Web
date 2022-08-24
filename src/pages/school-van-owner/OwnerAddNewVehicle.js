@@ -21,11 +21,6 @@ function OwnerAddNewVehicle() {
                                 </div>
                                 <hr/>
                                 <div class="row align-items-center">
-                                    <div class="col-sm-3"><h6 class="mb-0">Vehicle Name</h6></div>
-                                    <div class="col-sm-8 text-secondary"><input type="text" class="form-control"/></div>
-                                </div>
-                                <hr/>
-                                <div class="row align-items-center">
                                     <div class="col-sm-3"><h6 class="mb-0">Vehicle type</h6></div>
                                     <div class="col-sm-8 text-secondary d-flex flex-row">
                                         <div class="form-check">
