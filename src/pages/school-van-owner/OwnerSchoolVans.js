@@ -32,9 +32,9 @@ function OwnerSchoolVans (){
                             <div class="col-5 d-flex flex-row align-items-center owner-select-scl-van-container">
                                 <label for="inputSchoolvan" class="form-label m-0 me-2 owner-select-scl-van">School Van: </label>
                                 <select id="inputSchoolvan" class="form-select" placeholder="Choose.." required>
-                                <option>School van 1</option>
-                                <option>School bus 1</option>
-                                <option>School van 2</option>
+                                <option>ABC123</option>
+                                <option>ACD345</option>
+                                <option>BN567</option>
                                 </select>
                             </div>
                             <button type="button" class="btn btn-primary owner-add-new-vehicle-btn"data-bs-toggle="modal" data-bs-target="#OwneraddnewvehicleModal">Add new vehicle</button>

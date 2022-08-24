@@ -44,7 +44,7 @@ function OwnerNavbar() {
         <div className='nav-menu-items'>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='navbar-item-o'><Link to='/OwnerDashboard' className='navbar-links' onClick={closeMobileMenu}>Dashboard</Link></li>
-          <li className='navbar-item-o'><Link to='/OwnerAdvertiestments' className='navbar-links' onClick={closeMobileMenu}>Advertiestments</Link></li>
+          <li className='navbar-item-o'><Link to='/OwnerAdvertisetments' className='navbar-links' onClick={closeMobileMenu}>Advertisetments</Link></li>
           <li className='navbar-item-o'><Link to='/OwnerSchoolVans' className='navbar-links' onClick={closeMobileMenu}>School vans</Link></li>
           <li className='navbar-item-o'><Link to='/OwnerComplaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
           <li className='navbar-item-o'><Link to='/OwnerReviews' className='navbar-links' onClick={closeMobileMenu}>Reviews</Link></li>

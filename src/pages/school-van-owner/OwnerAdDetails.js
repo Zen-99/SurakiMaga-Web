@@ -1,5 +1,5 @@
 import React from "react";
-import './OwnerAdvertiestments.css';
+import './OwnerAdvertisetments.css';
 
 const vehicleImage = require('../../assests/schoolbus.png');
 
@@ -7,7 +7,7 @@ function OwnerAdDetails({closeAdDetailsCard}){
     
     return(
         <>
-        <div className="card p-3 advertiestment-details-card">
+        <div className="card p-3 Advertisetment-details-card">
                         <div class="d-flex justify-content-between align-items-center ">
                             <div class="mt-2">
                                 <h4 >School Service to D.S and Vishaka</h4>

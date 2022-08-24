@@ -11,7 +11,7 @@ import DoughnutChart from "../../components/DoughnutChart";
 function OwnerDashboard() {
 
     const [StCountchartData,setStCountchartData] = useState({
-        labels: ["School van 1","School van 2","School bus"],
+        labels: ["ABC123","ACD345","BN567"],
         datasets: [
             {
                 label: "Number of Student",
@@ -21,7 +21,7 @@ function OwnerDashboard() {
         ]
     })
     const [chartData,setchartData] = useState({
-        labels: ["School van 1","School van 2","School bus"],
+        labels: ["ABC123","ACD345","BN567"],
         datasets: [
             {
                 label: "Total Seats",
@@ -50,19 +50,19 @@ function OwnerDashboard() {
                         <div>
                             <ul class="list-group gap-2 p-4">
                                 <li class="list-group-item d-flex flex-row gap-2 justify-content-between align-items-center">
-                                    <p>Sandra Tennyson sent a request to school van 1</p>
+                                    <p>Sandra Tennyson sent a request to ABC123</p>
                                     <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                                 </li>
                                 <li class="list-group-item d-flex flex-row gap-2 justify-content-between align-items-center">
-                                    <p>Sandra Tennyson sent a request to school bus 1</p>
+                                    <p>Sandra Tennyson sent a request to ACD345</p>
                                     <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                                 </li>
                                 <li class="list-group-item d-flex flex-row gap-2 justify-content-between align-items-center">
-                                    <p>Sandra Tennyson sent a request school van 2</p>
+                                    <p>Sandra Tennyson sent a request BN567</p>
                                     <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                                 </li>
                                 <li class="list-group-item d-flex flex-row gap-2 justify-content-between align-items-center">
-                                    <p>Sandra Tennyson sent a request school van 1</p>
+                                    <p>Sandra Tennyson sent a request ABC123</p>
                                     <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                                 </li>
                             </ul>
@@ -127,7 +127,7 @@ function OwnerDashboard() {
                                         <h6 class="mb-0">Child Name</h6>
                                     </div>
                                     <div class="col-sm-5 text-secondary">
-                                        Benjamin Kirby Tennyson
+                                        Benjamin Tennyson
                                     </div>
                                 </div>
                                 <hr/>
@@ -154,7 +154,7 @@ function OwnerDashboard() {
                                         <h6 class="mb-0">School</h6>
                                     </div>
                                     <div class="col-sm-5 text-secondary">
-                                        earhgouebrgupey
+                                        D.S.Senanayaka college
                                     </div>
                                 </div>
                                 <hr/>

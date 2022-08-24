@@ -71,7 +71,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
                                         <i class='fa fa-caret-down'></i>
@@ -95,7 +95,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class='fa fa-caret-down'></i>
@@ -119,7 +119,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/18</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class='fa fa-caret-down'></i>
@@ -150,7 +150,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
                                         <i class='fa fa-caret-down'></i>
@@ -174,7 +174,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class='fa fa-caret-down'></i>
@@ -198,7 +198,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/18</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class='fa fa-caret-down'></i>

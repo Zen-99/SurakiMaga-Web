@@ -1,5 +1,5 @@
 import React from "react";
-import './OwnerAdvertiestments.css';
+import './OwnerAdvertisetments.css';
 import '../Home.css';
 import OwnerNavbar from "./OwnerNavbar";
 //import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import Button from 'react-bootstrap/Button'
 
 const vehicleImage = require('../../assests/schoolbus.png');
 
-function OwnerAdvertiestments() {
+function OwnerAdvertisetments() {
 
     // const [clickNewPost, setClickNwePost] = useState(false);
     // const handleClickNewPost = () => setClickNwePost(true);
@@ -21,8 +21,8 @@ function OwnerAdvertiestments() {
 return(
     <div className="home">
         <OwnerNavbar/>
-            <div className="advertiestments-home gap-3 p-4 pt-5">
-                {/* <div className="advertiestments-search">
+            <div className="Advertisetments-home gap-3 p-4 pt-5">
+                {/* <div className="Advertisetments-search">
                     <div class="input-group ">
                         <input type="text" class="form-control" placeholder="Search by School.."/>
                         <div class="input-group-append"><button class="btn btn-search"><i class="fas fa-search"></i></button></div>
@@ -99,10 +99,10 @@ return(
             <Button className="mt-2">Search</Button>
           </div>
                     </div>
-                <div className="advertiestments-new">
+                <div className="Advertisetments-new">
                 <ul class="nav nav-tabs d-flex flex-row flex-nowrap" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="Ad-tab" data-bs-toggle="tab" data-bs-target="#Ad" type="button" role="tab" aria-controls="Ad" aria-selected="true">Advertiestments</button>
+                        <button class="nav-link active" id="Ad-tab" data-bs-toggle="tab" data-bs-target="#Ad" type="button" role="tab" aria-controls="Ad" aria-selected="true">Advertisetments</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="Owner-Ad-tab" data-bs-toggle="tab" data-bs-target="#Owner-Ad" type="button" role="tab" aria-controls="Owner-Ad" aria-selected="false">Your Ads</button>
@@ -114,14 +114,14 @@ return(
                     </div>
                 </div>
                 <div className="advertistment-container gap-2">
-                    <div className="card p-3 advertiestments-list">
-                    <div className="advertiestment-card" >
-                            <div className="advertiestment-image">
+                    <div className="card p-3 Advertisetments-list">
+                    <div className="Advertisetment-card" >
+                            <div className="Advertisetment-image">
                                 <img src={vehicleImage} alt=""/>
                             </div>
-                            <div className="advertiestment-details">
+                            <div className="Advertisetment-details">
                                 <h4>School Service to D.S and Vishaka</h4>
-                                <p className="advertiestment-details-lication">Pliyandala</p>
+                                <p className="Advertisetment-details-lication">Pliyandala</p>
                                 <p1>School van</p1>
                                 <div className="ad-details">
                                 <p2>10 Seats more</p2>
@@ -129,13 +129,13 @@ return(
                                 </div>
                             </div>
                         </div>
-                        <div className="advertiestment-card" >
-                            <div className="advertiestment-image">
+                        <div className="Advertisetment-card" >
+                            <div className="Advertisetment-image">
                                 <img src={vehicleImage} alt=""/>
                             </div>
-                            <div className="advertiestment-details">
+                            <div className="Advertisetment-details">
                                 <h4>School Service to D.S and Vishaka</h4>
-                                <p className="advertiestment-details-lication">Pliyandala</p>
+                                <p className="Advertisetment-details-lication">Pliyandala</p>
                                 <p1>School van</p1>
                                 <div className="ad-details">
                                 <p2>10 Seats more</p2>
@@ -143,13 +143,13 @@ return(
                                 </div>
                             </div>
                         </div>
-                        <div className="advertiestment-card" >
-                            <div className="advertiestment-image">
+                        <div className="Advertisetment-card" >
+                            <div className="Advertisetment-image">
                                 <img src={vehicleImage} alt=""/>
                             </div>
-                            <div className="advertiestment-details">
+                            <div className="Advertisetment-details">
                                 <h4>School Service to D.S and Vishaka</h4>
-                                <p className="advertiestment-details-lication">Pliyandala</p>
+                                <p className="Advertisetment-details-lication">Pliyandala</p>
                                 <p1>School van</p1>
                                 <div className="ad-details">
                                 <p2>10 Seats more</p2>
@@ -157,13 +157,13 @@ return(
                                 </div>
                             </div>
                         </div>
-                        <div className="advertiestment-card" >
-                            <div className="advertiestment-image">
+                        <div className="Advertisetment-card" >
+                            <div className="Advertisetment-image">
                                 <img src={vehicleImage} alt=""/>
                             </div>
-                            <div className="advertiestment-details">
+                            <div className="Advertisetment-details">
                                 <h4>School Service to D.S and Vishaka</h4>
-                                <p className="advertiestment-details-lication">Pliyandala</p>
+                                <p className="Advertisetment-details-lication">Pliyandala</p>
                                 <p1>School van</p1>
                                 <div className="ad-details">
                                 <p2>10 Seats more</p2>
@@ -197,7 +197,7 @@ return(
                             </div>
                         </div>
                     </div>
-                    <div className='Owners-advertiestmentz-active p-0'>
+                    <div className='Owners-Advertisetmentz-active p-0'>
                         <OwnerOwnersAd/>
                     </div>
                 </div>
@@ -208,4 +208,4 @@ return(
 )
 }
 
-export default OwnerAdvertiestments;
+export default OwnerAdvertisetments;
