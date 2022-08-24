@@ -23,6 +23,7 @@ import OwnerPayments from './pages/school-van-owner/OwnerPayments';
 import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
 import OwnerDriverProfile from './pages/school-van-owner/OwnerDriverProfile';
+import OwnerDriverEditProfile from './pages/school-van-owner/OwnerDriverEditProfile';
 
 import AdminNavbar from './pages/Admin/AdminNavbar'
 
@@ -58,9 +59,10 @@ function App() {
           <Route path='/OwnerPayments' element={<OwnerPayments />}/>
           <Route path='/OwnerRequests' element={<OwnerRequests />}/>
           <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/>
-          <Route path='/OwnerDadhboard' element={<OwnerDashboard/>}/>
+          <Route path='/OwnerDashboard' element={<OwnerDashboard/>}/>
+          <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
+
           <Route path='/sign-up' element={<Signup />}/>
-          <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
           <Route path='/ParentDashboard' element={<ParentDashboard />}/>
           <Route path='/MyChildren' element={<MyChildren/>}/>
           <Route path='/AddChild' element={<AddChild/>}/>

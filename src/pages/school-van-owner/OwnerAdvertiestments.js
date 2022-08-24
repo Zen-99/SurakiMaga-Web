@@ -6,6 +6,8 @@ import OwnerNavbar from "./OwnerNavbar";
 import OwnerAdDetails from "./OwnerAdDetails";
 import OwnerOwnersAd from "./OwnerOwnersAd";
 import OwnerAddNewAd from "./OwnerAddNewAd";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 
 const vehicleImage = require('../../assests/schoolbus.png');
 
@@ -19,17 +21,17 @@ function OwnerAdvertiestments() {
 return(
     <div className="home">
         <OwnerNavbar/>
-            <div className="advertiestments-home gap-3 p-5">
-                <div className="advertiestments-search">
+            <div className="advertiestments-home gap-3 p-4 pt-5">
+                {/* <div className="advertiestments-search">
                     <div class="input-group ">
                         <input type="text" class="form-control" placeholder="Search by School.."/>
                         <div class="input-group-append"><button class="btn btn-search"><i class="fas fa-search"></i></button></div>
                     </div>
-                    {/* <div>
+                    <div>
                     <button type="button" class="btn btn-outline-success d-flex flex-row justify-content-center">
                         <i class="fas fa-map-marker-alt"></i><div className="location-btn-text">Location</div>
                     </button>
-                    </div> */}
+                    </div>
                     <div className="select-vehical-type">
                         <label class="check">
 				            <input type="checkbox" />
@@ -44,7 +46,59 @@ return(
                             <span><i class="fas fa-shuttle-van"></i><div className="vehival-type-chexkbox-text">Tuk</div></span>
 				        </label>
                     </div>
-                </div>
+                </div> */}
+                <div className="card d-felx advertistment-search">
+                    <div className="OwnerlistSearch p-3">
+            <h1 className="lsTitle text-center">Search</h1>
+            <div className="lsItem">
+            <Form.Group>
+            <Form.Label>Search</Form.Label>
+        <Form.Control 
+          type="text" 
+          name="username" 
+          placeholder="Search"/>  
+      </Form.Group>
+            </div>
+            <div className="lsItem">
+              <Form.Group>
+                <Form.Label> Select the Pickup Location</Form.Label>
+              
+            <Form.Select aria-label="Default select example">
+              <option>Select Location</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Select>
+            </Form.Group>
+            </div>
+            <div className="lsItem">
+              <Form.Group>
+                <Form.Label>Category</Form.Label>
+                  <Form.Check
+                  inline
+                  label="Bus"
+                  name="group1"
+                />
+                 <Form.Check
+                  inline
+                  label="Van"
+                  name="Van"
+                />
+                 <Form.Check
+                  inline
+                  label="Air Conditioned"
+                  name="Air Conditioned"
+                />
+                 <Form.Check
+                  inline
+                  label="FM Radio"
+                  name="FM Radio"
+                />
+          </Form.Group>
+            </div>
+            <Button className="mt-2">Search</Button>
+          </div>
+                    </div>
                 <div className="advertiestments-new">
                 <ul class="nav nav-tabs d-flex flex-row flex-nowrap" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -59,7 +113,7 @@ return(
                     <div class="tab-pane fade" id="Owner-Ad" role="tabpanel" aria-labelledby="Owner-Ad-tab"><OwnerOwnersAd/></div>
                     </div>
                 </div>
-                <div className="advertistment-container">
+                <div className="advertistment-container gap-2">
                     <div className="card p-3 advertiestments-list">
                     <div className="advertiestment-card" >
                             <div className="advertiestment-image">
@@ -143,7 +197,7 @@ return(
                             </div>
                         </div>
                     </div>
-                    <div className='Owners-advertiestmentz-active pt-0'>
+                    <div className='Owners-advertiestmentz-active p-0'>
                         <OwnerOwnersAd/>
                     </div>
                 </div>

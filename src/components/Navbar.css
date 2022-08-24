@@ -5,9 +5,9 @@
     display: flex; 
     align-items: center;
     font-size: 1.2rem;
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    /* z-index: 999; */
+     */
     border-bottom:solid #cbc6c3;
    
   }

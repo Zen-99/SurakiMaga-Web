@@ -76,9 +76,18 @@ class ApiClient{
     async registerDriver(credentials){
         return await this.request({endpoint:`owner/registerDriver`,method:`POST`,data:credentials})
     }
+    async EditOwnerProfile(credentials){
+        return await this.request({endpoint:`owner/EditOwnerProfile`,method:`POST`,data:credentials})
+    }
+    async loadDriverDetails(){
+        return await this.request({endpoint: `owner/getdriverdetails`, method: `GET`})
+    }
+    async EditOwnerDriverProfile(credentials){
+        return await this.request({endpoint:`owner/EditOwnerDriverProfile`,method:`POST`,data:credentials})
+    }
 }
 
 
-const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://192.168.8.116:3001")
+const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
 
 export default API

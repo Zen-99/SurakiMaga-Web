@@ -1,13 +1,26 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import './OwnerSchoolVans.css';
 import '../Home.css';
 import OwnerNavbar from "./OwnerNavbar";
 import { Link } from "react-router-dom";
 import OwnerAddNewDriver from "./OwnerAddNewDriver";
 import OwnerAddNewVehicle from './OwnerAddNewVehicle';
+import apiClient from '../../Services/ApiClient'
 
 function OwnerSchoolVans (){
     const [Editdetails, setEditdetails] = useState(false);
+    const [drivers,setDrivers]=useState([])
+
+    useEffect(() => {
+        async function getDriverdetails() { 
+            const{dataresponse,error} = await apiClient.loadDriverDetails()
+            console.log(dataresponse)
+            // console.log("dilshi")
+            setDrivers(dataresponse.result)
+        }
+        getDriverdetails();
+    }, []);
+
     return(
         <div className="home">
             <OwnerNavbar/>
@@ -47,11 +60,11 @@ function OwnerSchoolVans (){
                                 <div class="col-sm-5 text-secondary">40</div>
                             </div>
                             <hr/>
-                            <div class="row justify-content-evenly">
+                            {/* <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Model</h6></div>
                                 <div class="col-sm-5 text-secondary">KDH</div>
                             </div>
-                            <hr/>
+                            <hr/> */}
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Driver</h6></div>
                                 <div class="col-sm-5 text-secondary">Damitha Wickramasinghe</div>
@@ -63,8 +76,8 @@ function OwnerSchoolVans (){
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
-                                <div class="col-sm-3"><h6 class="mb-0">Monthly Charge</h6></div>
-                                <div class="col-sm-5 text-secondary">6000</div>
+                                <div class="col-sm-3"><h6 class="mb-0">Charge per km</h6></div>
+                                <div class="col-sm-5 text-secondary">50</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
@@ -92,7 +105,20 @@ function OwnerSchoolVans (){
                     <button type="button" class="btn btn-primary owner-add-new-vehicle-btn"data-bs-toggle="modal" data-bs-target="#OwneraddnewdriverModal">Add new driver</button>
                     <div>
                     <ul class="list-group gap-2 p-3">
-                    <Link to='/OwnerDriverProfile' className="text-decoration-none">
+                    {drivers.map((data)=>{
+                        console.log(data)
+                        return  <Link to='/OwnerDriverProfile' state={data} className="text-decoration-none">
+                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                                {/* <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/> */}
+                                <img src={data.image} alt="" class="rounded-circle"/>
+                                <ul className="d-flex flex-column">
+                                    <p>{data.fullname}</p>
+                                    <p>{data.contact}</p>
+                                </ul>
+                            </li>
+                        </Link>
+                    })}
+                    {/* <Link to='/OwnerDriverProfile' className="text-decoration-none">
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                             <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                             <ul className="d-flex flex-column">
@@ -127,7 +153,7 @@ function OwnerSchoolVans (){
                                 <p>0711213123</p>
                             </ul>
                         </li>
-                    </Link>
+                    </Link> */}
                     </ul>
                     </div>
                 </div>
@@ -141,7 +167,18 @@ function OwnerSchoolVans (){
                         </div>
                         <div class="modal-body">
                             <ul class="list-group gap-2 p-3">
-                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                            {drivers.map((data)=>{
+                              return  <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                                {/* <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/> */}
+                                <img src={data.image} alt="" class="rounded-circle"/>
+                                <ul className="d-flex flex-row align-items-end">
+                                    {/* <p>Damitha Wickramasinghe</p> */}
+                                    <p>{data.fullname}</p>
+                                    <button type="input" class="btn btn-primary owner-add-new-vehicle-btn">Assign</button>
+                                </ul>
+                            </li>
+                            })}
+                            {/* <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                                 <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                                 <ul className="d-flex flex-row align-items-end">
                                     <p>Damitha Wickramasinghe</p>
@@ -161,14 +198,7 @@ function OwnerSchoolVans (){
                                     <p>Damitha Wickramasinghe</p>
                                     <button type="input" class="btn btn-primary owner-add-new-vehicle-btn">Assign</button>
                                 </ul>
-                            </li>
-                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
-                                <ul className="d-flex flex-row align-items-end">
-                                    <p>Damitha Wickramasinghe</p>
-                                    <button type="input" class="btn btn-primary owner-add-new-vehicle-btn">Assign</button>
-                                </ul>
-                            </li>
+                            </li> */}
                         </ul>
                         </div>
                         </div>
@@ -178,6 +208,7 @@ function OwnerSchoolVans (){
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                         <div class="modal-header">
+                            {/* <p>Add New Vehicle</p> */}
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

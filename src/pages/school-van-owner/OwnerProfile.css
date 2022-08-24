@@ -13,7 +13,7 @@
 }
 .OwnerProfilecontainer{
     width: 60%;
-    height: 1000px;
+    height: fit-content;
 
 }
 .OwnerProfile-photo, .OwnerProfile-photo-edit{

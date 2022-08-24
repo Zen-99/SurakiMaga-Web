@@ -3,7 +3,7 @@
     /* padding-left: 50px;
     padding-right: 50px; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: 100%;
     /* gap: 20px; */
@@ -143,6 +143,13 @@ label.check {
 .advertistment-container{
     display: flex;
 }
+.advertistment-search{
+    width:20%;
+    height: fit-content;
+}
+.OwnerlistSearch{
+    height: fit-content;
+}
 .advertiestments-list {
     display: flex;
     flex-direction: column;
@@ -230,7 +237,7 @@ label.check {
 }
 .advertiestment-details-expand-active{
     display: flex;
-    width: 50%;
+    width: 30%;
     padding: 1.5%;
     height: fit-content;
     max-height: 500px;
@@ -310,6 +317,7 @@ label.check {
   @media screen and (max-width: 800px) {
     .advertiestments-home{
         gap: 0px;
+        flex-direction: column;
     }
     .advertiestments-search{
         margin-bottom: 20px;
@@ -355,6 +363,9 @@ label.check {
     .advertistment-container{
        padding-left: 1rem;
     }
+    .advertistment-search{
+        width:50%
+    }
     .advertiestments-list{
         padding: 0px 0px 20px 0px;
         width: 100%;
@@ -385,6 +396,9 @@ label.check {
     }
   }
   @media screen and (max-width: 500px) {
+    .advertistment-search{
+        width:100%
+    }
     .advertiestment-card {
         height: 110px;
         width: 75%;
