@@ -4,7 +4,7 @@ import '../Home.css';
 import OwnerNavbar from "./OwnerNavbar";
 import { Link } from "react-router-dom";
 
-function Owner_DriverProfile (){
+function OwnerDriverProfile (){
 
     const [Editdetails, setEditdetails] = useState(false);
 
@@ -146,8 +146,8 @@ function Owner_DriverProfile (){
                   </div>
                   <hr/>
                   <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
-                        <button type="submit" value="Submit" class="btn btn-primary">Save</button>
-                    <button type="Button" class="btn btn-primary" onClick={() => setEditdetails(false)}>Cancel</button>
+                        <button type="submit" value="Submit" class="btn btn-success">Save</button>
+                    <button type="Button" class="btn btn-danger" onClick={() => setEditdetails(false)}>Cancel</button>
                   </div>
                 </div>
                 </form>
@@ -159,4 +159,4 @@ function Owner_DriverProfile (){
     )
 }
 
-export default Owner_DriverProfile;
+export default OwnerDriverProfile;

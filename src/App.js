@@ -14,6 +14,7 @@ import Signup from './pages/Signup';
 //OwnerComponents
 import OwnerAdvertiestments from './pages/school-van-owner/OwnerAdvertiestments';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
+import OwnerEditProfile from './pages/school-van-owner/OwnerEditProfile'
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
 import OwnerSchoolVans from './pages/school-van-owner/OwnerSchoolVans';
 import OwnerAddNewVehicle from './pages/school-van-owner/OwnerAddNewVehicle';
@@ -21,7 +22,9 @@ import OwnerComplaints from './pages/school-van-owner/OwnerComplaints';
 import OwnerPayments from './pages/school-van-owner/OwnerPayments';
 import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
-import Owner_DriverProfile from './pages/school-van-owner/Owner_DriverProfile';
+import OwnerDriverProfile from './pages/school-van-owner/OwnerDriverProfile';
+
+import AdminNavbar from './pages/Admin/AdminNavbar'
 
 //ParentComponents
 import ParentDashboard from './pages/Parent/dashboard';
@@ -48,12 +51,14 @@ function App() {
           <Route path='/OwnerAdvertiestments' element={<OwnerAdvertiestments />}/>
           <Route path='/OwnerSchoolVans' element={<OwnerSchoolVans />}/>
           <Route path='/OwnerProfile' element={<OwnerProfile />}/>
+          <Route path='/OwnerEditProfile' element={<OwnerEditProfile/>}/>
           <Route path='/OwnerAddNewVehicle' element={<OwnerAddNewVehicle />}/>
           <Route path='/OwnerComplaints' element={<OwnerComplaints />}/>
           <Route path='/OwnerReviews' element={<OwnerReviews />}/>
           <Route path='/OwnerPayments' element={<OwnerPayments />}/>
           <Route path='/OwnerRequests' element={<OwnerRequests />}/>
-          <Route path='/Owner_DriverProfile' element={<Owner_DriverProfile />}/>
+          <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/>
+          <Route path='/OwnerDadhboard' element={<OwnerDashboard/>}/>
           <Route path='/sign-up' element={<Signup />}/>
           <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
           <Route path='/ParentDashboard' element={<ParentDashboard />}/>
@@ -65,6 +70,7 @@ function App() {
           <Route  path="/Dashboard" element={<Dashboard />}  />
           <Route path="/Requests" element={<Requests/>}/>
           <Route path="/Complaints" element={<Complaints />} />
+          <Route path='/AdminNavbar' element={<AdminNavbar/>}/>
 
           <Route path='/RouteChild' element={<RouteChild/>}/>
         </Routes>

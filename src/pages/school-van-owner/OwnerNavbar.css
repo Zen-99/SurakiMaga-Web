@@ -1,73 +1,73 @@
 .profile{
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    margin-right: 10px;
-    
-  }
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-right: 10px;
+  
+}
 .profile img{
-    height: 40px;
-    width: 40px;
-    border-radius: 6px;
-    margin-right: 10px;
-  }
-  .navbar-item-o{
-    height: 64px;
-    min-width: 150px;
-  }
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.navbar-item-o{
+  height: 64px;
+  min-width: 150px;
+}
 
-  .fa-caret-down{
-    cursor: pointer;
-  }
-  .fa-times-circle{
-    color: #ff8c01;
-  }
-  .menu-dropdown{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 10px;
-    background-color: #ffffff;
-    width: 200px;
-    
-  }
-  .dropdown-hide {
-    display:none;
-  }
+.fa-caret-down{
+  cursor: pointer;
+}
+.fa-times-circle{
+  color: #ff8c01;
+}
+.menu-dropdown{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  background-color: #ffffff;
+  width: 200px;
+  z-index: 99999;
+  
+}
+.dropdown-hide {
+  display:none;
+}
 .dropdown-active {
-    display: flex;
-    width: 100%;
-    flex-direction: column; 
-    transition: all 0.5s ease;
-    padding-left: 0;
-    margin-bottom: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column; 
+  transition: all 0.5s ease;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 .dropdown-list-item{
-  list-style: none;
+list-style: none;
 }
 .dropdown-links{
-    text-align: center;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      color: #28231f;
-      text-decoration: none;
-      padding: 10px;
+  text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #28231f;
+    text-decoration: none;
+    padding: 10px;
 }
 .fa-chevron-circle-up{
-    display: flex;
-    justify-content: flex-end;
-    padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
 }
 .fa-chevron-circle-up:hover{
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 .dropdown-links:hover{
-    color: #ff8c01;
-      border-radius: 0;
-      background-color: #f2f2f2;
-      text-decoration: none;
+  color: #ff8c01;
+    border-radius: 0;
+    background-color: #f2f2f2;
+    text-decoration: none;
 }
-

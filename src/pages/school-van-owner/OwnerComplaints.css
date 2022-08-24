@@ -6,8 +6,12 @@
     color: #28231f;
     width: fit-content;
 }
+.ownerComplaintsOverview{
+    width: fit-content;
+}
 .vl1 , .vl2, .vl3 {
     width: fit-content;
+    height: 80px;
   }
 .vl1 {
     border-left: 6px solid green;

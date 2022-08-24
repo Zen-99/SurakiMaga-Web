@@ -1,0 +1,43 @@
+.OwnerDashboard-home{
+    width: 100%;
+    padding: 4%;
+}
+.ownerDashboard-cards{
+    width: 100%;
+}
+.Owner-Request-list{
+    width: 30%;
+}
+.Owner-dashboard-charts{
+    width:70%;
+}
+.OwnerDashboard-home h5{
+    color: #28231f;
+    width: fit-content;
+}
+.Owner-dashboard-charts p2{
+    font-weight: bold;
+    width: fit-content;
+}
+.link-to{
+    color: #FF8C01;
+    width: fit-content;
+    text-decoration: none;
+}
+.link-to:hover{
+    color: #28231f;
+}
+.chart-wrapper{
+    height: 100%;
+}
+@media screen and (max-width: 800px){
+    .ownerDashboard-cards{
+        flex-direction: column;
+    }
+    .Owner-Request-list,.Owner-dashboard-charts{
+        width: 100%;
+    }
+    .ownerDashboard-charts{
+        flex-direction: column;
+    }
+}

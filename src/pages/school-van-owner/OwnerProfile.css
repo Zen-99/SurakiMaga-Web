@@ -31,6 +31,9 @@
     border: solid;
     border-width: thin;
 }
+.OwnerProfile-photo h4{
+    width: fit-content;
+}
 .OwnerProfile-image .add-image-btn {
     width: 30px;
     height: 30px;

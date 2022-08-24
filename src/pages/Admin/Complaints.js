@@ -1,8 +1,13 @@
 import React from 'react'
+import AdminNavbar from './AdminNavbar'
 
 const Complaints = () => {
   return (
-    <div>Complaints</div>
+    <>
+      <AdminNavbar/>
+      <div>Complaints</div>
+    </>
+    
   )
 }
 
