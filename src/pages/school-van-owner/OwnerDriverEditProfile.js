@@ -5,30 +5,22 @@ import OwnerNavbar from "./OwnerNavbar";
 import {Link} from 'react-router-dom';
 import apiClient from '../../Services/ApiClient'
 import { useForm } from "react-hook-form";
+import { useLocation } from 'react-router-dom'
 
-function OwnerEditProfile(){
+function OwnerDriverEditProfile(){
+    const location = useLocation();
+const data = location.state;
+// console.log(data);
 
     const [formData, setFormData]=useState({
-        id:"",
-        name:"",
-        contact:"",
-        email:"",
-        nic:"",
-        bank_acc: "",
-        scl_service_regno:"",
-        experience:""
+        id:data.id,
+        fullname:data.fullname,
+        contact:data.contact,
+        licenceno:data.licenceno,
+        nic:data.nic,
+        image:data.image
     
       })
-
-      useEffect(() => {
-        async function getownerdetails() { 
-            const{dataresponse,error} = await apiClient.loadownerDetails()
-            console.log(dataresponse)
-            // console.log("dilshi")
-            setFormData({ id:dataresponse.result.id,name:dataresponse.result.name,contact:dataresponse.result.contact,email:dataresponse.result.email,nic:dataresponse.result.nic,bank_acc:dataresponse.result.bank_acc,scl_service_regno:dataresponse.result.scl_service_regno,experience:dataresponse.result.experience })
-        }
-        getownerdetails();
-    }, []);
 
       function onChange (e) {
         let name = e.target.name;
@@ -43,15 +35,13 @@ function OwnerEditProfile(){
         e.preventDefault();
         // console.log(form)
     
-        const { dataresponse, error } = await apiClient.EditOwnerProfile({
+        const { dataresponse, error } = await apiClient.EditOwnerDriverProfile({
             id:formData.id,
-            name:formData.name,
+            fullname:formData.fullname,
             contact: formData.contact,
-            email: formData.email,
+            licenceno: formData.licenceno,
             nic : formData.nic,
-            bank_acc:formData.bank_acc,
-            scl_service_regno:formData.scl_service_regno,
-            experience:formData.experience
+            image:formData.image
        })
        
     
@@ -69,7 +59,7 @@ function OwnerEditProfile(){
                         {/* <form> */}
                         <div className="OwnerProfile-photo-edit p-3 d-flex flex-column align-items-center text-center">
                             <div className="OwnerProfile-image">
-                            <img src={require('../../assests/avatar7.png')} alt="Admin" class="rounded-circle"/>
+                            <img src={data.image} alt="Admin" class="rounded-circle"/>
                             <button class="add-image-btn p-2  rounded-circle">
                             <i class="fas fa-plus"></i>
                             </button>
@@ -81,7 +71,7 @@ function OwnerEditProfile(){
                         <h6 class="mb-0">Name</h6>
                         </div>
                         <div class="col-sm-5 text-secondary">
-                        <input type="text" class="form-control border-0 p-0" id="inputName" name="name" value={formData.name}
+                        <input type="text" class="form-control border-0 p-0" id="inputName" name="name" value={formData.fullname}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value})}/>
                         </div>
                     </div>
@@ -98,17 +88,17 @@ function OwnerEditProfile(){
                     <hr/>
                     <div class="OwnerProfile-details-row justify-content-evenly">
                         <div class="col-sm-5">
-                        <h6 class="mb-0">Email</h6>
+                        <h6 class="mb-0">License No</h6>
                         </div>
                         <div class="col-sm-5 text-secondary">
-                        <input type="text" class="form-control border-0 p-0" id="inputEm" name="email" value={formData.email}
+                        <input type="text" class="form-control border-0 p-0" id="inputEm" name="email" value={formData.licenceno}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value})}/>
                         </div>
                     </div>
                     <hr/>
                     <div class="OwnerProfile-details-row justify-content-evenly">
                         <div class="col-sm-5">
-                        <h6 class="mb-0">Mobile</h6>
+                        <h6 class="mb-0">contact No</h6>
                         </div>
                         <div class="col-sm-5 text-secondary">
                         <input type="text" class="form-control border-0 p-0" id="inputMb" name="contact" value={formData.contact}
@@ -116,39 +106,9 @@ function OwnerEditProfile(){
                         </div>
                     </div>
                     <hr/>
-                    <div class="OwnerProfile-details-row justify-content-evenly">
-                        <div class="col-sm-5">
-                        <h6 class="mb-0">School service reg no.</h6>
-                        </div>
-                        <div class="col-sm-5 text-secondary">
-                        <input type="text" class="form-control border-0 p-0" id="inputReg" name="scl_service_regno" value={formData.scl_service_regno}
-                        onChange={(e) => setFormData({ ...formData, scl_service_regno: e.target.value})}/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="OwnerProfile-details-row justify-content-evenly">
-                        <div class="col-sm-5">
-                        <h6 class="mb-0">Bank Acc</h6>
-                        </div>
-                        <div class="col-sm-5 text-secondary">
-                        <input type="text" class="form-control border-0 p-0" id="inputAcc" name="bank_acc" value={formData.bank_acc}
-                        onChange={(e) => setFormData({ ...formData, bank_acc: e.target.value})}/>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="OwnerProfile-details-row justify-content-evenly">
-                        <div class="col-sm-5">
-                        <h6 class="mb-0">Years of experience</h6>
-                        </div>
-                        <div class="col-sm-5 text-secondary">
-                        <input type="text" class="form-control border-0 p-0" id="inputYr" name="experience" value={formData.experience}
-                        onChange={(e) => setFormData({ ...formData, experience: e.target.value})}/>
-                        </div>
-                    </div>
-                    <hr/>
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                             <button type="submit" value="Submit" class="btn btn-success" onClick={submitDetails}>Save</button>
-                        <Link to='/OwnerProfile' type="Button" class="btn btn-danger">Cancel</Link>
+                        <Link to='/OwnerDriverProfile' state={formData} type="Button" class="btn btn-danger">Cancel</Link>
                     </div>
                     </div>
                     {/* </form> */}
@@ -159,4 +119,4 @@ function OwnerEditProfile(){
     )
 }
 
-export default OwnerEditProfile
+export default OwnerDriverEditProfile

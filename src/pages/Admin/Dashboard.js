@@ -65,7 +65,7 @@ const [RegchartData,setRegchartData] = useState({
             <Card className="bg-gradient-info text-center text-black">
               <div className="card-body userEnrollments-card d-flex flex-column align-items-center">
                 
-                <h4 className="font-weight-normal mb-3">Perents registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                <h4 className="font-weight-normal mb-3">Parents registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
                 <h2 className="mb-1">65,6834</h2>
                 

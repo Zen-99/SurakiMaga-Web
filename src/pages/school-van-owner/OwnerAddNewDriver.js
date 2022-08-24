@@ -1,46 +1,52 @@
 import React,{useState} from "react";
+import Axios from "axios";
 import './OwnerSchoolVans.css';
 import '../Home.css';
 import { Link } from "react-router-dom";
 import apiClient from '../../Services/ApiClient'
 
 function OwnerAddNewDriver (){
-    const [file, setFile] = useState(null);
-    const [fileName, setFileName] = useState("");
+    const [file, setFile] = useState(" ");
+    const [fileName, setFileName] = useState();
     const [form,setForm]=useState({
         name:"",
         mobile  : "",
         nic : "",
         licenseno: "",
-        uploadedImage: null
     })
-const saveFile = (e) => {
 
-};
+    const submitDetails=()=>{
+        const formData=new FormData();
+        formData.append("file",file); 
+        formData.append("upload_preset","dskmbhbt"); 
+
+        Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
+        .then((response)=>{
+            const { dataresponse, error } = apiClient.registerDriver({
+                name:form.name,
+                mobile  : form.mobile,
+                nic : form.nic,
+                licenseno: form.licenseno,
+                url:response.data.secure_url
+           })
+           setFile(null)
+           setForm({name:"",mobile: "",nic: "",licenseno: ""})
+        })
+
+
+
+    }
+    // console.log(fileName)
+
     
-const submitDetails = async (e) => {
-    //e.preventDefault();
-    // console.log(form)
 
-    const { dataresponse, error } = await apiClient.registerDriver({
-        name:form.name,
-        mobile  : form.mobile,
-        nic : form.nic,
-        licenseno: form.licenseno,
-        file:file,
-        fileName:fileName
-   })
-   setForm({name:"",mobile: "",nic: "",licenseno: "",uploadedImage: null})
-     // const parseRes = await response.json();
-
-}
 
     return(
         <>
             <div className="d-flex flex-column gap-4 align-items-center">
                 {/* <form onSubmit={onSubmitForm}> */}
                 <div className="card p-4 gap-4 d-flex flex-column align-items-center">
-                    <h4>Add New Driver</h4>
+                    {/* <h4>Add New Driver</h4> */}
                     <div className="gap-4 owner-scl-van-details-form">
                         <div className="owner-driver-info d-flex flex-column pt-4 align-items-center">
                             <h5>Driver Information</h5>
@@ -88,7 +94,7 @@ const submitDetails = async (e) => {
                                         <h6 class="mb-0">Add image</h6>
                                     </div>
                                     <div class="col-sm-8 text-secondary">
-                                        <input class="form-control" type="file" id="image" name="image" value={form.uploadedImage} onChange={saveFile}/>
+                                        <input class="form-control" type="file" id="image" name="image" value={form.uploadedImage} onChange={(event)=>{setFile(event.target.files[0])}}/>
                                     </div>
                                 </div>
                                 <hr/>
