@@ -111,6 +111,10 @@
         border:solid #ff8c01;
         text-decoration: none;
   }
+
+  .parent_navbar{
+    font: size 1.1em !important;
+  }
   
   @media screen and (max-width:800px) {
     .NavbarItems {

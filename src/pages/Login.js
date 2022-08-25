@@ -35,23 +35,29 @@ function Login() {
     const onSubmitForm = async (datasubmit,e) => {
       // console.log("Akila Lula")
       e.preventDefault();
-        const { data, error } = await apiClient.loginUser({
+        const { dataresponse, error } = await apiClient.loginUser({
            password : datasubmit["password"] ,
            username : datasubmit["username"]
       })
+      console.log(dataresponse)
         // const parseRes = await response.json();
-        if (data) {
-          alert("Logged in Success");
+        if (dataresponse.status) {
+          console.log(dataresponse.status)
+          // alert("Logged in Success");
           reset();
-          alert(data.user.type);
-          if(data.user.type=="Parent"){
+          // alert(dataresponse.user.type);
+          if(dataresponse.user.type=="Parent"){
             navigate('/ParentDashboard');
           }
+          else if(dataresponse.user.type=="Admin"){
+              navigate('/Dashboard');
+          }
           else{
-              navigate('/OwnerDashboard');
+            navigate('/OwnerDashboard');
           }
         } else {
           // setAuth(false);
+          console.log(error)
           alert(error);
           // toast.error(error.message);
         }
@@ -100,7 +106,7 @@ function Login() {
       </Form.Group>
       
       <div class="d-flex justify-content-center">
-      <Button className='btn-primary w-50 centering' type="submit">
+      <Button className='btn-primary w-50 centering logbutton' type="submit">
         Log in
       </Button>
       </div>

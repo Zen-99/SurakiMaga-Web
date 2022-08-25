@@ -5,6 +5,11 @@ import { Link} from "react-router-dom";
 
 export default function RequestVan (props) {
 
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
   return (
     <Modal {...props} centered>
     <Modal.Header closeButton>
@@ -20,5 +25,7 @@ export default function RequestVan (props) {
 
   </Modal.Footer>
   </Modal>
+  
+  
   )
 }

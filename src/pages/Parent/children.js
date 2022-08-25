@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './children.css';
 import ParentNavbar from '../../components/ParentNavbar';
+
 import LeaveVan from '../../components/LeaveVan';
 import Review from '../../components/Review';
 import StarRating from '../../components/StarRating';
@@ -15,6 +16,8 @@ import ChildProfile from '../../components/ChildProfile';
 
 
 const homeImage = require('../../assests/schoolbus.png');
+const homeImage1 = require('../../assests/schoolbus3.png');
+const homeImage2 = require('../../assests/schoolbus4.png');
 
 function MyChildren() {
     const [modalShow, setModalShow] = useState(false);
@@ -146,12 +149,12 @@ function MyChildren() {
                                     
                                     </Card.Text>
                                     <div className='d-flex flex-column gap-4'>
-                                        <Button className='w-50 mt-1 mx-auto bg-white text-dark' onClick={() => setReviewModal(true)}>Make a Complaint</Button>
+                                        <Button className='w-50 mt-1 mx-auto bg-white text-dark reviewmodal' onClick={() => setReviewModal(true)}>Make a Complaint</Button>
                                         <Review
                                                     show={ReviewModal}
                                                     onHide={() => setReviewModal(false)}
                                                 />
-                                        <Button className='w-50 mx-auto bg-white text-dark' onClick={() => setModalShow(true)}>Leave From this Van</Button>
+                                        <Button className='w-50 mx-auto bg-white text-dark reviewmodal' onClick={() => setModalShow(true)}>Leave From this Van</Button>
                                         <LeaveVan
                                                     show={modalShow}
                                                     onHide={() => setModalShow(false)}

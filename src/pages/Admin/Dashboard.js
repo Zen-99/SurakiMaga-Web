@@ -84,7 +84,7 @@ const [RegchartData,setRegchartData] = useState({
             </Row>
           <Row className='gap-4 d-flex flex-row'>
             <Col className="md-4 stretch-card grid-margin">
-                <Card className='p-4 gap-4 d-flex align-items-center' style={{ width: 800 }}>
+                <Card className='p-4 gap-4 d-flex align-items-center' style={{ width: 600 ,height:465}}>
                   <h3>Income</h3>
                   <BarChart chartData={IncomechartData}/>
                 </Card>

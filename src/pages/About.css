@@ -1,0 +1,14 @@
+/* ul.sample {
+    list-style-image: url('../assests/About1.png');
+    } */
+
+     ul.sample {
+        list-style: none; /* Removes the default bullets */
+      }
+      
+     ul.sample li::before {
+        content : "\2713"; /* Adds the bullet */
+        padding-right: 10px; /* creates the space between bullet, list item */
+        color: #ff8c01; /* changes the bullet color*/
+        font-weight: bold;
+      }

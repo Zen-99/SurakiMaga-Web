@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ParentNavbar from '../../components/ParentNavbar';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 function AddChild() {
+    const [value, setValue] = useState(null);
   return (
     <>
     <ParentNavbar />
@@ -38,7 +40,12 @@ function AddChild() {
 
                     <Form.Group className="mb-3" controlId="formBasicSchool">
                         <Form.Label>School</Form.Label>
-                        <Form.Control type="text" placeholder="Enter School" />
+                        <Form.Select aria-label="Default select example" className='form_select'>
+                            <option>Select School</option>
+                            <option value="1">Visakha Vidyalaya Colombo 04</option>
+                            <option value="2">Royal College Colombo 07</option>
+                            <option value="3">D S Senanayake College Colombo 07</option>
+                            </Form.Select>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicAge">
@@ -48,8 +55,15 @@ function AddChild() {
 
                     <Form.Group className="mb-4" controlId="formBasicLocation">
                         <Form.Label>Pickup Location</Form.Label>
-                        <Form.Control type="password" placeholder="Enter Password" />
+                        <Form.Control type="text" placeholder="Enter Pickup Location" />
                     </Form.Group>
+
+                    {/* <GooglePlacesAutocomplete
+        selectProps={{
+          value,
+          onChange: setValue,
+        }}
+      /> */}
                   
                     <div class="d-flex justify-content-center">
                     <Button className='btn-primary w-50 centering' type="submit">

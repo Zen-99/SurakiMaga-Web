@@ -22,7 +22,7 @@ export default function LogOut(props) {
       </Modal.Body>
       <Modal.Footer className='d-flex flex-row justify-content-center'>
         <Button className="w-25" onClick={props.onHide}>Yes</Button>
-        <Button className="w-25 bg-secondary border-secondary" onClick={props.onHide}>Cancel</Button>
+        <Button className="w-25" onClick={props.onHide}>Cancel</Button>
       </Modal.Footer>
     </Modal>
   )
