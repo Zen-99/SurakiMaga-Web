@@ -8,6 +8,9 @@ import '../pages/Home.css';
 import '../pages/Login.css';
 import { useForm } from "react-hook-form";
 import OTP from './OTP';
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+
 
 
 function Loginform(props) {
@@ -26,35 +29,61 @@ function Loginform(props) {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const onSubmitForm =async (data,e) => {
-    console.log(data);
-    e.preventDefault();
-      const { dataresponse, error } = await apiClient.sendOtp({
-         type     : props.type,
-         username : data['username'],
-         contact  : data['contact'],
-         password : data['password']
-    })
-      // const parseRes = await response.json();
-      console.log(dataresponse);
-      if (dataresponse) {
-        alert(dataresponse.respond);
-        setModalShow(true);
+  // const onSubmitForm =async (data,e) => {
+  //   console.log(data);
+  //   e.preventDefault();
+  //     const { dataresponse, error } = await apiClient.sendOtp({
+  //        type     : props.type,
+  //        username : data['username'],
+  //        contact  : data['contact'],
+  //        password : data['password']
+  //   })
+  //     // const parseRes = await response.json();
+  //     console.log(dataresponse);
+  //     if (dataresponse) {
+  //       alert(dataresponse.respond);
+  //       setModalShow(true);
         
 
-        reset();
-        // localStorage.setItem("token", parseRes.jwtToken);
-        // setAuth(true);
-        // toast.success("Logged in Successfully");
-      } else {
-        // setAuth(false);
-        alert(error);
+  //       reset();
+  //       // localStorage.setItem("token", parseRes.jwtToken);
+  //       // setAuth(true);
+  //       // toast.success("Logged in Successfully");
+  //     } else {
+  //       // setAuth(false);
+  //       alert(error);
+  //     }
+  //   }
+
+    const onSubmitForm =async (data,e) => {
+      console.log(data);
+      e.preventDefault();
+        const { dataresponse, error } = await apiClient.registerUser({
+           type     : props.type,
+           username : data['username'],
+           contact  : data['contact'],
+           password : data['password']
+      })
+        // const parseRes = await response.json();
+        console.log(dataresponse);
+        if (dataresponse) {
+          alert(dataresponse.respond.id);
+          // setModalShow(true);
+          
+  
+          reset();
+          // localStorage.setItem("token", parseRes.jwtToken);
+          // setAuth(true);
+          // toast.success("Logged in Successfully");
+        } else {
+          // setAuth(false);
+          alert(error);
+        }
       }
-    }
 
     return (
         <>
-         
+         {/* <ToastContainer autoClose={2000} /> */}
       <Form className="px-5 py-3 login-form" onSubmit={handleSubmit(onSubmitForm)}>
      
         <Form.Group className="mb-2" controlId="formBasicfullname">
@@ -164,7 +193,7 @@ function Loginform(props) {
         </p>
       </Form> 
 
-      <OTP
+      <OTP password={password}
           show={modalShow}
           onHide={() => setModalShow(false)}
         />

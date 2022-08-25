@@ -172,12 +172,12 @@ export default function VehicleView() {
                                 <div> +94 77 1234567</div>
                             </div>
                             <hr class="bg-danger border-2 border-top border-dark"/>
-                            <div>
+                            {/* <div>
       <ProgressBar variant="success" now={40} />
       <ProgressBar variant="info" now={20} />
       <ProgressBar variant="warning" now={60} />
       <ProgressBar variant="danger" now={80} />
-    </div>
+    </div> */}
 
                             
                     </div>

@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import Logout from './Logout';
+import './Navbar.css'
 
 const logo = require('../assests/logo.png');
 const profileImage = require('../assests/Faalil.jpeg');
@@ -15,19 +16,19 @@ export default function ParentNavbar() {
 
   return (
     <div >
-        <Navbar expand="lg" className='mb-3 bg-secondary bg-light' justify >
-      <Container>
+        <Navbar expand="lg" className='mb-3 bg-secondary bg-light parent_navbar' justify >
+      <Container className='parent_navbar'>
         <Navbar.Brand href="#home"> <img src={logo} style={{
             height:'64px',
             width:'64px',
             }} alt="Logo"/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="">
-            <Nav.Link href="ParentDashboard">School Vans</Nav.Link>
+          <Nav className="fw-bold">
+            <Nav.Link href="ParentDashboard">Vehicles</Nav.Link>
             <NavDropdown title="My Children" id="basic-nav-dropdown">
               <NavDropdown.Item href="MyChildren">Roshan</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="NewChildren">
                 Dilshi
               </NavDropdown.Item>
               <NavDropdown.Divider />
@@ -36,8 +37,8 @@ export default function ParentNavbar() {
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Route to School" id="basic-nav-dropdownschool">
-              <NavDropdown.Item href="#action/3.1">Roshan</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="RouteChild">Roshan</NavDropdown.Item>
+              <NavDropdown.Item href="RouteChild">
                 Dilshi
               </NavDropdown.Item>
             </NavDropdown>
@@ -54,12 +55,12 @@ export default function ParentNavbar() {
               
               <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={() => setlogoutShow(true)}>
+              <NavDropdown.Item href="/">
                 Log out
-                <Logout
+                {/* <Logout
                   show={logoutShow}
                   onHide={() => setlogoutShow(false)}
-                />
+                /> */}
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

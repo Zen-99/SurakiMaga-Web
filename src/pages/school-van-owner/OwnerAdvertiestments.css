@@ -23,7 +23,7 @@
 .form-control{
 	border-radius: 7px;
 	border: 1.5px solid #ff8c01;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
 }
 .input-group{
     margin-bottom: 0px;

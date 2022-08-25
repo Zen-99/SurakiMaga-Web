@@ -1,6 +1,7 @@
 import React from 'react';
 import './children.css';
 import ParentNavbar from '../../components/ParentNavbar';
+import Maps from '../../components/Maps';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -23,9 +24,10 @@ function RouteChild() {
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
-                    <Container className="p-2 my-2 d-flex flex-column">
+                    <Container className="p-2 my-2">
                     
-                    <img src={mapImage} alt="school bus" />            
+                    {/* <img src={mapImage} alt="school bus" />             */}
+                    <Maps/>
         
                     </Container>
                 </Col>

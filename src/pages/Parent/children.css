@@ -10,3 +10,12 @@
 .negative_button {
     color:#090807 !important;
 }
+
+.reviewmodal{
+    background-color: white !important;
+    border: 2px solid #ff8c01 ;
+}
+
+.form_select{
+    border: 1px solid #ff8c01 !important;
+}

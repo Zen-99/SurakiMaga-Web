@@ -39,7 +39,9 @@ class ApiClient{
         }
         console.log("hello",headers,data,url,method)
         try {
+            console.log("into try")
             const res = await axios({url, method, data, headers })
+            console.log(res.data)
             return { dataresponse: res.data, error: null }
         } catch (error) {
             console.error("APIclient.makeRequest.error:")
@@ -70,9 +72,12 @@ class ApiClient{
     async loadDetails(){
         return await this.request({ endpoint: `driverauth/details`, method: `GET`})
     }
+    async getUsertype(credentials){
+        return await this.request({ endpoint: `user`, method: `POST`, data:credentials})
+    }
 }
 
 
-const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://192.168.56.1:3001")
+const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
 
 export default API

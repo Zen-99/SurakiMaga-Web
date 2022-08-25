@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -10,9 +10,7 @@ function OTP(props) {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
-        trigger,
-        watch
+        reset
       } = useForm();
  
   const onSubmitOtp =async (data,e) => {
@@ -30,7 +28,7 @@ function OTP(props) {
         // setAuth(true);
        
       } else {
-        // setAuth(false);
+        alert(error);
         alert("error in making OTP");
 
       }

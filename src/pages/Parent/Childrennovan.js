@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react';
+import './children.css';
+import ParentNavbar from '../../components/ParentNavbar';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import MarkAbsent from './MarkAbsent';
+import './children.css';
+import ChildProfile from '../../components/ChildProfile';
 
 
-const profileImage = require('../assests/Faalil.jpeg');
 
+const mapImage = require('../../assests/maps.png');
+const profileImage = require('../../assests/avatar7.png');
 
-export default function () {
-    const [absentmodalShow, setabsentModalShow] = React.useState(false);
-
-  return (
-    <div>
-    <Container className="p-2 my-2">
+function NewChildren() {
+   
+    return (
+        <>
+        <div>
+        <ParentNavbar/>
+        <Container className='mb-5'>
+            <Row>
+                <Col xs={6} md={3} className="border children_profile" >
+                <Container className="p-2 my-2">
                         <Card className='border-0 '>
                            <Card.Img variant="img-fluid rounded-circle img-fluid rounded-circle  border-4 w-75 p-2 mt-1 mx-auto"  src={profileImage} />
                                 <Card.Body>
@@ -29,20 +38,29 @@ export default function () {
                                             </div>
                                             <div className='attribute-group'>
                                                 <div className='attribute'> Pickup Location</div>
-                                                <div> Piliyandala Bus Stop</div>
-                                                <div> </div>
-                                            </div>
-                                            <div className='attribute-group mt-4 '>
-                                            <Button onClick={() => setabsentModalShow(true)}>Mark Absent</Button>
-                                            <MarkAbsent
-                                                    show={absentmodalShow}
-                                                    onHide={() => setabsentModalShow(false)}
-                                                />
+                                                <div> Latitude  :   31.565599</div>
+                                                <div> Longitude : -110.249184</div>
                                             </div>
                                         </Card.Text>
                                 </Card.Body>
                         </Card>
                     </Container>
-    </div>
-  )
+                </Col>
+
+                <Col xs={12} md={9} className="border children_profile" >
+                    <Container className="p-2 my-2 bg-white w-100 h-100 align-items-center d-flex justify-content-center ">
+                            
+                    <div><h1 className='text-center'>No School Vans</h1></div>
+                    </Container>
+                </Col>
+            </Row>
+        </Container>
+        
+      </div>
+
+      </>
+    );
+  
 }
+
+export default NewChildren;
