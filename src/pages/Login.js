@@ -43,9 +43,9 @@ function Login() {
         // const parseRes = await response.json();
         if (dataresponse.status) {
           console.log(dataresponse.status)
-          alert("Logged in Success");
+          // alert("Logged in Success");
           reset();
-          alert(dataresponse.user.type);
+          // alert(dataresponse.user.type);
           if(dataresponse.user.type=="Parent"){
             navigate('/ParentDashboard');
           }

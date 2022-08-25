@@ -55,7 +55,7 @@ export default function ParentNavbar() {
               
               <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/">
+              <NavDropdown.Item href="log-in">
                 Log out
                 {/* <Logout
                   show={logoutShow}
