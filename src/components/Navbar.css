@@ -5,13 +5,15 @@
     display: flex; 
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
+    /* position: fixed;
     top: 0;
-    z-index: 900;
+     */
+    border-bottom:solid #cbc6c3;
    
   }
   
   .navbar-container {
+    background-color: #ffffff;
     display: flex;
     height: 100%;
     width:100%;
@@ -19,6 +21,7 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
+    /* justify-content: space-between; */
     justify-content: space-around;
   }
 
@@ -140,24 +143,30 @@
       display: flex;
       flex-direction: column;
       width: 250px;
-      height: 90vh;
+      height: 300px;
       position: absolute;
-      top: 80px;
+      top: -80px;
       left: -100%;
       opacity: 1;
       justify-content: top;
-      transition: all 0.5s ease;
+      transition: top 0.5s ease-in-out;
       
     }
   
     .nav-menu.active {
       background: #28231f;
-      left: 0;
-      opacity: 1;
-      transition: all 0.5s ease;
-      z-index: -1;
+      position: absolute;
+      top: 80px;
+left: 0;
+width: 100%;
+height: 300px;
+padding: 20px;
+      /* left: 0;
+      opacity: 1; */
+      transition: top 0.5s ease-in-out;
+      z-index: 0;
       display: block;
-      padding-left: 0px;
+      /* padding-left: 0px; */
 
     }
 

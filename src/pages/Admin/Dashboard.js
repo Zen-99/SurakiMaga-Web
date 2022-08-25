@@ -2,73 +2,104 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import{Card,Col} from 'react-bootstrap'
+import AdminNavbar from './AdminNavbar'
+import { useState } from 'react';
+import LineChart from '../../components/LineChart'
+import './Dashboard.css'
+import BarChart from '../../components/BarChart';
+import DoughnutChart from '../../components/DoughnutChart';
 
 const Dashboard = () => {
+
+  const [IncomechartData,setIncomechartData] = useState({
+    labels: ["May","June","July","August"],
+    datasets: [
+        {
+            label: "Income",
+            backgroundColor: ['#FF8C01', '#FF6B18', '#993300'],
+            data: [450000,540000,600000,520000],
+        }
+    ]
+})
+
+const [RegchartData,setRegchartData] = useState({
+  labels: ["Owners","Parents","School vans"],
+  datasets: [
+      {
+          label: "Registration count",
+          backgroundColor: ['#FF8C01', '#FF6B18', '#993300'],
+          data: [656834,456334,150000],
+      }
+  ]
+})
+
   return (
-    <>
-    <Container>
-            <Row className='my-3' >
+    <div className="home">
+    <AdminNavbar/>
+    <Container className='d-flex flex-column gap-3 p-4 align-items-center admin-dashboard'>
+            <Row className='my-3 justify-content-center' >
                 <h3>User Enrollments</h3>
             </Row>
     
     <Row>
           <Col className="md-4 stretch-card grid-margin">
             <Card className="card bg-gradient-danger text-center text-black">
-              <div className="card-body">
-                
-                <h4 className="font-weight-normal mb-3">Number of School van registered <i className="mdi mdi-chart-line mdi-24px float-right"></i>
+              <div className="card-body userEnrollments-card d-flex flex-column align-items-center">
+                <h4 className="font-weight-normal mb-3">School van registered<i className="mdi mdi-chart-line mdi-24px float-right"></i>
                 </h4>
-                <h2 className="mb-5">$ 15,0000</h2>
+                <h2 className="mb-1">15,0000</h2>
               </div>
             </Card>
           </Col>
           <Col className="md-4 stretch-card grid-margin">
             <Card className="bg-gradient-info text-center text-black">
-              <div className="card-body">
-                
-                <h4 className="font-weight-normal mb-3">Number of Owners registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+              <div className="card-body userEnrollments-card d-flex flex-column align-items-center">
+                <h4 className="font-weight-normal mb-3">Owners registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
-                <h2 className="mb-5">45,6334</h2>
+                <h2 className="mb-1">45,6334</h2>
                 
               </div>
             </Card>
           </Col>
           <Col className="md-4 stretch-card grid-margin">
             <Card className="bg-gradient-info text-center text-black">
-              <div className="card-body">
+              <div className="card-body userEnrollments-card d-flex flex-column align-items-center">
                 
-                <h4 className="font-weight-normal mb-3">Number of Perents registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                <h4 className="font-weight-normal mb-3">Parents registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
-                <h2 className="mb-5">45,6334</h2>
+                <h2 className="mb-1">65,6834</h2>
                 
               </div>
             </Card>
           </Col>
+          </Row>
           <Row className='my-3' >
             <Col>
-                <h3>Income</h3>
+                {/* <h3>Income</h3> */}
             </Col>
             <Col>
-                <h3>Registrations</h3>
+                {/* <h3>Registrations</h3> */}
             </Col>
 
             </Row>
-          <Row>
+          <Row className='gap-4 d-flex flex-row'>
             <Col className="md-4 stretch-card grid-margin">
-                <Card style={{ height: '20rem' }} >
-                    hi
+                <Card className='p-4 gap-4 d-flex align-items-center' style={{ width: 800 }}>
+                  <h3>Income</h3>
+                  <BarChart chartData={IncomechartData}/>
                 </Card>
             </Col>
             <Col className="md-4 stretch-card grid-margin">
-                <Card style={{ height: '20rem' }}>
-                    hi
+                <Card className='p-4 gap-4 d-flex align-items-center' style={{ width: 400 }}>
+                  <h3>Registrations</h3>
+                  <DoughnutChart chartData={RegchartData}/>
                 </Card>
             </Col>
             
             </Row>
-          </Row>
+          
           </Container>
-          </>
+          </div>
   );
 }
 

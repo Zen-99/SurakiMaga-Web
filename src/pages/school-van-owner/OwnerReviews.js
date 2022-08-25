@@ -91,7 +91,7 @@ function OwnerReviews (){
                         <tr>
                         <td>2022/08/17</td>
                         <td>ABC1234</td>
-                        <td>Benjamin Kirby Tennyson</td>
+                        <td>Benjamin Tennyson</td>
                         <td><div className="d-flex flex-row"> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> </div></td>
                         <td>
                             <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
@@ -110,7 +110,7 @@ function OwnerReviews (){
                         <tr>
                         <td>2022/08/17</td>
                         <td>ABC1234</td>
-                        <td>Benjamin Kirby Tennyson</td>
+                        <td>Benjamin Tennyson</td>
                         <td><div className="d-flex flex-row"> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> </div></td>
                         <td>
                             <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
@@ -129,7 +129,7 @@ function OwnerReviews (){
                         <tr>
                         <td>2022/08/18</td>
                         <td>ABC1234</td>
-                        <td>Benjamin Kirby Tennyson</td>
+                        <td>Benjamin Tennyson</td>
                         <td><div className="d-flex flex-row"> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> </div></td>
                         <td>
                             <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">

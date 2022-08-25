@@ -13,7 +13,7 @@
 }
 .OwnerProfilecontainer{
     width: 60%;
-    height: 1000px;
+    height: fit-content;
 
 }
 .OwnerProfile-photo, .OwnerProfile-photo-edit{
@@ -30,6 +30,9 @@
     height: 200px;
     border: solid;
     border-width: thin;
+}
+.OwnerProfile-photo h4{
+    width: fit-content;
 }
 .OwnerProfile-image .add-image-btn {
     width: 30px;

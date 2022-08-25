@@ -1,17 +1,30 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import './OwnerSchoolVans.css';
 import '../Home.css';
 import OwnerNavbar from "./OwnerNavbar";
 import { Link } from "react-router-dom";
 import OwnerAddNewDriver from "./OwnerAddNewDriver";
 import OwnerAddNewVehicle from './OwnerAddNewVehicle';
+import apiClient from '../../Services/ApiClient'
 
 function OwnerSchoolVans (){
     const [Editdetails, setEditdetails] = useState(false);
+    const [drivers,setDrivers]=useState([])
+
+    useEffect(() => {
+        async function getDriverdetails() { 
+            const{dataresponse,error} = await apiClient.loadDriverDetails()
+            console.log(dataresponse)
+            // console.log("dilshi")
+            setDrivers(dataresponse.result)
+        }
+        getDriverdetails();
+    }, []);
+
     return(
         <div className="home">
             <OwnerNavbar/>
-            <div className="OwnerSclVans-home d-flex flex-row gap-4 p-4 pt-5">
+            <div className="OwnerSclVans-home d-flex gap-4 p-5">
                 <div className="flex-column owner-scl-van-details gap-4">
                 <div className="card p-4 owner-vehicle-info d-flex flex-column gap-4">
                         <h4>Vehicle Information</h4>
@@ -19,52 +32,62 @@ function OwnerSchoolVans (){
                             <div class="col-5 d-flex flex-row align-items-center owner-select-scl-van-container">
                                 <label for="inputSchoolvan" class="form-label m-0 me-2 owner-select-scl-van">School Van: </label>
                                 <select id="inputSchoolvan" class="form-select" placeholder="Choose.." required>
-                                <option>School van 1</option>
-                                <option>School bus 1</option>
-                                <option>School van 2</option>
+                                <option>ABC123</option>
+                                <option>ACD345</option>
+                                <option>BN567</option>
                                 </select>
                             </div>
                             <button type="button" class="btn btn-primary owner-add-new-vehicle-btn"data-bs-toggle="modal" data-bs-target="#OwneraddnewvehicleModal">Add new vehicle</button>
                         </div>
-                        <div className="d-flex flex-row align-items-center">
+                        <div className="d-flex  align-items-center ownervehicleinfo">
                         <div className="owner-vehicle-image">
                         <img src={require('../../assests/school-bus.jpg')} alt="" class="rounded-circle"/>
                         </div>
                         <div className="p-3">
                             <hr/>
                             <div class="row justify-content-evenly">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Vehicle No</h6>
-                                </div>
-                                <div class="col-sm-5 text-secondary">
-                                    wp PA 1645
-                                </div>
+                                <div class="col-sm-3"><h6 class="mb-0">Vehicle No</h6></div>
+                                <div class="col-sm-5 text-secondary">wp PA 1645</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Vehicle type</h6>
-                                </div>
-                                <div class="col-sm-5 text-secondary">
-                                    Van
-                                </div>
+                                <div class="col-sm-3"><h6 class="mb-0">Vehicle type</h6></div>
+                                <div class="col-sm-5 text-secondary">Van</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">number of seats</h6>
-                                </div>
-                                <div class="col-sm-5 text-secondary">
-                                    40
-                                </div>
+                                <div class="col-sm-3"><h6 class="mb-0">number of seats</h6></div>
+                                <div class="col-sm-5 text-secondary">40</div>
+                            </div>
+                            <hr/>
+                            {/* <div class="row justify-content-evenly">
+                                <div class="col-sm-3"><h6 class="mb-0">Model</h6></div>
+                                <div class="col-sm-5 text-secondary">KDH</div>
+                            </div>
+                            <hr/> */}
+                            <div class="row justify-content-evenly">
+                                <div class="col-sm-3"><h6 class="mb-0">Driver</h6></div>
+                                <div class="col-sm-5 text-secondary">Damitha Wickramasinghe</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Driver</h6>
-                                </div>
+                                <div class="col-sm-3"><h6 class="mb-0">Start location</h6></div>
+                                <div class="col-sm-5 text-secondary">Pliyandala</div>
+                            </div>
+                            <hr/>
+                            <div class="row justify-content-evenly">
+                                <div class="col-sm-3"><h6 class="mb-0">Charge per km</h6></div>
+                                <div class="col-sm-5 text-secondary">50</div>
+                            </div>
+                            <hr/>
+                            <div class="row justify-content-evenly">
+                                <div class="col-sm-3"><h6 class="mb-0">Schools</h6></div>
                                 <div class="col-sm-5 text-secondary">
-                                    Damitha Wickramasinghe
+                                <div class="d-flex flex-column">
+                            <li class="fs-10 me-3">D.S Senamayake College</li>
+                            <li class="fs-10 me-3">Vishaka Vidyalaya</li>
+                            <li class="fs-10 me-3">Vishaka Vidyalaya</li>
+                        </div>
                                 </div>
                             </div>
                             <hr/>
@@ -82,7 +105,20 @@ function OwnerSchoolVans (){
                     <button type="button" class="btn btn-primary owner-add-new-vehicle-btn"data-bs-toggle="modal" data-bs-target="#OwneraddnewdriverModal">Add new driver</button>
                     <div>
                     <ul class="list-group gap-2 p-3">
-                    <Link to='/Owner_DriverProfile' className="text-decoration-none">
+                    {drivers.map((data)=>{
+                        console.log(data)
+                        return  <Link to='/OwnerDriverProfile' state={data} className="text-decoration-none">
+                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                                {/* <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/> */}
+                                <img src={data.image} alt="" class="rounded-circle"/>
+                                <ul className="d-flex flex-column">
+                                    <p>{data.fullname}</p>
+                                    <p>{data.contact}</p>
+                                </ul>
+                            </li>
+                        </Link>
+                    })}
+                    {/* <Link to='/OwnerDriverProfile' className="text-decoration-none">
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                             <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                             <ul className="d-flex flex-column">
@@ -91,7 +127,7 @@ function OwnerSchoolVans (){
                             </ul>
                         </li>
                     </Link>
-                    <Link to='/Owner_DriverProfile' className="text-decoration-none">
+                    <Link to='/OwnerDriverProfile' className="text-decoration-none">
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                             <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                             <ul className="d-flex flex-column">
@@ -100,7 +136,7 @@ function OwnerSchoolVans (){
                             </ul>
                         </li>
                     </Link>
-                    <Link to='/Owner_DriverProfile' className="text-decoration-none">
+                    <Link to='/OwnerDriverProfile' className="text-decoration-none">
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                             <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                             <ul className="d-flex flex-column">
@@ -109,7 +145,7 @@ function OwnerSchoolVans (){
                             </ul>
                         </li>
                     </Link>
-                    <Link to='/Owner_DriverProfile' className="text-decoration-none">
+                    <Link to='/OwnerDriverProfile' className="text-decoration-none">
                         <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                             <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                             <ul className="d-flex flex-column">
@@ -117,11 +153,12 @@ function OwnerSchoolVans (){
                                 <p>0711213123</p>
                             </ul>
                         </li>
-                    </Link>
+                    </Link> */}
                     </ul>
                     </div>
                 </div>
-                <div class="modal fade addnewdrivermodel" id="OwnerassignnewdriverModal" tabindex="-1" aria-labelledby="ModalLabel-new-ad" aria-hidden="true">
+            </div>
+            <div class="modal fade addnewdrivermodel" id="OwnerassignnewdriverModal" tabindex="-1" aria-labelledby="ModalLabel-new-ad" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -130,7 +167,18 @@ function OwnerSchoolVans (){
                         </div>
                         <div class="modal-body">
                             <ul class="list-group gap-2 p-3">
-                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                            {drivers.map((data)=>{
+                              return  <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                                {/* <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/> */}
+                                <img src={data.image} alt="" class="rounded-circle"/>
+                                <ul className="d-flex flex-row align-items-end">
+                                    {/* <p>Damitha Wickramasinghe</p> */}
+                                    <p>{data.fullname}</p>
+                                    <button type="input" class="btn btn-primary owner-add-new-vehicle-btn">Assign</button>
+                                </ul>
+                            </li>
+                            })}
+                            {/* <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                                 <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
                                 <ul className="d-flex flex-row align-items-end">
                                     <p>Damitha Wickramasinghe</p>
@@ -150,14 +198,7 @@ function OwnerSchoolVans (){
                                     <p>Damitha Wickramasinghe</p>
                                     <button type="input" class="btn btn-primary owner-add-new-vehicle-btn">Assign</button>
                                 </ul>
-                            </li>
-                            <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/>
-                                <ul className="d-flex flex-row align-items-end">
-                                    <p>Damitha Wickramasinghe</p>
-                                    <button type="input" class="btn btn-primary owner-add-new-vehicle-btn">Assign</button>
-                                </ul>
-                            </li>
+                            </li> */}
                         </ul>
                         </div>
                         </div>
@@ -167,6 +208,7 @@ function OwnerSchoolVans (){
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                         <div class="modal-header">
+                            {/* <p>Add New Vehicle</p> */}
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -187,7 +229,6 @@ function OwnerSchoolVans (){
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     )
 }

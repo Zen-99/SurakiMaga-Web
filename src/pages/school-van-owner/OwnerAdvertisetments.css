@@ -1,14 +1,14 @@
-.advertiestments-home {
-    padding: 1%;
+.Advertisetments-home {
+    /* padding: 1%; */
     /* padding-left: 50px;
     padding-right: 50px; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: 100%;
-    gap: 20px;
+    /* gap: 20px; */
 }
-.advertiestments-search {
+.Advertisetments-search {
     display: flex;
     /* display: grid;
     grid-template-columns: repeat(3, auto); */
@@ -107,7 +107,7 @@ label.check {
       background-color: #ff8c01;
       color: #fff;
   }
-  .advertiestments-new {
+  .Advertisetments-new {
     display: none;
     /* display: flex;
     justify-content: flex-start;
@@ -116,19 +116,19 @@ label.check {
     padding-top: 20px; */
     /* padding-left: 20px; */
   }
-  .btn-add-advertiestment-btn {
+  .btn-add-Advertisetment-btn {
     border-color: #ff8c01;
       background-color: #ff8c01;
       color: #fff;
       border-radius: 35px;
       width: 100px;
 }
-.btn-add-advertiestment-btn:hover {
+.btn-add-Advertisetment-btn:hover {
     background-color: #f2f2f2;
     border-color: #ff8c01;
     color: #ff8c01;
 }
-.btn-add-advertiestment-btn span{
+.btn-add-Advertisetment-btn span{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -137,25 +137,32 @@ label.check {
 .fa-plus{
     width: fit-content;
 }
-.add-advertiestment-btn-text{
+.add-Advertisetment-btn-text{
     width:fit-content
 }
 .advertistment-container{
     display: flex;
 }
-.advertiestments-list {
+.advertistment-search{
+    width:20%;
+    height: fit-content;
+}
+.OwnerlistSearch{
+    height: fit-content;
+}
+.Advertisetments-list {
     display: flex;
     flex-direction: column;
     width: 50%;
     gap:10px;
     padding: 1.5% 0.5% 1.5% 0.5%;
-    max-height: 500px;
+    /* max-height: 500px; */
     overflow-y: scroll;
     /* justify-content: space-around; */
     /* padding-left: 200px; 
      padding-right: 200px; */
 }
-.advertiestment-card{
+.Advertisetment-card{
     /* display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-columns: 160px 1fr ; */
@@ -174,45 +181,45 @@ label.check {
     text-decoration-color: none;
     color: #28231f;    
 }
-/* .advertiestment-card:hover{
+/* .Advertisetment-card:hover{
     text-decoration: none;
     border: solid #28231f;
     border-width: 2px;
     color:#28231f;
     
 } */
-.advertiestment-image{
+.Advertisetment-image{
     padding: 20px;
     max-width: fit-content;
 }
-.advertiestment-card img {
+.Advertisetment-card img {
     height: 100px;
     width:100px;
 }
-.advertiestment-details{
+.Advertisetment-details{
     display: flex;
     flex-direction: column;
     padding: 10px 20px 10px 0px;
     height: inherit;
     justify-content: center;
 }
-.advertiestment-details p{
+.Advertisetment-details p{
     margin-bottom: 0px;
 }
-.advertiestment-details h4{
+.Advertisetment-details h4{
     font-weight: bold;
        font-size: large;
     margin-bottom: 0px;
 }
-.advertiestment-details p1{
+.Advertisetment-details p1{
     font-size: small;
 }
-.advertiestment-details button{
+.Advertisetment-details button{
     font-size:small;
     width: fit-content;
     cursor: pointer;
 }
-.advertiestment-details p2 {
+.Advertisetment-details p2 {
     padding: 5px 5px 5px 0px;
     font-size: small;
     width:fit-content;
@@ -221,35 +228,35 @@ label.check {
     color: #fff;
     background-color: green;
 }
-.advertiestment-details-lication{
+.Advertisetment-details-lication{
     font-size:small;
 }
 .ad-details{
     display: flex;
     justify-content: space-between;
 }
-.advertiestment-details-expand-active{
+.Advertisetment-details-expand-active{
     display: flex;
-    width: 50%;
+    width: 30%;
     padding: 1.5%;
     height: fit-content;
     max-height: 500px;
     overflow-y: scroll;
 }
-.advertiestment-details-expand-hide{
+.Advertisetment-details-expand-hide{
     display: none;
 }
-.Owners-advertiestmentz-active{
+.Owners-Advertisetmentz-active{
     display: flex;
     width: 50%;
     padding: 1.5%;
     height: fit-content;
     
 }
-.Owners-advertiestmentz-hide{
+.Owners-Advertisetmentz-hide{
     display: none;
 }
-.advertiestment-details-card{
+.Advertisetment-details-card{
     width:100%;
     height: fit-content;
     
@@ -258,14 +265,14 @@ label.check {
     width: fit-content;
     cursor: pointer;
 }
-.your-advertiestments-container h5{
+.your-Advertisetments-container h5{
     font-weight: bold;
        font-size: large;
        padding: 20px 0px 0px 10px;
        width: fit-content;
        color:#28231f
 }
-.advertiestments-list-owners{
+.Advertisetments-list-owners{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -288,7 +295,7 @@ label.check {
 .fa-share{
     width: fit-content;
 }
-.advertiestment-new-expand-active{
+.Advertisetment-new-expand-active{
     display: flex;
     width: 100%;
     position: absolute;
@@ -300,7 +307,7 @@ label.check {
     padding: 3%;
     z-index: 99999;
 }
-.advertiestment-new-expand-hide{
+.Advertisetment-new-expand-hide{
     display: none;
 }
 .new-Ad-container{
@@ -308,10 +315,11 @@ label.check {
     height: fit-content;
 }
   @media screen and (max-width: 800px) {
-    .advertiestments-home{
+    .Advertisetments-home{
         gap: 0px;
+        flex-direction: column;
     }
-    .advertiestments-search{
+    .Advertisetments-search{
         margin-bottom: 20px;
     }
     .location-btn-text , .vehival-type-chexkbox-text{
@@ -321,7 +329,7 @@ label.check {
     .fa-map-marker-alt{
         padding-right: 0%;
     }
-    .advertiestments-search {
+    .Advertisetments-search {
         /* display: grid;
         grid-template-columns: repeat(1, auto); */
         /* grid-template-columns: 40% 20% 40%; */
@@ -343,7 +351,7 @@ label.check {
     .select-vehical-type span {
         max-width: fit-content;
     }
-    .advertiestments-new {
+    .Advertisetments-new {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -355,7 +363,10 @@ label.check {
     .advertistment-container{
        padding-left: 1rem;
     }
-    .advertiestments-list{
+    .advertistment-search{
+        width:50%
+    }
+    .Advertisetments-list{
         padding: 0px 0px 20px 0px;
         width: 100%;
         align-items: center;
@@ -365,7 +376,7 @@ label.check {
         overflow: hidden;
     }
     
-    .advertiestment-details-expand-active{
+    .Advertisetment-details-expand-active{
         width: 100%;
         position:absolute;
         margin: auto;
@@ -376,43 +387,46 @@ label.check {
         padding: 3%;
         z-index: 99999;
     }
-    .Owners-advertiestmentz-active{
+    .Owners-Advertisetmentz-active{
         padding: 0%;
         display: none;
     }
-    .advertiestment-details-card{
+    .Advertisetment-details-card{
         margin-bottom: 30px;
     }
   }
   @media screen and (max-width: 500px) {
-    .advertiestment-card {
+    .advertistment-search{
+        width:100%
+    }
+    .Advertisetment-card {
         height: 110px;
         width: 75%;
         min-width:fit-content;
     }
-    .advertiestment-card img {
+    .Advertisetment-card img {
         height: 80px;
         width: 80px;
     }
-    .advertiestment-image {
+    .Advertisetment-image {
         padding: 10px;
     }
-    .advertiestment-details{
+    .Advertisetment-details{
         padding: 10px;
     }
-    .advertiestment-details h4{
+    .Advertisetment-details h4{
         font-weight: bold;
        font-size: small;
     }
-    .advertiestment-details p1 , .advertiestment-details p2{
+    .Advertisetment-details p1 , .Advertisetment-details p2{
         font-size:x-small;
     }
-    .advertiestment-details p2{
+    .Advertisetment-details p2{
         padding: 3px 0px 3px 0px;
         color: green;
     background-color:transparent;
     }
-    .advertiestment-details button{
+    .Advertisetment-details button{
         font-size: xx-small;
         /* color:#ff8c01;
     background-color: transparent;

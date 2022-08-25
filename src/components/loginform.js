@@ -6,6 +6,9 @@ import { Link} from "react-router-dom";
 import apiClient from '../Services/ApiClient';
 import '../pages/Home.css';
 import '../pages/Login.css';
+// import { toast } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
+
 import { useForm } from "react-hook-form";
 import OTP from './OTP';
 // import { ToastContainer, toast } from "react-toastify";
@@ -45,6 +48,7 @@ function Loginform(props) {
   //       setModalShow(true);
         
 
+
   //       reset();
   //       // localStorage.setItem("token", parseRes.jwtToken);
   //       // setAuth(true);
@@ -79,6 +83,18 @@ function Loginform(props) {
           // setAuth(false);
           alert(error);
         }
+
+      //   reset();
+      //   // localStorage.setItem("token", parseRes.jwtToken);
+      //   // setAuth(true);
+      //   // toast.success("Logged in Successfully");
+      // } else {
+      //   // setAuth(false);
+      //   alert(error);
+
+        // toast.error(error.message);
+
+
       }
 
     return (

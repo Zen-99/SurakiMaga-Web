@@ -43,7 +43,9 @@
     padding: 8px;
     border-radius: 5px
 }
-
+.text-right{
+    width: 20%;
+}
 
 .OwnerReviews-home td {
     padding-bottom: 10px

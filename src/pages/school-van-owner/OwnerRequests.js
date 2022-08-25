@@ -8,24 +8,24 @@ function OwnerRequests (){
         <div className="home">
             <OwnerNavbar/>
             <div className="OwnerRequests-home d-flex flex-column gap-3 align-items-center">
-                <h3>Requests</h3>
-                <div className="OwnerRequestsList gap-3">
+                <div className="OwnerRequestsList d-flex gap-3">
                     <div className=" card OwnerRequest-list p-3">
+                        <h3>Join Requests</h3>
                         <ul class="list-group gap-2 p-3">
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request to school van 1</p>
+                                <p>Sandra Tennyson sent a request to ABC123</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request to school bus 1</p>
+                                <p>Sandra Tennyson sent a request to ACD345</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request school van 2</p>
+                                <p>Sandra Tennyson sent a request BN567</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
-                                <p>Sandra Tennyson sent a request school van 1</p>
+                                <p>Sandra Tennyson sent a request ABC123</p>
                                 <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal">view</button>
                             </li>
                         </ul>
@@ -53,7 +53,7 @@ function OwnerRequests (){
                                                     <h6 class="mb-0">Child Name</h6>
                                                 </div>
                                                 <div class="col-sm-5 text-secondary">
-                                                    Benjamin Kirby Tennyson
+                                                    Benjamin Tennyson
                                                 </div>
                                             </div>
                                             <hr/>
@@ -94,14 +94,37 @@ function OwnerRequests (){
                                             </div>
                                             <hr/>
                                             <div class="d-flex flex-row justify-content-evenly p-1 gap-3">
-                                                <button class="d-flex justify-content-center align-items-center gap-2 btn btn-primary"><i class="fas fa-check"></i>Accept</button>
-                                                <button class="d-flex justify-content-center align-items-center gap-2 btn btn-primary"><i class="fas fa-times-circle"></i>Reject</button>
+                                                <button class="d-flex justify-content-center align-items-center gap-2 btn btn-success"><i class="fas fa-check"></i>Accept</button>
+                                                <button class="d-flex justify-content-center align-items-center gap-2 btn btn-danger"><i class="fas fa-times-circle"></i>Reject</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div className="card d-flex gap-3 p-4">
+                        <h3>Leaving Notifications</h3>
+                            <ul class="list-group gap-2 p-3">
+                                <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                                    <p>Sandra Tennyson notified leaving the ABC123 form August</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Action taken
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex flex-row gap-4 justify-content-between align-items-center">
+                                    <p>Sandra Tennyson notified leaving the ACD345 form August</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Action taken
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import React, { useState} from 'react';
-import './OwnerNavbar.css';
+import './AdminNavbar.css';
 import '../../components/Navbar.css';
 
 const logo = require('../../assests/logo.png');
@@ -16,16 +16,16 @@ function OwnerNavbar() {
   const closeMobileMenu = () => setClick(false);
   const closeDropdownMenu = () => setClickDropdown(false);
 
-//   window.onclick = function (event) {
-//     if (document.getElementsByClassName('menu-dropdown-icon')[0].contains(event.target)) {
-//         document.getElementById('menu-dropdown-list')
-//             .style.display = "flex";
-//     } else {
-//       document.getElementById('menu-dropdown-list')
-//             .style.display = "none";
-//             closeDropdownMenu();
-//     }
-// }
+  window.onclick = function (event) {
+    if (document.getElementsByClassName('menu-dropdown-icon')[0].contains(event.target)) {
+        document.getElementById('menu-dropdown-list')
+            .style.display = "flex";
+    } else {
+      document.getElementById('menu-dropdown-list')
+            .style.display = "none";
+            closeDropdownMenu();
+    }
+}
 
   return (
     <>
@@ -43,11 +43,9 @@ function OwnerNavbar() {
         </div>
         <div className='nav-menu-items'>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='navbar-item-o'><Link to='/OwnerDashboard' className='navbar-links' onClick={closeMobileMenu}>Dashboard</Link></li>
-          <li className='navbar-item-o'><Link to='/OwnerAdvertisetments' className='navbar-links' onClick={closeMobileMenu}>Advertisetments</Link></li>
-          <li className='navbar-item-o'><Link to='/OwnerSchoolVans' className='navbar-links' onClick={closeMobileMenu}>School vans</Link></li>
-          <li className='navbar-item-o'><Link to='/OwnerComplaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
-          <li className='navbar-item-o'><Link to='/OwnerReviews' className='navbar-links' onClick={closeMobileMenu}>Reviews</Link></li>
+          <li className='navbar-item-o'><Link to='/Dashboard' className='navbar-links' onClick={closeMobileMenu}>Dashboard</Link></li>
+          <li className='navbar-item-o'><Link to='/Complaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
+          <li className='navbar-item-o'><Link to='/Requests' className='navbar-links' onClick={closeMobileMenu}>Requests</Link></li>
         </ul>
         <div class="profile">
             <img src={bell} style={{height:'30px', width:'30px'}} alt=""/>
@@ -60,10 +58,6 @@ function OwnerNavbar() {
         <div className='menu-dropdown' id='menu-dropdown-list'>
           <ul className={clickDropdown ? 'card p-3 dropdown-active' : 'dropdown-hide'}>
             <li className='dropdown-list-item'><Link to='/OwnerProfile' className='dropdown-links' onClick={closeDropdownMenu}>Profile</Link></li>
-            <li className='dropdown-list-item'><Link to='/OwnerPayments' className='dropdown-links' onClick={closeDropdownMenu}>Payments</Link></li>
-            {/* <li className='dropdown-list-item'><Link to='/OwnerRequests' className='dropdown-links' onClick={closeDropdownMenu}>Requests</Link></li> */}
-            {/* <li className='dropdown-list-item'><Link to='/OwnerReviews' className='dropdown-links' onClick={closeDropdownMenu}>Reviews</Link></li> */}
-            <li class="dropdown-list-item"><hr></hr></li>
             <li className='dropdown-list-item'><a href='/' className='dropdown-links' onClick={closeDropdownMenu}>Log Out</a></li>
           </ul>
         </div>

@@ -2,8 +2,22 @@ import React from "react";
 import './OwnerComplaints.css';
 import '../Home.css';
 import OwnerNavbar from './OwnerNavbar';
+import { useState } from "react";
+import DoughnutChart from "../../components/DoughnutChart";
 
 function OwnerComplaints (){
+
+    const [chartData,setchartData] = useState({
+        datasets: [
+            {
+                label: "School vans",
+                backgroundColor: ['green', 'aqua', '#ff8c01'],
+                data: [21,11,20],
+            }
+        ],
+        labels: ["New","Pending","Closed"],
+    })
+
     return(
         <div className="home">
             <OwnerNavbar/>
@@ -11,30 +25,30 @@ function OwnerComplaints (){
                 <h3>Complaints</h3>
                 <div className="card d-flex flex-column p-4 gap-2 OwnerComplaints-col">
                     <h5>Complaints Overview</h5>
-                    <div className="d-flex flex-row p-4">
-                       <div className="d-flex flex-row gap-3">
+                    <div className="d-flex flex-row p-4 gap-4 justify-content-evenly">
+                       <div className="d-flex flex-row gap-3 align-items-center ownerComplaintsOverview">
                         <div class="vl1"></div>
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column justify-content-center">
                             <p>New</p>
-                            <h3>21</h3>
+                            <h4>21</h4>
                         </div>
                        </div>
-                       <div className="d-flex flex-row gap-3">
+                       <div className="d-flex flex-row gap-3 align-items-center ownerComplaintsOverview">
                         <div class="vl2"></div>
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column justify-content-center">
                             <p>Pending</p>
-                            <h3>11</h3>
+                            <h4>11</h4>
                         </div>
                        </div>
-                       <div className="d-flex flex-row gap-3">
+                       <div className="d-flex flex-row gap-3 align-items-center ownerComplaintsOverview">
                         <div class="vl3"></div>
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column justify-content-center">
                             <p>Closed</p>
-                            <h3>20</h3>
+                            <h4>20</h4>
                         </div>
                        </div>
-                       <div className="d-flex flex-row gap-3">
-                            
+                       <div className="d-flex flex-row gap-3" style={{ width: 250 }}>
+                            <DoughnutChart chartData={chartData} />
                        </div>
                     </div>
                 </div>
@@ -57,7 +71,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
                                         <i class='fa fa-caret-down'></i>
@@ -81,7 +95,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class='fa fa-caret-down'></i>
@@ -105,7 +119,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/18</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class='fa fa-caret-down'></i>
@@ -136,7 +150,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
                                         <i class='fa fa-caret-down'></i>
@@ -160,7 +174,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/17</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class='fa fa-caret-down'></i>
@@ -184,7 +198,7 @@ function OwnerComplaints (){
                                 <tr>
                                 <td>2022/08/18</td>
                                 <td>ABC1234</td>
-                                <td>Benjamin Kirby Tennyson</td>
+                                <td>Benjamin Tennyson</td>
                                 <td>
                                     <button class="" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class='fa fa-caret-down'></i>

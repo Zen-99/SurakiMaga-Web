@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cloudinary/react": "^1.4.2",
+    "@cloudinary/url-gen": "^1.8.6",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -13,9 +15,14 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "chart.js": "^3.9.1",
+
     "google-map-react": "^2.2.0",
     "google-maps-react": "^2.0.6",
+
+    "express": "^4.18.1",
+
     "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
     "react-bootstrap": "^2.4.0",
     "react-bootstrap-star-rating": "^0.0.2",
     "react-chartjs-2": "^4.3.1",
