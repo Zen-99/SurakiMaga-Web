@@ -53,6 +53,7 @@ console.log(data);
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                     <Link to='/OwnerDriverEditProfile' state={data} type="Button" class="btn btn-primary">
                         <i class="fas fa-pen me-2"></i>Edit Profile</Link>
+                        <button type="Button" class="btn btn-primary">Remove Driver</button>
                       <Link to='/OwnerSchoolVans' class="btn btn-primary">Back</Link>
                     </div>
                   </div>
