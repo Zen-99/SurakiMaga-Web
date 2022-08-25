@@ -96,6 +96,7 @@ function OwnerSchoolVans (){
                         <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                         <button type="Button" class="btn btn-primary" onClick={() => setEditdetails(true)}>
                         <i class="fas fa-pen me-2"></i>Edit Details</button>
+                        <button type="Button" class="btn btn-primary">Remove Vehicle</button>
                         <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#OwnerassignnewdriverModal">Assign new driver</button>
                         </div>
                     </div>
