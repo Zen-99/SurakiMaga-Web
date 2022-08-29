@@ -1,12 +1,12 @@
 import React from "react";
-import './OwnerAdvertisetments.css';
+import './OwnerAdvertisements.css';
 
 function OwnerAddNewAd (){
     return(
         <>
             <div class="new-Ad-container card" >
                 <form class="row g-3 p-3 needs-validation">
-                <h4>New Advertisetment</h4>
+                <h4>New Advertisement</h4>
                 <div class="col-md-10">
                     <label for="inputTitle" class="form-label">Title</label>
                     <input type="text" class="form-control" id="inputTitle" required/>

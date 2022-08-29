@@ -91,3 +91,36 @@
         flex-direction: column;
     }
 }
+
+/* ownerDriverProfile */
+.editbutton{
+    width: fit-content;
+}
+.savebutton{
+    width: fit-content;
+    color: green;
+}
+.cancelbutton{
+    width: fit-content;
+    color: red;
+}
+#inputName{
+    width: fit-content;
+    font-size: calc(1.275rem + .3vw);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.OwnerProfile-image input{
+    width: fit-content;
+}
+.editpp{
+    width: 200px;
+    height: 200px;
+    border: solid #ff8c10;
+    border-width: thin;
+}
+#Inputimage{
+    width: 150px;
+}
