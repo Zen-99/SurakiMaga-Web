@@ -16,6 +16,7 @@ function OwnerSchoolVans (){
             const{dataresponse,error} = await apiClient.loadDriverDetails()
             console.log(dataresponse)
             // console.log("dilshi")
+            console.log(dataresponse.result)
             setDrivers(dataresponse.result)
         }
         getDriverdetails();

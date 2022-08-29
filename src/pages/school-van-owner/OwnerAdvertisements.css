@@ -1,4 +1,4 @@
-.Advertisetments-home {
+.Advertisements-home {
     /* padding: 1%; */
     /* padding-left: 50px;
     padding-right: 50px; */
@@ -8,7 +8,7 @@
     height: 100%;
     /* gap: 20px; */
 }
-.Advertisetments-search {
+.Advertisements-search {
     display: flex;
     /* display: grid;
     grid-template-columns: repeat(3, auto); */
@@ -107,7 +107,7 @@ label.check {
       background-color: #ff8c01;
       color: #fff;
   }
-  .Advertisetments-new {
+  .Advertisements-new {
     display: none;
     /* display: flex;
     justify-content: flex-start;
@@ -116,19 +116,19 @@ label.check {
     padding-top: 20px; */
     /* padding-left: 20px; */
   }
-  .btn-add-Advertisetment-btn {
+  .btn-add-Advertisement-btn {
     border-color: #ff8c01;
       background-color: #ff8c01;
       color: #fff;
       border-radius: 35px;
       width: 100px;
 }
-.btn-add-Advertisetment-btn:hover {
+.btn-add-Advertisement-btn:hover {
     background-color: #f2f2f2;
     border-color: #ff8c01;
     color: #ff8c01;
 }
-.btn-add-Advertisetment-btn span{
+.btn-add-Advertisement-btn span{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -137,7 +137,7 @@ label.check {
 .fa-plus{
     width: fit-content;
 }
-.add-Advertisetment-btn-text{
+.add-Advertisement-btn-text{
     width:fit-content
 }
 .advertistment-container{
@@ -150,7 +150,7 @@ label.check {
 .OwnerlistSearch{
     height: fit-content;
 }
-.Advertisetments-list {
+.Advertisements-list {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -162,7 +162,7 @@ label.check {
     /* padding-left: 200px; 
      padding-right: 200px; */
 }
-.Advertisetment-card{
+.Advertisement-card{
     /* display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-columns: 160px 1fr ; */
@@ -181,45 +181,45 @@ label.check {
     text-decoration-color: none;
     color: #28231f;    
 }
-/* .Advertisetment-card:hover{
+/* .Advertisement-card:hover{
     text-decoration: none;
     border: solid #28231f;
     border-width: 2px;
     color:#28231f;
     
 } */
-.Advertisetment-image{
+.Advertisement-image{
     padding: 20px;
     max-width: fit-content;
 }
-.Advertisetment-card img {
+.Advertisement-card img {
     height: 100px;
     width:100px;
 }
-.Advertisetment-details{
+.Advertisement-details{
     display: flex;
     flex-direction: column;
     padding: 10px 20px 10px 0px;
     height: inherit;
     justify-content: center;
 }
-.Advertisetment-details p{
+.Advertisement-details p{
     margin-bottom: 0px;
 }
-.Advertisetment-details h4{
+.Advertisement-details h4{
     font-weight: bold;
        font-size: large;
     margin-bottom: 0px;
 }
-.Advertisetment-details p1{
+.Advertisement-details p1{
     font-size: small;
 }
-.Advertisetment-details button{
+.Advertisement-details button{
     font-size:small;
     width: fit-content;
     cursor: pointer;
 }
-.Advertisetment-details p2 {
+.Advertisement-details p2 {
     padding: 5px 5px 5px 0px;
     font-size: small;
     width:fit-content;
@@ -228,14 +228,14 @@ label.check {
     color: #fff;
     background-color: green;
 }
-.Advertisetment-details-lication{
+.Advertisement-details-lication{
     font-size:small;
 }
 .ad-details{
     display: flex;
     justify-content: space-between;
 }
-.Advertisetment-details-expand-active{
+.Advertisement-details-expand-active{
     display: flex;
     width: 30%;
     padding: 1.5%;
@@ -243,20 +243,20 @@ label.check {
     max-height: 500px;
     overflow-y: scroll;
 }
-.Advertisetment-details-expand-hide{
+.Advertisement-details-expand-hide{
     display: none;
 }
-.Owners-Advertisetmentz-active{
+.Owners-Advertisementz-active{
     display: flex;
     width: 50%;
     padding: 1.5%;
     height: fit-content;
     
 }
-.Owners-Advertisetmentz-hide{
+.Owners-Advertisementz-hide{
     display: none;
 }
-.Advertisetment-details-card{
+.Advertisement-details-card{
     width:100%;
     height: fit-content;
     
@@ -265,14 +265,14 @@ label.check {
     width: fit-content;
     cursor: pointer;
 }
-.your-Advertisetments-container h5{
+.your-Advertisements-container h5{
     font-weight: bold;
        font-size: large;
        padding: 20px 0px 0px 10px;
        width: fit-content;
        color:#28231f
 }
-.Advertisetments-list-owners{
+.Advertisements-list-owners{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -295,7 +295,7 @@ label.check {
 .fa-share{
     width: fit-content;
 }
-.Advertisetment-new-expand-active{
+.Advertisement-new-expand-active{
     display: flex;
     width: 100%;
     position: absolute;
@@ -307,7 +307,7 @@ label.check {
     padding: 3%;
     z-index: 99999;
 }
-.Advertisetment-new-expand-hide{
+.Advertisement-new-expand-hide{
     display: none;
 }
 .new-Ad-container{
@@ -315,11 +315,11 @@ label.check {
     height: fit-content;
 }
   @media screen and (max-width: 800px) {
-    .Advertisetments-home{
+    .Advertisements-home{
         gap: 0px;
         flex-direction: column;
     }
-    .Advertisetments-search{
+    .Advertisements-search{
         margin-bottom: 20px;
     }
     .location-btn-text , .vehival-type-chexkbox-text{
@@ -329,7 +329,7 @@ label.check {
     .fa-map-marker-alt{
         padding-right: 0%;
     }
-    .Advertisetments-search {
+    .Advertisements-search {
         /* display: grid;
         grid-template-columns: repeat(1, auto); */
         /* grid-template-columns: 40% 20% 40%; */
@@ -351,7 +351,7 @@ label.check {
     .select-vehical-type span {
         max-width: fit-content;
     }
-    .Advertisetments-new {
+    .Advertisements-new {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -366,7 +366,7 @@ label.check {
     .advertistment-search{
         width:50%
     }
-    .Advertisetments-list{
+    .Advertisements-list{
         padding: 0px 0px 20px 0px;
         width: 100%;
         align-items: center;
@@ -376,7 +376,7 @@ label.check {
         overflow: hidden;
     }
     
-    .Advertisetment-details-expand-active{
+    .Advertisement-details-expand-active{
         width: 100%;
         position:absolute;
         margin: auto;
@@ -387,11 +387,11 @@ label.check {
         padding: 3%;
         z-index: 99999;
     }
-    .Owners-Advertisetmentz-active{
+    .Owners-Advertisementz-active{
         padding: 0%;
         display: none;
     }
-    .Advertisetment-details-card{
+    .Advertisement-details-card{
         margin-bottom: 30px;
     }
   }
@@ -399,34 +399,34 @@ label.check {
     .advertistment-search{
         width:100%
     }
-    .Advertisetment-card {
+    .Advertisement-card {
         height: 110px;
         width: 75%;
         min-width:fit-content;
     }
-    .Advertisetment-card img {
+    .Advertisement-card img {
         height: 80px;
         width: 80px;
     }
-    .Advertisetment-image {
+    .Advertisement-image {
         padding: 10px;
     }
-    .Advertisetment-details{
+    .Advertisement-details{
         padding: 10px;
     }
-    .Advertisetment-details h4{
+    .Advertisement-details h4{
         font-weight: bold;
        font-size: small;
     }
-    .Advertisetment-details p1 , .Advertisetment-details p2{
+    .Advertisement-details p1 , .Advertisement-details p2{
         font-size:x-small;
     }
-    .Advertisetment-details p2{
+    .Advertisement-details p2{
         padding: 3px 0px 3px 0px;
         color: green;
     background-color:transparent;
     }
-    .Advertisetment-details button{
+    .Advertisement-details button{
         font-size: xx-small;
         /* color:#ff8c01;
     background-color: transparent;
