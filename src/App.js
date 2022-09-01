@@ -26,8 +26,8 @@ import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
 import OwnerDriverProfile from './pages/school-van-owner/OwnerDriverProfile';
 import OwnerDriverEditProfile from './pages/school-van-owner/OwnerDriverEditProfile';
+import OwnerStudentDetails from './pages/school-van-owner/OwnerStudentDetails';
 
-import AdminNavbar from './pages/Admin/AdminNavbar'
 
 //ParentComponents
 import ParentDashboard from './pages/Parent/dashboard';
@@ -41,6 +41,7 @@ import NewChildren from './pages/Parent/Childrennovan';
 import Dashboard from './pages/Admin/Dashboard';
 import Complaints from './pages/Admin/Complaints';
 import Requests from './pages/Admin/Requests';
+import AdminNavbar from './pages/Admin/AdminNavbar'
 
 
 
@@ -114,6 +115,7 @@ function App() {
           <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/>
           {/* <Route path='/OwnerDashboard' element={<OwnerDashboard/>}/> */}
           <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
+          <Route Path='/OwnerStudentDetails' element={<OwnerStudentDetails/>}/>
 
           <Route path='/sign-up' element={<Signup />}/>
 

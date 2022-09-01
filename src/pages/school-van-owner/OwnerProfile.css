@@ -66,6 +66,9 @@
 .OwnerProfile-edit-container-hide, .OwnerProfile-container-hide {
     display: none;
 }
+.errors{
+    color: red;
+}
 @media screen and (max-width: 800px){
     .OwnerProfile-container{
         display: flex;

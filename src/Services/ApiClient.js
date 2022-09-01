@@ -84,9 +84,10 @@ class ApiClient{
         return await this.request({endpoint:`owner/registerDriver`,method:`POST`,data:credentials})
     }
     async EditOwnerProfile(credentials){
+        console.log(credentials)
         return await this.request({endpoint:`owner/EditOwnerProfile`,method:`POST`,data:credentials})
     }
-    async loadDriverDetails(){
+    async loadDriversDetails(){
         return await this.request({endpoint: `owner/getdriverdetails`, method: `GET`})
     }
     async EditOwnerDriverProfile(credentials){
@@ -96,6 +97,10 @@ class ApiClient{
     async removeDriver(credentials){
         console.log(credentials)
         return await this.request({endpoint:`owner/removeDriver`,method:`POST`,data:credentials})
+    }
+    async getDriverDetails(credentials){
+        console.log(credentials)
+        return await this.request({endpoint:`owner/loadDriverDetails`,method:`POST`,data:credentials})
     }
 }
 
