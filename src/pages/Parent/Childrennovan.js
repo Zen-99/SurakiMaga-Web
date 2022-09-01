@@ -34,12 +34,12 @@ function NewChildren() {
                                             </div>
                                             <div className='attribute-group mb-2'>
                                                 <div className='attribute'> Age</div>
-                                                <div> 15 years</div>
+                                                <div> 13 years</div>
                                             </div>
                                             <div className='attribute-group'>
                                                 <div className='attribute'> Pickup Location</div>
-                                                <div> Latitude  :   31.565599</div>
-                                                <div> Longitude : -110.249184</div>
+                                                <div> Piliyandala Bus Stand</div>
+                                                {/* <div> Longitude : -110.24918</div> */}
                                             </div>
                                         </Card.Text>
                                 </Card.Body>
