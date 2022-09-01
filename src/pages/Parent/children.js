@@ -130,7 +130,8 @@ function MyChildren() {
                             <Card className="text-center">
                             <Card.Body>
                                 <Card.Title>Amount Payable</Card.Title>
-                                <Card.Text>
+                                <div > Due 26.08.2022</div>
+                                <Card.Text className='fw-bold'>
                                 Rs .3500/=
                                 </Card.Text>
                                 <Button className='w-50'>Pay Now</Button>

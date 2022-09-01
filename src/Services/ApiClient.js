@@ -8,25 +8,25 @@ class ApiClient{
         this.tokenName = 'surakimaga_driver_token'
     }
 
-    // async setToken(token) {
-    //     this.token = token
-    //     await SecureStore.setItemAsync(this.tokenName,token);
-    // }
-    // getToken = async () => {
-    //     // get Data from Storage
-    //     try {
-    //       const data = await SecureStore.getItemAsync(this.tokenName);
-    //       if (data !== null) {
-    //         this.setToken(data)
-    //         return data
-    //       }
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    // }
-    // removeToken = async () => {
-    //     await SecureStore.setItemAsync(this.tokenName,"");
-    // }
+    async setToken(token) {
+        this.token = token
+        localStorage.setItem(this.tokenName,token);
+    }
+    getToken = async () => {
+        // get Data from Storage
+        try {
+          const data = localStorage.getItem(this.tokenName);
+          if (data !== null) {
+            this.setToken(data)
+            return data
+          }
+        } catch (error) {
+          console.log(error);
+        }
+    }
+    removeToken = async () => {
+        localStorage.setItem(this.tokenName,"");
+    }
     async request({ endpoint, method = `GET`, data = {} }) {
         const url = `${this.remoteHostUrl}/${endpoint}`
 
@@ -35,6 +35,8 @@ class ApiClient{
             // Authorization: this.token ? `Bearer ${this.token}` : "",
         }
         if(this.token){
+            console.log(this.token)
+
             headers["Authorization"]=`Bearer ${this.token}`
         }
         console.log("hello",headers,data,url,method)
@@ -46,9 +48,12 @@ class ApiClient{
         } catch (error) {
             console.error("APIclient.makeRequest.error:")
             console.error({ errorResponse: error.response })
+
+            
             const message = "error"
             // const message = error.response.data.error.message
             return { data: null, error: message || String(error) }
+
         }
     }
 
@@ -93,9 +98,14 @@ class ApiClient{
         console.log(credentials)
         return await this.request({endpoint:`owner/EditOwnerDriverProfile`,method:`POST`,data:credentials})
     }
+
+    async isVerify(){
+        return await this.request({endpoint:`auth/isverify`,method:`GET`})
+    }
     async removeDriver(credentials){
         console.log(credentials)
         return await this.request({endpoint:`owner/removeDriver`,method:`POST`,data:credentials})
+
     }
 }
 
