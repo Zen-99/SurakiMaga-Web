@@ -1,6 +1,6 @@
 import './App.css';
 import * as React from 'react';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import apiClient from './Services/ApiClient';
@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 //OwnerComponents
+
 import OwnerAdvertisements from './pages/school-van-owner/OwnerAdvertisements';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
 import OwnerEditProfile from './pages/school-van-owner/OwnerEditProfile'
@@ -38,49 +39,52 @@ import ParentVehicleView from './pages/Parent/VehicleView';
 import NewChildren from './pages/Parent/Childrennovan';
 
 //Admin Components
-import Dashboard from './pages/Admin/Dashboard';
-import Complaints from './pages/Admin/Complaints';
-import Requests from './pages/Admin/Requests';
-import AdminNavbar from './pages/Admin/AdminNavbar'
+import AdminDashboard from './pages/Admin/Dashboard';
+import AdminComplaints from './pages/Admin/Complaints';
+import AdminRequests from './pages/Admin/Requests';
+import AdminNavbar from './pages/Admin/AdminNavbar';
 
 
 
 function App() {
 
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // const [userrole, setUserrole] = useState({});
-  // const [id, setId] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userrole, setUserrole] = useState({});
+  const [id, setId] = useState(null);
 
-  // const setAuth = (Boolean) => {
-  //   setIsAuthenticated(Boolean);
-  // };
+  const setAuth = (Boolean) => {
+    setIsAuthenticated(Boolean);
+  };
 
-  // async function isAuth() {
-  //   try {
-  //     const res = await axios.get(API_URL, {
-  //       headers: { token: localStorage.token },
-  //     });
-  //     setId(res.data.payload);
-  //     getUser(res.data.payload);
+  async function isAuth() {
+    const token = apiClient.getToken();
+    if (token) {
+    try {
+      const { dataresponse, error } = await apiClient.isVerify ({
+      });
+      console.log(dataresponse);
+      // setId(dataresponse.payload);
+      setUserrole(dataresponse.result);
 
-  //     res.data.status === true
-  //       ? setIsAuthenticated(true)
-  //       : setIsAuthenticated(false);
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // }
+      dataresponse.status === true
+        ? setIsAuthenticated(true)
+        : setIsAuthenticated(false);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
+  }
   // async function getUser(userid) {
-  //   const res1 = await apiClient.getUsertype ({
-  //     userid,
+  //   const { dataresponse, error } = await apiClient.getUsertype ({
+  //     username:userid,
   //   });
-  //   setUserrole(res1.data.type);
+  //   setUserrole(dataresponse);
   // }
 
-  // useEffect(() => {
-  //   isAuth();
-  // }, []);
+  useEffect(() => {
+    isAuth();
+  }, []);
 
   return (
     <>
@@ -97,7 +101,11 @@ function App() {
        
           
 
+
+          {/* <Route path='/OwnerAdvertisetments' element={<OwnerAdvertisetments />}/>
+
           <Route path='/OwnerAdvertisements' element={<OwnerAdvertisements />}/>
+
 
           <Route path='/OwnerSchoolVans' element={<OwnerSchoolVans />}/>
           <Route path='/OwnerProfile' element={<OwnerProfile />}/>
@@ -106,16 +114,20 @@ function App() {
           <Route path='/OwnerComplaints' element={<OwnerComplaints />}/>
           <Route path='/OwnerReviews' element={<OwnerReviews />}/>
           <Route path='/OwnerPayments' element={<OwnerPayments />}/>
-          <Route path='/OwnerRequests' element={<OwnerRequests />}/>
+          <Route path='/OwnerRequests' element={<OwnerRequests />}/> */}
 
           {/* <Route path='/OwnerDriverProfile' element={<Owner_DriverProfile />}/> */}
           
-          <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
+          {/* <Route path='/OwnerDashboard' element={<OwnerDashboard />}/>
 
-          <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/>
+          <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/> */}
           {/* <Route path='/OwnerDashboard' element={<OwnerDashboard/>}/> */}
+
           <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
           <Route Path='/OwnerStudentDetails' element={<OwnerStudentDetails/>}/>
+
+          {/* <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
+>>>>>>> 323d6429695d44b1d4867cf793fdeb0dbff0cfea
 
           <Route path='/sign-up' element={<Signup />}/>
 
@@ -129,10 +141,10 @@ function App() {
           <Route path="/Requests" element={<Requests/>}/>
           <Route path="/Complaints" element={<Complaints />} />
 
-          <Route path='/RouteChild' element={<ParentRouteChild/>}/>
+          <Route path='/RouteChild' element={<ParentRouteChild/>}/> */}
 
         {/* Login routes */}
-        {/* <Route
+        <Route
           path="/dashboard"
           element={
             userrole === "Admin" ? (
@@ -145,11 +157,11 @@ function App() {
               <Login />
             )
           }
-        /> */}
+        />
 
         {/*Admin pages */}
         
-        {/* <Route
+        <Route
           exact
           path="/adminrequests"
           element={
@@ -171,10 +183,10 @@ function App() {
               <Login />
             )
           }
-        /> */}
+        />
 
         {/*Parent pages */}
-        {/* <Route
+        <Route
           exact
           path="/parentvehicleview"
           element={
@@ -220,15 +232,15 @@ function App() {
               <Login />
             )
           }
-        /> */}
+        />
 
         {/* Owner Pages*/}
-        {/* <Route
+        <Route
           exact
           path="/owneradvertisements"
           element={
             isAuthenticated && userrole === "Owner" ? (
-              <OwnerAdvertiestments />
+              <OwnerAdvertisements />
             ) : (
               <Login />
             )
@@ -324,19 +336,19 @@ function App() {
           path="/ownerdriverprofile"
           element={
             isAuthenticated && userrole === "Owner" ? (
-              <Owner_DriverProfile />
+              <OwnerDriverProfile />
             ) : (
               <Login />
             )
           }
-        /> */}
+        />
 
 
 
-          <Route  path="/Dashboard" element={<Dashboard />}  />
+          {/* <Route  path="/Dashboard" element={<Dashboard />}  />
           <Route path="/Requests" element={<Requests/>}/>
           <Route path="/Complaints" element={<Complaints />} />
-          <Route path='/AdminNavbar' element={<AdminNavbar/>}/>
+          <Route path='/AdminNavbar' element={<AdminNavbar/>}/> */}
 
 
         </Routes>

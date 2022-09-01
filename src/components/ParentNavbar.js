@@ -25,20 +25,20 @@ export default function ParentNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="fw-bold">
-            <Nav.Link href="ParentDashboard">Vehicles</Nav.Link>
+            <Nav.Link href="dashboard">Vehicles</Nav.Link>
             <NavDropdown title="My Children" id="basic-nav-dropdown">
-              <NavDropdown.Item href="MyChildren">Roshan</NavDropdown.Item>
+              <NavDropdown.Item href="parentmychildren">Roshan</NavDropdown.Item>
               <NavDropdown.Item href="NewChildren">
                 Dilshi
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="AddChild">
+              <NavDropdown.Item href="parentaddchildren">
                 Add another Child
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Route to School" id="basic-nav-dropdownschool">
-              <NavDropdown.Item href="RouteChild">Roshan</NavDropdown.Item>
-              <NavDropdown.Item href="RouteChild">
+              <NavDropdown.Item href="parentroute">Roshan</NavDropdown.Item>
+              <NavDropdown.Item href="parentroute">
                 Dilshi
               </NavDropdown.Item>
             </NavDropdown>

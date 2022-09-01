@@ -39,29 +39,44 @@ function Login() {
            password : datasubmit["password"] ,
            username : datasubmit["username"]
       })
-      console.log(dataresponse)
+      console.log(dataresponse.status)
+      
+      if (dataresponse.status) {
+        // toast("Login Successful!");
+        apiClient.setToken(dataresponse.token);
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 2000);
+      } else {
+        // toast("Email or Password is incorrect!");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
+      }
+
+  };
         // const parseRes = await response.json();
-        if (dataresponse.status) {
-          console.log(dataresponse.status)
-          // alert("Logged in Success");
-          reset();
-          // alert(dataresponse.user.type);
-          if(dataresponse.user.type=="Parent"){
-            navigate('/ParentDashboard');
-          }
-          else if(dataresponse.user.type=="Admin"){
-              navigate('/Dashboard');
-          }
-          else{
-            navigate('/OwnerDashboard');
-          }
-        } else {
-          // setAuth(false);
-          console.log(error)
-          alert(error);
-          // toast.error(error.message);
-        }
-      };
+      //   if (dataresponse.status) {
+      //     console.log(dataresponse.status)
+      //     // alert("Logged in Success");
+      //     reset();
+      //     // alert(dataresponse.user.type);
+      //     if(dataresponse.user.type=="Parent"){
+      //       navigate('/ParentDashboard');
+      //     }
+      //     else if(dataresponse.user.type=="Admin"){
+      //         navigate('/Dashboard');
+      //     }
+      //     else{
+      //       navigate('/OwnerDashboard');
+      //     }
+      //   } else {
+      //     // setAuth(false);
+      //     console.log(error)
+      //     alert(error);
+      //     // toast.error(error.message);
+      //   }
+      // };
   
   
     return (
