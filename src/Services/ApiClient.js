@@ -48,8 +48,12 @@ class ApiClient{
         } catch (error) {
             console.error("APIclient.makeRequest.error:")
             console.error({ errorResponse: error.response })
+
+            
+            const message = "error"
             // const message = error.response.data.error.message
-            return { data: null, error: "message" || String(error) }
+            return { data: null, error: message || String(error) }
+
         }
     }
 
@@ -91,10 +95,17 @@ class ApiClient{
         return await this.request({endpoint: `owner/getdriverdetails`, method: `GET`})
     }
     async EditOwnerDriverProfile(credentials){
+        console.log(credentials)
         return await this.request({endpoint:`owner/EditOwnerDriverProfile`,method:`POST`,data:credentials})
     }
+
     async isVerify(){
         return await this.request({endpoint:`auth/isverify`,method:`GET`})
+    }
+    async removeDriver(credentials){
+        console.log(credentials)
+        return await this.request({endpoint:`owner/removeDriver`,method:`POST`,data:credentials})
+
     }
 }
 
