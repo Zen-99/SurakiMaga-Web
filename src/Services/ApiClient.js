@@ -34,6 +34,7 @@ class ApiClient{
             "Content-Type": "application/json",
             // Authorization: this.token ? `Bearer ${this.token}` : "",
         }
+        this.getToken();
         if(this.token){
             console.log(this.token)
 
@@ -74,10 +75,6 @@ class ApiClient{
     async loadDetails(){
         return await this.request({ endpoint: `driverauth/details`, method: `GET`})
     }
-
-    async getUsertype(credentials){
-        return await this.request({ endpoint: `user`, method: `POST`, data:credentials})
-    }
     async loadownerDetails(){
         return await this.request({ endpoint: `owner/getownerdetails`, method: `GET`})
     }
@@ -95,6 +92,14 @@ class ApiClient{
     }
     async isVerify(){
         return await this.request({endpoint:`auth/isverify`,method:`GET`})
+    }
+
+    //Parent Routes
+    async getChildren(){
+        return await this.request({endpoint:`parent/children`,method:`GET`})
+    }
+    async getSchool(){
+        return await this.request({endpoint:`user/school`,method:`GET`})
     }
 }
 
