@@ -49,8 +49,12 @@ class ApiClient{
         } catch (error) {
             console.error("APIclient.makeRequest.error:")
             console.error({ errorResponse: error.response })
+
+            
+            const message = "error"
             // const message = error.response.data.error.message
-            return { data: null, error: "message" || String(error) }
+            return { data: null, error: message || String(error) }
+
         }
     }
 
@@ -82,20 +86,33 @@ class ApiClient{
         return await this.request({endpoint:`owner/registerDriver`,method:`POST`,data:credentials})
     }
     async EditOwnerProfile(credentials){
+        console.log(credentials)
         return await this.request({endpoint:`owner/EditOwnerProfile`,method:`POST`,data:credentials})
     }
-    async loadDriverDetails(){
+    async loadDriversDetails(){
         return await this.request({endpoint: `owner/getdriverdetails`, method: `GET`})
     }
     async EditOwnerDriverProfile(credentials){
+        console.log(credentials)
         return await this.request({endpoint:`owner/EditOwnerDriverProfile`,method:`POST`,data:credentials})
     }
+
     async isVerify(){
         return await this.request({endpoint:`auth/isverify`,method:`GET`})
     }
 
-    //Parent Routes
-    async getChildren(){
+    async removeDriver(credentials){
+        console.log(credentials)
+        return await this.request({endpoint:`owner/removeDriver`,method:`POST`,data:credentials})
+
+    }
+    async getDriverDetails(credentials){
+        console.log(credentials)
+        return await this.request({endpoint:`owner/loadDriverDetails`,method:`POST`,data:credentials})
+    }
+
+     //Parent Routes
+     async getChildren(){
         return await this.request({endpoint:`parent/children`,method:`GET`})
     }
     async getSchool(){

@@ -13,9 +13,10 @@ function OwnerSchoolVans (){
 
     useEffect(() => {
         async function getDriverdetails() { 
-            const{dataresponse,error} = await apiClient.loadDriverDetails()
+            const{dataresponse,error} = await apiClient.loadDriversDetails()
             console.log(dataresponse)
             // console.log("dilshi")
+            console.log(dataresponse.result)
             setDrivers(dataresponse.result)
         }
         getDriverdetails();
@@ -107,8 +108,8 @@ function OwnerSchoolVans (){
                     <div>
                     <ul class="list-group gap-2 p-3">
                     {drivers.map((data)=>{
-                        console.log(data)
-                        return  <Link to='/OwnerDriverProfile' state={data} className="text-decoration-none">
+                        console.log(data.id)
+                        return  <Link to='/OwnerDriverProfile' state={data.id} className="text-decoration-none">
                             <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
                                 {/* <img src={require('../../assests/luca-avatar.png')} alt="" class="rounded-circle"/> */}
                                 <img src={data.image} alt="" class="rounded-circle"/>

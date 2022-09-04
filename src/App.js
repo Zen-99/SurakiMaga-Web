@@ -14,7 +14,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 //OwnerComponents
-import OwnerAdvertisements from './pages/school-van-owner/OwnerAdvertisetments';
+
+import OwnerAdvertisements from './pages/school-van-owner/OwnerAdvertisements';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
 import OwnerEditProfile from './pages/school-van-owner/OwnerEditProfile'
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
@@ -26,8 +27,8 @@ import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
 import OwnerDriverProfile from './pages/school-van-owner/OwnerDriverProfile';
 import OwnerDriverEditProfile from './pages/school-van-owner/OwnerDriverEditProfile';
+import OwnerStudentDetails from './pages/school-van-owner/OwnerStudentDetails';
 
-import AdminNavbar from './pages/Admin/AdminNavbar'
 
 //ParentComponents
 import ParentDashboard from './pages/Parent/dashboard';
@@ -41,6 +42,7 @@ import NewChildren from './pages/Parent/Childrennovan';
 import AdminDashboard from './pages/Admin/Dashboard';
 import AdminComplaints from './pages/Admin/Complaints';
 import AdminRequests from './pages/Admin/Requests';
+import AdminNavbar from './pages/Admin/AdminNavbar';
 
 
 
@@ -99,7 +101,11 @@ function App() {
        
           
 
+
           {/* <Route path='/OwnerAdvertisetments' element={<OwnerAdvertisetments />}/>
+
+          <Route path='/OwnerAdvertisements' element={<OwnerAdvertisements />}/>
+
 
           <Route path='/OwnerSchoolVans' element={<OwnerSchoolVans />}/>
           <Route path='/OwnerProfile' element={<OwnerProfile />}/>
@@ -116,7 +122,12 @@ function App() {
 
           <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/> */}
           {/* <Route path='/OwnerDashboard' element={<OwnerDashboard/>}/> */}
+
+          <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
+          <Route Path='/OwnerStudentDetails' element={<OwnerStudentDetails/>}/>
+
           {/* <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
+>>>>>>> 323d6429695d44b1d4867cf793fdeb0dbff0cfea
 
           <Route path='/sign-up' element={<Signup />}/>
 

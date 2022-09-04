@@ -72,7 +72,7 @@ const data = location.state;
                         </div>
                         <div class="col-sm-5 text-secondary">
                         <input type="text" class="form-control border-0 p-0" id="inputName" name="name" value={formData.fullname}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value})}/>
+                        onChange={(e) => setFormData({ ...formData, fullname: e.target.value})}/>
                         </div>
                     </div>
                     <hr/>
