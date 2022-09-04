@@ -50,7 +50,7 @@ function Login() {
       } else {
         // toast("Email or Password is incorrect!");
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/log-in";
         }, 2000);
       }
 

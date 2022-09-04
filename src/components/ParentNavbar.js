@@ -1,16 +1,31 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import Logout from './Logout';
+import { Link } from "react-router-dom";
+import apiClient from '../Services/ApiClient';
 import './Navbar.css'
 
 const logo = require('../assests/logo.png');
 const profileImage = require('../assests/Faalil.jpeg');
 
 
+
 export default function ParentNavbar() {
+
+  const [children,setChildren]=useState([])
+
+  useEffect(() => {
+    async function getChildrennames() { 
+        const{dataresponse,error} = await apiClient.getChildren()
+        console.log(dataresponse)
+        setChildren(dataresponse.result)
+        
+    }
+    getChildrennames();
+}, []);
 
   const [logoutShow, setlogoutShow] = React.useState(false);
 
@@ -27,10 +42,16 @@ export default function ParentNavbar() {
           <Nav className="fw-bold">
             <Nav.Link href="dashboard">Vehicles</Nav.Link>
             <NavDropdown title="My Children" id="basic-nav-dropdown">
-              <NavDropdown.Item href="parentmychildren">Roshan</NavDropdown.Item>
+              {/* <NavDropdown.Item href="parentmychildren">Roshan</NavDropdown.Item>
               <NavDropdown.Item href="NewChildren">
                 Dilshi
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
+              {children.map((data)=>{
+                        console.log(data)
+                        return  (
+                        <NavDropdown.Item> <Link to='/parentmychildren' className="text-decoration-none" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        )
+                    })}
               <NavDropdown.Divider />
               <NavDropdown.Item href="parentaddchildren">
                 Add another Child
