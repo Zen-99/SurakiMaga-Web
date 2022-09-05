@@ -12,6 +12,7 @@ import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import ChildProfile from '../../components/ChildProfile';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -24,6 +25,10 @@ function MyChildren() {
     const [ReviewModal, setReviewModal] = useState(false);
     const [rating, setRating] = useState(0) // initial rating value
 
+    const location = useLocation();
+    const data = location.state;
+    console.log(data);
+
   // Catch Rating value
   const handleRating = (rate) => {
     setRating(rate)
@@ -32,7 +37,7 @@ function MyChildren() {
     return (
         <>
         <div>
-        <ParentNavbar/>
+        <ParentNavbar  />
         <Container>
             <Row>
                 <Col xs={6} md={3} className="border children_profile" >
@@ -58,7 +63,7 @@ function MyChildren() {
                                 </Card.Body>
                         </Card>
                     </Container> */}
-                    <ChildProfile/>
+                    <ChildProfile state={data}/>
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
