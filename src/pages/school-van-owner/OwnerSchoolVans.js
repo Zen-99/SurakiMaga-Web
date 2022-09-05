@@ -11,6 +11,16 @@ function OwnerSchoolVans (){
     const [Editdetails, setEditdetails] = useState(false);
     const [drivers,setDrivers]=useState([])
 
+    const [formData, setFormData]=useState({
+        vehicleno:"",
+        vehicletype:"",
+        seats:"",
+        charge:"",
+        startlocation: "",
+        driverid:"",
+    
+      })
+
     useEffect(() => {
         async function getDriverdetails() { 
             const{dataresponse,error} = await apiClient.loadDriversDetails()
@@ -20,6 +30,10 @@ function OwnerSchoolVans (){
             setDrivers(dataresponse.result)
         }
         getDriverdetails();
+
+        async function addnewschoolvan(){
+            
+        }
     }, []);
 
     return(

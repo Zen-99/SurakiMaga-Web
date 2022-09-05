@@ -135,3 +135,14 @@
         padding: 2%;
     }
 }
+
+/* addnewvehicle-select */
+.css-1hb7zxy-IndicatorsContainer{
+    width: fit-content;
+}
+.css-1s2u09g-control{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-style: solid;
+    border-color: #ff8c01;
+}

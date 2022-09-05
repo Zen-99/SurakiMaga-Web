@@ -17,15 +17,15 @@ function OwnerNavbar() {
   const closeMobileMenu = () => setClick(false);
   const closeDropdownMenu = () => setClickDropdown(false);
 
-//   useEffect(() => {
-//     async function getownerdetails() { 
-//         const{dataresponse,error} = await apiClient.loadownerDetails()
-//         console.log(dataresponse)
-//         // console.log("dilshi")
-//         setFetchImage(dataresponse.result.image)
-//     }
-//     getownerdetails();
-// }, []);
+  useEffect(() => {
+    async function getownerdetails() { 
+        const{dataresponse,error} = await apiClient.loadownerDetails()
+        console.log(dataresponse)
+        // console.log("dilshi")
+        setFetchImage(dataresponse.result.image)
+    }
+    getownerdetails();
+}, []);
 
 //   window.onclick = function (event) {
 //     if (document.getElementsByClassName('menu-dropdown-icon')[0].contains(event.target)) {
