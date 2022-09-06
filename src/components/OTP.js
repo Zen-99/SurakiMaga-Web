@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import apiClient from '../Services/ApiClient';
 import { useForm } from "react-hook-form";
+import { useLocation } from 'react-router-dom';
 
 function OTP(props) {
     const {
@@ -12,6 +13,10 @@ function OTP(props) {
         formState: { errors },
         reset
       } = useForm();
+
+      const location = useLocation();
+      const dataregister = location.state;
+      console.log(dataregister);
  
   const onSubmitOtp =async (data,e) => {
     console.log(data);
