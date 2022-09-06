@@ -22,6 +22,8 @@ function Login() {
     trigger,
   } = useForm();
 
+  
+
   // const [inputs, setInputs] = useState({
   //   username: "",
   //   password: ""
@@ -34,6 +36,7 @@ function Login() {
 
     const onSubmitForm = async (datasubmit,e) => {
       // console.log("Akila Lula")
+      console.log(register.data);
       e.preventDefault();
         const { dataresponse, error } = await apiClient.loginUser({
            password : datasubmit["password"] ,
