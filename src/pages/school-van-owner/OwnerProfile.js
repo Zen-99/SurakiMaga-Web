@@ -131,6 +131,7 @@ function OwnerProfile (){
           experience:form_Data.experience,
           image: fetchData.image,
       });
+      refreshPage()
         // const formData=new FormData();
         // formData.append("file",file); 
         // formData.append("upload_preset","dskmbhbt"); 
@@ -152,7 +153,6 @@ function OwnerProfile (){
         //   });
         // })
       }
-      refreshPage()
       // e.preventDefault();
       // console.log(form_Data)
       // console.log(fetchData) 

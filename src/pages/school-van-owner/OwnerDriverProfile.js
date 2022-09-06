@@ -3,14 +3,16 @@ import './OwnerProfile.css';
 import '../Home.css';
 import Axios from "axios";
 import OwnerNavbar from "./OwnerNavbar";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom'
 import apiClient from '../../Services/ApiClient'
+// import { response } from "express";
 
 function OwnerDriverProfile (){
   const location = useLocation();
   const data = location.state;
-  console.log(data);
+  const navigate = useNavigate();
+
   const [file, setFile] = useState(" ");
   const [formError, setFormError] = useState({
     fullname:null,
@@ -34,11 +36,21 @@ function OwnerDriverProfile (){
     image:"",
 
   })
+  const [fetchData, setFetchData]=useState({
+    id:data,
+    fullname:"",
+    contact:"",
+    licenceno:"",
+    nic:"",
+    image:"",
+
+  })
   useEffect(() => {
     async function getdriverdetails() { 
       console.log(data)
-        const{dataresponse,error} = await apiClient.getDriverDetails(data)
+        const{dataresponse,error} = await apiClient.getDriverDetails({data:data})
         console.log(dataresponse)
+        setFetchData({ fullname:dataresponse.result.fullname,contact:dataresponse.result.contact,nic:dataresponse.result.nic,licenceno:dataresponse.result.licenceno,image:dataresponse.result.image})
         setform_Data({ fullname:dataresponse.result.fullname,contact:dataresponse.result.contact,nic:dataresponse.result.nic,licenceno:dataresponse.result.licenceno,image:dataresponse.result.image})
     }
     getdriverdetails();
@@ -83,7 +95,7 @@ function OwnerDriverProfile (){
             setFormError({...formError,nic:msg})
           } else if (form_Data.licenceno==""){
             let msg = "License number can't be empty."
-            setFormError({...formError,bank_acc:msg})
+            setFormError({...formError,licenceno:msg})
           } else if (form_Data.contact.length!=10){
             let msg = "contact number length incorrect."
             setFormError({...formError,contact:msg})
@@ -96,15 +108,17 @@ function OwnerDriverProfile (){
           } else {
             setFormError(null)
             setEditdetails(false);
-
+            console.log(form_Data)
+            console.log("else")
             const { dataresponse, error } =  apiClient.EditOwnerDriverProfile({
-              id:form_Data.id,
+              id:data,
               fullname:form_Data.fullname,
               contact: form_Data.contact,
               licenceno: form_Data.licenceno,
               nic : form_Data.nic,
-              image:form_Data.image,
+              image:fetchData.image,
             });
+            refreshPage()
             // const formData=new FormData();
             // formData.append("file",file); 
             // formData.append("upload_preset","dskmbhbt"); 
@@ -122,7 +136,9 @@ function OwnerDriverProfile (){
             //   });
             // })
           }
-          refreshPage()
+          // console.log(formError)
+          // console.log(form_Data)
+          
       }
       const submitImage = () => {
         setEditdetails(false);
@@ -153,8 +169,9 @@ function OwnerDriverProfile (){
 
       const removeDriver = async (e)=>{
         const { dataresponse, error } = await apiClient.removeDriver({
-          id:data.id,
+          id:data,
         })
+        navigate(-1)
       }
 
     return(
@@ -166,7 +183,7 @@ function OwnerDriverProfile (){
                     <div className="OwnerProfile-photo p-3 d-flex flex-column align-items-center text-center">
                         <div className="OwnerProfile-image">
                           {Editdetails.image ? (
-                            <div className="d-flex flex-column align-items-center justify-content-center gap-4 editpp rounded-circle" style={{backgroundImage: form_Data.image}}>
+                            <div className="d-flex flex-column align-items-center justify-content-center gap-4 editpp rounded-circle" style={{backgroundImage: fetchData.image}}>
                               <input type="file" id="Inputimage" name="image" onChange={(event)=>{setFile(event.target.files[0])}}/>
                               <div className="d-flex flex-row gap-4 justify-content-center">
                                 <button type="submit" className="savebutton" value="Submit" onClick={submitImage}>Save</button>
@@ -175,7 +192,7 @@ function OwnerDriverProfile (){
                           </div>
                           ):(
                             <div>
-                              <img src={form_Data.image} alt="" class="rounded-circle"/>
+                              <img src={fetchData.image} alt="" class="rounded-circle"/>
                               <button class="add-image-btn p-2 rounded-circle" type="button" onClick={()=>setEditdetails({...Editdetails,image:true})}>
                                 <i class="fas fa-pen"></i>
                               </button>
@@ -188,13 +205,13 @@ function OwnerDriverProfile (){
                                 <input type="text" class="form-control border-0 p-0" id="inputName" name="name" value={form_Data.fullname}
                                 onChange={(e) => setform_Data({ ...form_Data, fullname: e.target.value})}/>
                                 <button type="submit" className="savebutton" value="Submit" onClick={submitDetails}>Save</button>
-                                <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("fullname",data.fullname)}>Cancel</button>
+                                <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("fullname",fetchData.fullname)}>Cancel</button>
                               </div>
                               <div className="errors">{formError.fullname}</div>
                             </div>
                             ):(
                               <div class="mt-3 d-flex flex-row justify-content-center align-items-center gap-4">
-                                <h4>{data.fullname}</h4>
+                                <h4>{fetchData.fullname}</h4>
                                 <button type="Button" className="editbutton" onClick={()=>setEditdetails({...Editdetails,fullname:true})}><img src={require('../../assests/pen-solid.svg')} className="editbutton" style={{height:'15px',width:'15px',}} alt=""/></button> 
                               </div>
                             )}
@@ -210,13 +227,13 @@ function OwnerDriverProfile (){
                           <input type="text" class="form-control border-0 p-0" id="inputID" name="nic" value={form_Data.nic}
                       onChange={(e) => setform_Data({ ...form_Data, nic: e.target.value})}/>
                           <button type="submit" className="savebutton" value="Submit" onClick={submitDetails}>Save</button>
-                          <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("nic",data.nic)}>Cancel</button>
+                          <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("nic",fetchData.nic)}>Cancel</button>
                         </div>
                         <div className="errors">{formError.nic}</div>
                         </div>
                       ):(
                           <div class="col-sm-5 text-secondary d-flex flex-row justify-content-between align-items-center">
-                            {data.nic}
+                            {fetchData.nic}
                             <button type="Button" className="editbutton" onClick={()=>setEditdetails({...Editdetails,nic:true})}><img src={require('../../assests/pen-solid.svg')} className="editbutton" style={{height:'15px',width:'15px',}} alt=""/></button>
                           </div> 
                       )}
@@ -232,13 +249,13 @@ function OwnerDriverProfile (){
                           <input type="text" class="form-control border-0 p-0" id="inputlicense" name="licenceno" value={form_Data.licenceno}
                       onChange={(e) => setform_Data({ ...form_Data, licenceno: e.target.value})}/>
                           <button type="submit" className="savebutton" value="Submit" onClick={submitDetails}>Save</button>
-                          <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("licenceno",data.licenceno)}>Cancel</button>
+                          <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("licenceno",fetchData.licenceno)}>Cancel</button>
                         </div>
                       <div className="errors">{formError.licenceno}</div>
                       </div>
                       ):(
                           <div class="col-sm-5 text-secondary d-flex flex-row justify-content-between align-items-center">
-                            {data.licenceno}
+                            {fetchData.licenceno}
                             <button type="Button" className="editbutton" onClick={()=>setEditdetails({...Editdetails,licenceno:true})}><img src={require('../../assests/pen-solid.svg')} className="editbutton" style={{height:'15px',width:'15px',}} alt=""/></button>
                           </div> 
                       )}
@@ -254,13 +271,13 @@ function OwnerDriverProfile (){
                           <input type="text" class="form-control border-0 p-0" id="inputMb" name="contact" value={form_Data.contact}
                         onChange={(e) => setform_Data({ ...form_Data, contact: e.target.value})}/>
                           <button type="submit" className="savebutton" value="Submit" onClick={submitDetails}>Save</button>
-                          <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("contact",data.contact)}>Cancel</button>
+                          <button type="submit" className="cancelbutton" value="Submit" onClick={()=>CancelEdit("contact",fetchData.contact)}>Cancel</button>
                         </div>
                         <div className="errors">{formError.contact}</div>
                       </div>
                       ):(
                           <div class="col-sm-5 text-secondary d-flex flex-row justify-content-between align-items-center">
-                            {data.contact}
+                            {fetchData.contact}
                             <button type="Button" className="editbutton" onClick={()=>setEditdetails({...Editdetails,contact:true})}><img src={require('../../assests/pen-solid.svg')} className="editbutton" style={{height:'15px',width:'15px',}} alt=""/></button>
                           </div> 
                       )}

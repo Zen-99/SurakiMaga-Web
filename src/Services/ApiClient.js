@@ -80,21 +80,21 @@ class ApiClient{
         return await this.request({ endpoint: `driverauth/details`, method: `GET`})
     }
     async loadownerDetails(){
-        return await this.request({ endpoint: `owner/getownerdetails`, method: `GET`})
+        return await this.request({ endpoint: `ownerauth/getownerdetails`, method: `GET`})
     }
     async registerDriver(credentials){
-        return await this.request({endpoint:`owner/registerDriver`,method:`POST`,data:credentials})
+        return await this.request({endpoint:`ownerauth/registerDriver`,method:`POST`,data:credentials})
     }
     async EditOwnerProfile(credentials){
         console.log(credentials)
-        return await this.request({endpoint:`owner/EditOwnerProfile`,method:`POST`,data:credentials})
+        return await this.request({endpoint:`ownerauth/EditOwnerProfile`,method:`POST`,data:credentials})
     }
     async loadDriversDetails(){
-        return await this.request({endpoint: `owner/getdriverdetails`, method: `GET`})
+        return await this.request({endpoint: `ownerauth/getdriverdetails`, method: `GET`})
     }
     async EditOwnerDriverProfile(credentials){
         console.log(credentials)
-        return await this.request({endpoint:`owner/EditOwnerDriverProfile`,method:`POST`,data:credentials})
+        return await this.request({endpoint:`ownerauth/EditOwnerDriverProfile`,method:`POST`,data:credentials})
     }
 
     async isVerify(){
@@ -103,12 +103,16 @@ class ApiClient{
 
     async removeDriver(credentials){
         console.log(credentials)
-        return await this.request({endpoint:`owner/removeDriver`,method:`POST`,data:credentials})
+        return await this.request({endpoint:`ownerauth/removeDriver`,method:`POST`,data:credentials})
 
     }
     async getDriverDetails(credentials){
         console.log(credentials)
-        return await this.request({endpoint:`owner/loadDriverDetails`,method:`POST`,data:credentials})
+        return await this.request({endpoint:`ownerauth/loadDriverDetails`,method:`POST`,data:credentials})
+    }
+    async registersclvan(credentials) {
+        console.log(credentials)
+        return await this.request({endpoint:`ownerauth/registersclvan`,method:`POST`,data:credentials})
     }
 
      //Parent Routes
