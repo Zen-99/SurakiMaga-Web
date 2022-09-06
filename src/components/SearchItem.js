@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { Link,useLocation} from "react-router-dom";
 import "./SearchItem.css";
-import { Link} from "react-router-dom";
 const homeImage = require('../assests/schoolbus.png');
 
 
-const SearchItem = () => {
+function SearchItem(){
+
+  const location = useLocation();
+  const data = location.state;
+  console.log(data);
+
+  // console.log(props.id);
+
+
   return (
     <div className="searchItem">
       <img
@@ -15,7 +23,7 @@ const SearchItem = () => {
       <div className="siDesc">
         <h1 className="siTitle">Piliyandala Transport Service</h1>
         <span className="siDistance">School Van</span>
-        <span className="siTaxiOp">10 Seats Available</span>
+        <span className="siTaxiOp">Hey</span>
         <span className="siSubtitle">
           Hybrid Van with Air conditioning
         </span>

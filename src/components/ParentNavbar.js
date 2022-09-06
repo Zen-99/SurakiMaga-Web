@@ -25,7 +25,7 @@ export default function ParentNavbar() {
   useEffect(() => {
     async function getChildrennames() { 
         const{dataresponse,error} = await apiClient.getChildren()
-        console.log(dataresponse)
+        // console.log(dataresponse)
         setChildren(dataresponse.result)
         
     }
@@ -52,9 +52,9 @@ export default function ParentNavbar() {
                 Dilshi
               </NavDropdown.Item> */}
               {children.map((data)=>{
-                        console.log(data)
+                        // console.log(data)
                         return  (
-                        <NavDropdown.Item> <Link to='/parentmychildren' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        <NavDropdown.Item key='{data.id}'> <Link to='/parentmychildren' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
                         )
                     })}
               <NavDropdown.Divider />
@@ -64,18 +64,18 @@ export default function ParentNavbar() {
             </NavDropdown>
             <NavDropdown title="Route to School" id="basic-nav-dropdownschool">
             {children.map((data)=>{
-                        console.log(data)
+                        // console.log(data)
                         return  (
-                        <NavDropdown.Item> <Link to='/parentroute' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        <NavDropdown.Item key='{data.id}'> <Link to='/parentroute' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
                         )
               })}
             </NavDropdown>
             <NavDropdown  title={
                         
-                        <img className="thumbnail-image ms-5 center" 
+                        <img className="thumbnail-image ms-5 center rounded" 
                             src={profileImage} 
                             alt="user pic"
-                            roundedCircle
+                            
     style={{ width: '50px' }}
                         />
                   
