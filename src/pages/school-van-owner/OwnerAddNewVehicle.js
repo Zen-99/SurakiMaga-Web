@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import './OwnerSchoolVans.css';
 import '../Home.css';
 import { Link } from "react-router-dom";
@@ -7,6 +7,23 @@ import apiClient from '../../Services/ApiClient'
 import Select from 'react-select'
 
 function OwnerAddNewVehicle() {
+    const [drivers,setDrivers]=useState([])
+    const [school,setSchool]=useState([])
+    useEffect(() => {
+        async function getDriverdetails() { 
+            const{dataresponse,error} = await apiClient.loadDriversDetails()
+            setDrivers(dataresponse.result)
+        }
+        getDriverdetails();
+    }, []);
+    useEffect(() => {
+        async function getschool(){
+            const{dataresponse,error} = await apiClient.getSchool()
+            console.log(dataresponse)
+            setSchool(dataresponse.result)
+        }
+        getschool()
+    },[]);
     const [file, setFile] = useState({
         frontimg:"",
         backimg:"",
@@ -31,22 +48,37 @@ function OwnerAddNewVehicle() {
         img:null
 
       });
-      const [selectedValue, setSelectedValue] = React.useState(form_Data.vehicletype);
+      const [selectedValue, setSelectedValue] = useState(form_Data.vehicletype);
       const handleChange = (event) => {
         setSelectedValue(event.target.value);
         setForm_Data({ ...form_Data, vehicletype: event.target.value})
       };
-      const options = [
-        { value: 1, label: 'Roshan Senevirathne' },
-        { value: 8, label: 'Damith Wickramasinghe' },
-        { value: 2, label: 'faali senevirathne' }
-      ]
-      const submitDetails=()=>{
-        console.log(file)
+    //   var selectedschools = []
+    //   const handleselectschool = (selected) => {
+    //     console.log(selected)
+    //     selectedschools.push({id:selected.value})
+    //   };
+    const [selectedSchools, setSelectedSchools] = useState();
+    const handleselectschool = (selected) => {
+        // setSelectedSchools(event.target.value)
+        console.log(selected)
+        setSelectedSchools(selected)
+    }
+
+      var options = []
+      drivers.map((data)=>{
+        if(data.avail === 1){
+            options.push({ value: data.id, label: data.fullname })
+        }
+      })
+      var selectschools = []
+      school.map((data)=>{
+            selectschools.push({ value: data.id, label: data.name })
+      })
+      const submitDetails = async ()=>{
         if(form_Data.vehicleno ===""){
             let msg = "license number can't be empty."
             setFormError({vehicleno:msg,seats:null,charge:null,startlocation: null,driverid:null,img:null})
-            console.log(form_Data.vehicleno)
         } else if(file.frontimg===""||file.backimg===""||file.licensefront===""||file.licenseback===""){
             let msg = "upload all required images"
             setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:null,img:msg})
@@ -63,53 +95,68 @@ function OwnerAddNewVehicle() {
             let msg = "charge can't be empty."
             setFormError({vehicleno:null,seats:null,charge:msg,startlocation: null,driverid:null,img:null})
         } else{
-            console.log(file)
-            
-        const formData=new FormData();
-        formData.append("file",file.frontimg); 
-        formData.append("upload_preset","dskmbhbt"); 
-        Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
-        .then((response)=>{
-            const frontimage = response.data.secure_url
-            const formData=new FormData();
-            formData.append("file",file.backimg); 
-            formData.append("upload_preset","dskmbhbt"); 
-            Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
-            .then((response)=>{
-                const backimage = response.data.secure_url
+            const { dataresponse, error } = await apiClient.isuniquevehicleno({vehicleno:form_Data.vehicleno})
+            console.log(dataresponse.result)
+            if(!dataresponse.result){
+                let msg = "license number already exists"
+                setFormError({vehicleno:msg,seats:null,charge:null,startlocation: null,driverid:null,img:null})
+            } else {    
                 const formData=new FormData();
-                formData.append("file",file.licensefront); 
+                formData.append("file",file.frontimg); 
                 formData.append("upload_preset","dskmbhbt"); 
                 Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
                 .then((response)=>{
-                    const licensefrontimage = response.data.secure_url
+                    const frontimage = response.data.secure_url
                     const formData=new FormData();
-                    formData.append("file",file.licenseback); 
+                    formData.append("file",file.backimg); 
                     formData.append("upload_preset","dskmbhbt"); 
                     Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
                     .then((response)=>{
-                        const licensebackimage = response.data.secure_url
-                        const { dataresponse, error } = apiClient.registersclvan({
-                            vehicleno:form_Data.vehicleno,
-                            vehicletype  : form_Data.vehicletype,
-                            seats : form_Data.seats,
-                            charge: form_Data.charge,
-                            startlocation:form_Data.startlocation,
-                            driverid:form_Data.driverid,
-                            frontimg:frontimage,
-                            backimg:backimage,
-                            licensefront:licensefrontimage,
-                            licenseback:licensebackimage,
+                        const backimage = response.data.secure_url
+                        const formData=new FormData();
+                        formData.append("file",file.licensefront); 
+                        formData.append("upload_preset","dskmbhbt"); 
+                        Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
+                        .then((response)=>{
+                            const licensefrontimage = response.data.secure_url
+                            const formData=new FormData();
+                            formData.append("file",file.licenseback); 
+                            formData.append("upload_preset","dskmbhbt"); 
+                            Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
+                            .then(async (response)=>{
+                                const licensebackimage = response.data.secure_url
+                                const { dataresponse, error } = await apiClient.registersclvan({
+                                    vehicleno:form_Data.vehicleno,
+                                    vehicletype  : form_Data.vehicletype,
+                                    seats : form_Data.seats,
+                                    charge: form_Data.charge,
+                                    startlocation:form_Data.startlocation,
+                                    driverid:form_Data.driverid,
+                                    frontimg:frontimage,
+                                    backimg:backimage,
+                                    licensefront:licensefrontimage,
+                                    licenseback:licensebackimage,
+                                })
+                                const schoolvanid = dataresponse.result.id
+                                console.log(schoolvanid)
+                                selectedSchools.map(async (data)=>{
+                                    console.log(data.value)
+                                    const {dataresponse, error} = await apiClient.addSchoolstoSchoolvan({
+                                        school:data.value,
+                                        schoolvanid:schoolvanid,
+                                    })
+                                })
+                            })
+                        })
                     })
-                    })
+                setFile({frontimg:"",backimg:"",licensefront:"",licenseback:""})
+                setForm_Data({name:"",mobile: "",nic: "",licenseno: ""})
                 })
-            })
-           setFile({frontimg:"",backimg:"",licensefront:"",licenseback:""})
-           setForm_Data({name:"",mobile: "",nic: "",licenseno: ""})
-        })}
+            } 
+        }
     }
     const handleselect = (selected) => {
-        console.log(selected);
+        console.log(selected.value);
         setForm_Data({ ...form_Data, driverid: selected.value})
       };
     return(
@@ -202,12 +249,14 @@ function OwnerAddNewVehicle() {
                                     <div class="col-sm-8 text-secondary">
                                     <div class="dropdown-container">
                                         <Select
-                                            options={options}
-                                            isMulti
-                                            name="drivers"
-                                            placeholder="assign a driver"
+                                            options={selectschools}
+                                            isMulti={true}
+                                            name="schools"
+                                            placeholder="select schools"
                                             className="basic-multi-select"
                                             classNamePrefix="select"
+                                            value={selectschools.value}
+                                            onChange={handleselectschool}
                                         />
                                     </div>
                                     </div>

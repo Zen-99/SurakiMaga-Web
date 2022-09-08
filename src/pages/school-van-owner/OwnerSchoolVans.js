@@ -10,6 +10,10 @@ import apiClient from '../../Services/ApiClient'
 function OwnerSchoolVans (){
     const [Editdetails, setEditdetails] = useState(false);
     const [drivers,setDrivers]=useState([])
+    const [schoolvans,setSchoolvans]=useState([])
+    const [school,setSchool]=useState([])
+    const [selectsclvan,setSelectsclvan]= useState()
+    const [schoolsSchoolvan,setSchoolsSchoolvan]=useState([])
 
     const [formData, setFormData]=useState({
         vehicleno:"",
@@ -24,17 +28,44 @@ function OwnerSchoolVans (){
     useEffect(() => {
         async function getDriverdetails() { 
             const{dataresponse,error} = await apiClient.loadDriversDetails()
-            console.log(dataresponse)
-            // console.log("dilshi")
             console.log(dataresponse.result)
             setDrivers(dataresponse.result)
         }
         getDriverdetails();
-
-        async function addnewschoolvan(){
-            
-        }
     }, []);
+
+    useEffect(() => {
+        async function getschoolvandetails(){
+            const{dataresponse,error} = await apiClient.getschoolvandetails()
+            console.log(dataresponse)
+            setSchoolvans(dataresponse.result)
+            setSelectsclvan(dataresponse.result[0].id)
+        }
+        getschoolvandetails();
+    },[])
+    useEffect(() => {
+        async function getschoolsSchoolvan(){
+            const{dataresponse,error} = await apiClient.getschoolsSchoolvan()
+            console.log(dataresponse.result)
+            setSchoolsSchoolvan(dataresponse.result)
+        }
+        getschoolsSchoolvan()
+    },[]);
+
+    useEffect(() => {
+        async function getschool(){
+            const{dataresponse,error} = await apiClient.getSchool()
+            console.log(dataresponse)
+            setSchool(dataresponse.result)
+        }
+        getschool()
+    },[]);
+
+    const handleselected = (selected) => {
+        console.log(selected);
+        setSelectsclvan(selected)
+        console.log(selectsclvan)
+      };
 
     return(
         <div className="home">
@@ -46,68 +77,77 @@ function OwnerSchoolVans (){
                         <div className="d-flex justify-content-between owner-Select-vehical-btns">
                             <div class="col-5 d-flex flex-row align-items-center owner-select-scl-van-container">
                                 <label for="inputSchoolvan" class="form-label m-0 me-2 owner-select-scl-van">School Van: </label>
-                                <select id="inputSchoolvan" class="form-select" placeholder="Choose.." required>
-                                <option>ABC123</option>
-                                <option>ACD345</option>
-                                <option>BN567</option>
+                                <select id="inputSchoolvan" class="form-select" placeholder="Choose.."  onChange={(e) => handleselected(e.target.value)} >
+                                {schoolvans.map((data)=>{
+                                    console.log(selectsclvan)
+                                    console.log(data)
+                                    return <option value={data.id}>{data.vehicleno}</option>
+                                })}
                                 </select>
                             </div>
                             <button type="button" class="btn btn-primary owner-add-new-vehicle-btn"data-bs-toggle="modal" data-bs-target="#OwneraddnewvehicleModal">Add new vehicle</button>
                         </div>
-                        <div className="d-flex  align-items-center ownervehicleinfo">
+                        {schoolvans.map((data)=>{
+                            if(selectsclvan===data.id){
+                         return <div className="d-flex  align-items-center ownervehicleinfo">
                         <div className="owner-vehicle-image">
-                        <img src={require('../../assests/school-bus.jpg')} alt="" class="rounded-circle"/>
+                        <img src={data.frontimage} alt="" class="rounded-circle"/>
                         </div>
                         <div className="p-3">
                             <hr/>
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Vehicle No</h6></div>
-                                <div class="col-sm-5 text-secondary">wp PA 1645</div>
+                                <div class="col-sm-5 text-secondary">{data.vehicleno}</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Vehicle type</h6></div>
-                                <div class="col-sm-5 text-secondary">Van</div>
+                                <div class="col-sm-5 text-secondary">{data.vehicletype}</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">number of seats</h6></div>
-                                <div class="col-sm-5 text-secondary">40</div>
+                                <div class="col-sm-5 text-secondary">{data.seats}</div>
                             </div>
                             <hr/>
-                            {/* <div class="row justify-content-evenly">
-                                <div class="col-sm-3"><h6 class="mb-0">Model</h6></div>
-                                <div class="col-sm-5 text-secondary">KDH</div>
-                            </div>
-                            <hr/> */}
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Driver</h6></div>
-                                <div class="col-sm-5 text-secondary">Damitha Wickramasinghe</div>
+                                <div class="col-sm-5 text-secondary">{data.fullname}</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Start location</h6></div>
-                                <div class="col-sm-5 text-secondary">Pliyandala</div>
+                                <div class="col-sm-5 text-secondary">{data.startlocation}</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Charge per km</h6></div>
-                                <div class="col-sm-5 text-secondary">50</div>
+                                <div class="col-sm-5 text-secondary">{data.charge}</div>
                             </div>
                             <hr/>
                             <div class="row justify-content-evenly">
                                 <div class="col-sm-3"><h6 class="mb-0">Schools</h6></div>
-                                <div class="col-sm-5 text-secondary">
-                                <div class="d-flex flex-column">
-                            <li class="fs-10 me-3">D.S Senamayake College</li>
-                            <li class="fs-10 me-3">Vishaka Vidyalaya</li>
-                            <li class="fs-10 me-3">Vishaka Vidyalaya</li>
-                        </div>
-                                </div>
+                                    <div class="col-sm-5 text-secondary">
+                                        <div class="d-flex flex-column">
+                                            {schoolsSchoolvan.map((data)=>{
+                                                console.log(selectsclvan)
+                                                if(data.sclvanid===selectsclvan){
+                                                    school.map((scl)=>{
+                                                        if(data.sclid===scl.id){
+                                                            console.log(scl)
+                                                            return <li class="fs-10 me-3" key={scl.id}>{scl.name}</li>
+                                                        }
+                                                    })
+                                                }
+                                            })}
+                                        </div>
+                                    </div>
                             </div>
                             <hr/>
                         </div>
                         </div>
+                            }
+                        })}
                         <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                         <button type="Button" class="btn btn-primary" onClick={() => setEditdetails(true)}>
                         <i class="fas fa-pen me-2"></i>Edit Details</button>
