@@ -5,7 +5,7 @@ import OwnerNavbar from "./OwnerNavbar";
 import {Link} from 'react-router-dom';
 import apiClient from '../../Services/ApiClient'
 import Axios from "axios";
-import { name } from "@cloudinary/url-gen/actions/namedTransformation";
+// import { name } from "@cloudinary/url-gen/actions/namedTransformation";
 // import Popup from 'reactjs-popup';
 
 function OwnerProfile (){

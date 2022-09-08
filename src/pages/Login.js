@@ -22,6 +22,8 @@ function Login() {
     trigger,
   } = useForm();
 
+  
+
   // const [inputs, setInputs] = useState({
   //   username: "",
   //   password: ""
@@ -34,12 +36,13 @@ function Login() {
 
     const onSubmitForm = async (datasubmit,e) => {
       // console.log("Akila Lula")
+      // console.log(register.data);
       e.preventDefault();
         const { dataresponse, error } = await apiClient.loginUser({
            password : datasubmit["password"] ,
            username : datasubmit["username"]
       })
-      console.log(dataresponse.status)
+      // console.log(dataresponse.status)
       
       if (dataresponse.status) {
         // toast("Login Successful!");
@@ -120,7 +123,7 @@ function Login() {
         <Form.Check type="checkbox" label="Remember Me" />
       </Form.Group>
       
-      <div class="d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
       <Button className='btn-primary w-50 centering logbutton' type="submit">
         Log in
       </Button>

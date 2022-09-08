@@ -17,10 +17,15 @@ export default function ParentNavbar() {
 
   const [children,setChildren]=useState([])
 
+  function logout(){
+    apiClient.removeToken();
+    window.location.href = "/log-in";
+  }
+
   useEffect(() => {
     async function getChildrennames() { 
         const{dataresponse,error} = await apiClient.getChildren()
-        console.log(dataresponse)
+        // console.log(dataresponse)
         setChildren(dataresponse.result)
         
     }
@@ -47,9 +52,9 @@ export default function ParentNavbar() {
                 Dilshi
               </NavDropdown.Item> */}
               {children.map((data)=>{
-                        console.log(data)
+                        // console.log(data)
                         return  (
-                        <NavDropdown.Item> <Link to='/parentmychildren' className="text-decoration-none" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        <NavDropdown.Item key='{data.id}'> <Link to='/parentmychildren' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
                         )
                     })}
               <NavDropdown.Divider />
@@ -58,17 +63,19 @@ export default function ParentNavbar() {
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Route to School" id="basic-nav-dropdownschool">
-              <NavDropdown.Item href="parentroute">Roshan</NavDropdown.Item>
-              <NavDropdown.Item href="parentroute">
-                Dilshi
-              </NavDropdown.Item>
+            {children.map((data)=>{
+                        // console.log(data)
+                        return  (
+                        <NavDropdown.Item key='{data.id}'> <Link to='/parentroute' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        )
+              })}
             </NavDropdown>
             <NavDropdown  title={
                         
-                        <img className="thumbnail-image ms-5 center" 
+                        <img className="thumbnail-image ms-5 center rounded" 
                             src={profileImage} 
                             alt="user pic"
-                            roundedCircle
+                            
     style={{ width: '50px' }}
                         />
                   
@@ -76,7 +83,7 @@ export default function ParentNavbar() {
               
               <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="log-in">
+              <NavDropdown.Item  href="log-in" onClick={logout}>
                 Log out
                 {/* <Logout
                   show={logoutShow}

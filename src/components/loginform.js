@@ -19,6 +19,7 @@ import OTP from './OTP';
 function Loginform(props) {
 
   const [modalShow, setModalShow] = useState(false);
+  const [value,setValues]=useState([])
 
   const {
     register,
@@ -26,6 +27,7 @@ function Loginform(props) {
     formState: { errors },
     reset,
     trigger,
+    getValues,
     watch
   } = useForm();
 
@@ -200,7 +202,8 @@ function Loginform(props) {
 
       
        <div  >
-       <Button className='btn-primary' type="submit">
+       <Button className='btn-primary' type="submit" 
+        >
          Sign up
        </Button>
        </div>
@@ -209,9 +212,9 @@ function Loginform(props) {
         </p>
       </Form> 
 
-      <OTP password={password}
+      <OTP password={password} state={value}
           show={modalShow}
-          onHide={() => setModalShow(false)}
+          onHide={() => setModalShow(false)} 
         />
     
       

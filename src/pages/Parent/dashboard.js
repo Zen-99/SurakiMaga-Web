@@ -1,17 +1,25 @@
-import React from "react";
+import React, {useState,useEffect} from 'react'
 import "./dashboard.css";
 import ParentNavbar from "../../components/ParentNavbar";
 import SearchItem from "../../components/SearchItem";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
+import apiClient from '../../Services/ApiClient'
 
 
 const ParentDashboard = () => {
-//   const location = useLocation();
-//   const [destination, setDestination] = useState(location.state.destination);
-//   const [date, setDate] = useState(location.state.date);
-//   const [openDate, setOpenDate] = useState(false);
-//   const [options, setOptions] = useState(location.state.options);
+
+  const [ad,setAd]=useState([]);
+
+  useEffect(() => {
+    async function getSchoolAds() {
+        const{dataresponse,error} = await apiClient.getSchoolAdvertisement()
+        // console.log(dataresponse)
+        setAd(dataresponse.result)
+        
+    }
+    getSchoolAds();
+}, []);
 
   return (
     <div>
@@ -69,15 +77,23 @@ const ParentDashboard = () => {
             <Button className="mt-2">Search</Button>
           </div>
           <div className="listResult">
+          {ad.map((schoolad)=>{
+                        console.log(schoolad)
+                        return  (
+                          // <h1>{data.id}</h1>
+                          <SearchItem key='{data.id}' state={schoolad} />
+                          
+                        )
+              })}
+            
+            {/* <SearchItem />
             <SearchItem />
             <SearchItem />
             <SearchItem />
             <SearchItem />
             <SearchItem />
             <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            <SearchItem /> */}
           </div>
         </div>
       </div>

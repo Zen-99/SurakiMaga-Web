@@ -131,12 +131,19 @@ class ApiClient{
 
 
      //Parent Routes
-     async getChildren(){
+    async getChildren(){
         return await this.request({endpoint:`parent/children`,method:`GET`})
     }
     async getSchool(){
         return await this.request({endpoint:`user/school`,method:`GET`})
     }
+    async getSchoolAdvertisement(){
+        return await this.request({endpoint:`user/schoolvanadvertisement`,method:`GET`})
+    }
+    async addChild(credentials){
+        return await this.request({endpoint:`user/schoolvanadvertisement`,method:`POST`,data:credentials})
+    }
+    
 }
 
 
