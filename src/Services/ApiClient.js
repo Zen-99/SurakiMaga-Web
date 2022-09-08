@@ -114,6 +114,21 @@ class ApiClient{
         console.log(credentials)
         return await this.request({endpoint:`ownerauth/registersclvan`,method:`POST`,data:credentials})
     }
+    async addSchoolstoSchoolvan(credentials) {
+        console.log(credentials)
+        return await this.request({endpoint:`ownerauth/addSchoolstoSchoolvan`,method:`POST`,data:credentials})
+    }
+    async isuniquevehicleno(credentials){
+        console.log(credentials)
+        return await this.request({endpoint:`ownerauth/isuniquevehicleno`,method:`POST`,data:credentials})
+    }
+    async getschoolvandetails(){
+        return await this.request({endpoint: `ownerauth/getschoolvandetails`, method: `GET`})
+    }
+    async getschoolsSchoolvan(){
+        return await this.request({endpoint: `ownerauth/getschoolsSchoolvan`, method: `GET`})
+    }
+
 
      //Parent Routes
      async getChildren(){
