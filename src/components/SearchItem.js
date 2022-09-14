@@ -4,11 +4,13 @@ import "./SearchItem.css";
 const homeImage = require('../assests/schoolbus.png');
 
 
-function SearchItem(){
+function SearchItem(props){
 
-  const location = useLocation();
-  const data = location.state;
-  console.log(data);
+  // const location = useLocation();
+  // const data = location.state;
+  // console.log(data);
+
+  console.log(props.result)
 
   // console.log(props.id);
 
@@ -16,13 +18,13 @@ function SearchItem(){
   return (
     <div className="searchItem">
       <img
-        src={homeImage}
+        src={props.result.frontimage}
         alt="School Van"
         className="siImg"
       />
       <div className="siDesc">
-        <h1 className="siTitle">Piliyandala Transport Service</h1>
-        <span className="siDistance">School Van</span>
+        <h1 className="siTitle">{props.result.title}</h1>
+        <span className="siDistance">{props.result.vehicletype}</span>
         <span className="siTaxiOp">Hey</span>
         <span className="siSubtitle">
           Hybrid Van with Air conditioning
@@ -41,9 +43,9 @@ function SearchItem(){
           <button>8.9</button>
         </div>
         <div className="siDetailTexts">
-          <span className="siPrice">Rs.45 per Km</span>
+          <span className="siPrice">{props.result.charge} per Km</span>
           {/* <span className="siTaxOp">Includes taxes and fees</span> */}
-          <button className="siCheckButton"> <Link to="/VehicleView">See More Details</Link></button>
+          <button className="siCheckButton"> <Link to="/parentvehicleview" state={props.result} >See More Details</Link></button>
         </div>
       </div>
     </div>
