@@ -24,10 +24,22 @@ function MyChildren() {
     const [modalShow, setModalShow] = useState(false);
     const [ReviewModal, setReviewModal] = useState(false);
     const [rating, setRating] = useState(0) // initial rating value
+    const [Vandetails,setVandetails]=useState([]);
 
     const location = useLocation();
     const data = location.state;
     console.log(data);
+
+    console.log(data.vanid);
+
+    if(data.vanid){
+
+    }
+
+    // if(Vanid)
+    // {
+
+    // }
 
   // Catch Rating value
   const handleRating = (rate) => {
@@ -67,6 +79,7 @@ function MyChildren() {
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
+                    {data.vanid ? <h1>No School Vans</h1>  : 
                     <Container className="p-2 my-2 d-flex flex-column">
                     <div className="d-flex">
                     <Carousel className="bg-white">
@@ -171,6 +184,7 @@ function MyChildren() {
                     </div>
                     </div>
                     </Container>
+}
                 </Col>
             </Row>
         </Container>
