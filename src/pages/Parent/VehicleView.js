@@ -19,10 +19,13 @@ const mapImage = require('../../assests/map.jpg');
 
 export default function VehicleView() {
     const [requestvehiclemodalShow, setRequestVehicleModalShow] = useState(false);
+    
 
     const location = useLocation();
     const schoolvan = location.state;
-    console.log(schoolvan);
+    
+
+
 
   return (
     <div>
