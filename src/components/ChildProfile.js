@@ -19,7 +19,7 @@ export default function () {
     <div>
     <Container className="p-2 my-2">
                         <Card className='border-0 '>
-                           <Card.Img variant="img-fluid rounded-circle img-fluid rounded-circle  border-4 w-75 p-2 mt-1 mx-auto"  src={profileImage} />
+                           <Card.Img variant="img-fluid rounded-circle img-fluid rounded-circle  border-4 w-75 p-2 mt-1 mx-auto"  src={data.image} />
                                 <Card.Body>
                                     <Card.Title className='font-weight-bold mb-3 text-center'>{data.fullname}</Card.Title>
                                         <Card.Text className='d-flex  flex-column'>

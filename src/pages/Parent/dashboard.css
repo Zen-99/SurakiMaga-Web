@@ -68,3 +68,37 @@
   .listResult {
     flex: 3;
   }
+
+  .paginationBttns {
+    margin: auto;
+    width: 50%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .paginationBttns a {
+    padding: 10px;
+    /* margin: 8px; */
+    border-radius: 5px;
+    border: 1px solid #ff8c01;
+    color: #ff8c01;
+    cursor: pointer;
+  }
+  
+  .paginationBttns a:hover {
+    color: white;
+    background-color: #ff8c01;
+  }
+  
+  .paginationActive a {
+    color: white;
+    background-color: #ff8c01;
+  }
+  
+  .paginationDisabled a , .paginationDisabled a:hover{
+    color: grey;
+    background-color: grey;
+  }

@@ -9,6 +9,8 @@ import Button from 'react-bootstrap/Button';
 import { SocialIcon } from 'react-social-icons';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import RequestVan from '../../components/RequestVan';
+import { useLocation } from 'react-router-dom';
+
 
 const homeImage = require('../../assests/schoolbus.png');
 const bus1Image = require('../../assests/schoolbus1.jpg');
@@ -17,13 +19,20 @@ const mapImage = require('../../assests/map.jpg');
 
 export default function VehicleView() {
     const [requestvehiclemodalShow, setRequestVehicleModalShow] = useState(false);
+    
+
+    const location = useLocation();
+    const schoolvan = location.state;
+    
+
+
 
   return (
     <div>
        <ParentNavbar/>
        <Container className='border mb-3'>
         <div className='d-flex mb-1'>
-        <div className='my-auto fixed'><h3 className="fw-bold">School Bus Service from Piliyandala to Townhall</h3></div>
+        <div className='my-auto fixed'><h3 className="fw-bold">{schoolvan.title}</h3></div>
         <Button onClick={() => setRequestVehicleModalShow(true)} className='w-25 m-2 p-2'>Request Vehicle</Button>
         <RequestVan
             show={requestvehiclemodalShow}
@@ -37,7 +46,7 @@ export default function VehicleView() {
                     <Carousel.Item className=''>
                         <img
                         className="d-block mx-auto"
-                        src={homeImage} style={{
+                        src={schoolvan.frontimage} style={{
                             height:'400px',
                             width:'500px',
                             }}
@@ -47,23 +56,14 @@ export default function VehicleView() {
                     <Carousel.Item className='align-items-center center'>
                         <img
                         className="d-block mx-auto"
-                        src={bus1Image } style={{
+                        src={schoolvan.backimage} style={{
                             height:'400px',
                             width:'500px',
                             }}
                         alt="Second slide"
                         />
                     </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                        className="d-block mx-auto" 
-                        src={bus2Image } style={{
-                            height:'400px',
-                            width:'500px',
-                            }}
-                        alt="Third slide"
-                        />
-                    </Carousel.Item>
+    
                     </Carousel>
                     <hr class="bg-danger border-2 border-top border-danger"/>
                     <div className='mt-3'>
@@ -75,20 +75,20 @@ export default function VehicleView() {
                         <Row  >
                         <Col xs={6} md={4}>
                         <div className="d-flex flex-column">
-                        <span className='mb-1'><b>Model</b></span> 
+                        <span className='mb-1'><b>Type</b></span> 
                         <span className='mb-1'><b>Vehicle No</b></span>
                         <span className='mb-1'><b>Total Seats</b></span>
-                        <span className='mb-1'><b>FM Radio</b></span>
                         <span className='mb-1'><b>A/C</b></span>
+                        {/* <span className='mb-1'><b>A/C</b></span> */}
                         </div>
                         </Col>
                         <Col xs={6} md={4} >
                         <div className="d-flex flex-column">
-                        <span className='mb-1'>KDH</span> 
-                        <span className='mb-1'>ND -6341</span>
-                        <span className='mb-1'>34</span>
-                        <span className='mb-1'>Yes</span>
-                        <span className='mb-1'>Yes</span>
+                        <span className='mb-1'>{schoolvan.vehicletype}</span> 
+                        <span className='mb-1'>{schoolvan.vehicleno}</span>
+                        <span className='mb-1'>{schoolvan.seats}</span>
+                        <span className='mb-1'>{schoolvan.ac ? "Yes" : "No"}</span>
+                        {/* <span className='mb-1'>Yes</span> */}
                         </div>
                         </Col>
                         </Row>
@@ -120,7 +120,7 @@ export default function VehicleView() {
                     <Card.Body>
                         <Card.Title className='h5'>Starting Position</Card.Title>
                         <Card.Text>
-                        Piliyandala Bus Stop
+                        {schoolvan.startlocation}
                         </Card.Text>
                         <Card.Title>Destination Schools</Card.Title>
                         <Card.Text>
