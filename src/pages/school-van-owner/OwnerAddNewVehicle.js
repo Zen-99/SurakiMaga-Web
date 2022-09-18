@@ -45,9 +45,12 @@ function OwnerAddNewVehicle() {
         charge:null,
         startlocation: null,
         driverid:null,
-        img:null
-
+        img:null,
+        school:null,
       });
+      function refreshPage() {
+        window.location.reload(false);
+      }
       const [selectedValue, setSelectedValue] = useState(form_Data.vehicletype);
       const handleChange = (event) => {
         setSelectedValue(event.target.value);
@@ -58,7 +61,7 @@ function OwnerAddNewVehicle() {
     //     console.log(selected)
     //     selectedschools.push({id:selected.value})
     //   };
-    const [selectedSchools, setSelectedSchools] = useState();
+    const [selectedSchools, setSelectedSchools] = useState({});
     const handleselectschool = (selected) => {
         // setSelectedSchools(event.target.value)
         console.log(selected)
@@ -78,28 +81,32 @@ function OwnerAddNewVehicle() {
       const submitDetails = async ()=>{
         if(form_Data.vehicleno ===""){
             let msg = "license number can't be empty."
-            setFormError({vehicleno:msg,seats:null,charge:null,startlocation: null,driverid:null,img:null})
+            setFormError({vehicleno:msg,seats:null,charge:null,startlocation: null,driverid:null,img:null,school:null})
         } else if(file.frontimg===""||file.backimg===""||file.licensefront===""||file.licenseback===""){
             let msg = "upload all required images"
-            setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:null,img:msg})
+            setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:null,img:msg,school:null})
         } else if (form_Data.driverid===""){
             let msg = "asign a driver"
-            setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:msg,img:null})
+            setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:msg,img:null,school:null})
         } else if (form_Data.startlocation===""){
             let msg = "start location can't be empty."
-            setFormError({vehicleno:null,seats:null,charge:null,startlocation: msg,driverid:null,img:null})
+            setFormError({vehicleno:null,seats:null,charge:null,startlocation: msg,driverid:null,img:null,school:null})
         } else if (form_Data.seats===""){
             let msg = "number of seats can't be empty."
-            setFormError({vehicleno:null,seats:msg,charge:null,startlocation: null,driverid:null,img:null})
+            setFormError({vehicleno:null,seats:msg,charge:null,startlocation: null,driverid:null,img:null,school:null})
         } else if (form_Data.charge ===""){
             let msg = "charge can't be empty."
-            setFormError({vehicleno:null,seats:null,charge:msg,startlocation: null,driverid:null,img:null})
+            setFormError({vehicleno:null,seats:null,charge:msg,startlocation: null,driverid:null,img:null,school:null})
+        } else if (Object.keys(selectedSchools).length <= 0){
+            let msg = "choose at least one school"
+            console.log(msg)
+            setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:null,img:null,school:msg})
         } else{
             const { dataresponse, error } = await apiClient.isuniquevehicleno({vehicleno:form_Data.vehicleno})
             console.log(dataresponse.result)
             if(!dataresponse.result){
                 let msg = "license number already exists"
-                setFormError({vehicleno:msg,seats:null,charge:null,startlocation: null,driverid:null,img:null})
+                setFormError({vehicleno:msg,seats:null,charge:null,startlocation: null,driverid:null,img:null,school:null})
             } else {    
                 const formData=new FormData();
                 formData.append("file",file.frontimg); 
@@ -151,6 +158,7 @@ function OwnerAddNewVehicle() {
                     })
                 setFile({frontimg:"",backimg:"",licensefront:"",licenseback:""})
                 setForm_Data({name:"",mobile: "",nic: "",licenseno: ""})
+                refreshPage()
                 })
             } 
         }
@@ -159,8 +167,16 @@ function OwnerAddNewVehicle() {
         console.log(selected.value);
         setForm_Data({ ...form_Data, driverid: selected.value})
       };
+    const cancel = () => {
+        setFile({frontimg:"",backimg:"",licensefront:"",licenseback:""})
+        setForm_Data({name:"",mobile: "",nic: "",licenseno: ""})
+        setFormError({vehicleno:null,seats:null,charge:null,startlocation: null,driverid:null,img:null,school:null})
+    }
     return(
         <>
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  onClick={cancel}></button>         
+            </div>
             <div className="d-flex flex-column gap-4 align-items-center">
                 {/* <form> */}
                 <div className="card p-4 gap-4 d-flex flex-column align-items-center">
@@ -247,29 +263,29 @@ function OwnerAddNewVehicle() {
                                 <div class="row align-items-center">
                                     <div class="col-sm-3"><h6 class="mb-0">Schools</h6></div>
                                     <div class="col-sm-8 text-secondary">
-                                    <div class="dropdown-container">
-                                        <Select
-                                            options={selectschools}
-                                            isMulti={true}
-                                            name="schools"
-                                            placeholder="select schools"
-                                            className="basic-multi-select"
-                                            classNamePrefix="select"
-                                            value={selectschools.value}
-                                            onChange={handleselectschool}
-                                        />
-                                    </div>
+                                        <div class="dropdown-container">
+                                            <Select
+                                                options={selectschools}
+                                                isMulti={true}
+                                                name="schools"
+                                                placeholder="select schools"
+                                                className="basic-multi-select"
+                                                classNamePrefix="select"
+                                                value={selectschools.value}
+                                                onChange={handleselectschool}
+                                            />
+                                        </div>
                                     </div>
                                     {/* <div class="col-sm-8 text-secondary"><input type="text" class="form-control" multiple/></div> */}
                                 </div>
-                                {/* <div className="errors">{formError.name}</div> */}
+                                <div className="errors">{formError.school}</div>
                                 <hr/>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                     <button type="submit" class="btn btn-success" onClick={submitDetails}>Save</button>
-                    <Link to='/OwnerSchoolVans' className="btn btn-danger">Cancel</Link>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close" onClick={cancel}>Cancel</button>
                 </div>
                 </div>
                 {/* </form> */}

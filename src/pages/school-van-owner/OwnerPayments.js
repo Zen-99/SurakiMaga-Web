@@ -28,13 +28,6 @@ function OwnerPayments (){
                             </div>
                         </div>
                     </div>
-                    <div className="card d-flex flex-column p-4 gap-2 OwnerPayments-col">
-                        <h5>Total Payable</h5>
-                        <div className="d-flex flex-row justify-content-between ownerPayment-pay">
-                            <p3>LKR 300</p3>
-                            <button type="button" class="btn btn-primary">Pay via Online</button>
-                        </div>
-                    </div>
                 </div>
                 <div className="OwnerPayments-row gap-3">
                     <div className="card d-flex flex-column p-4 gap-2 OwnerPayments-col">

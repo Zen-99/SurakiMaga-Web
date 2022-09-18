@@ -128,6 +128,43 @@ class ApiClient{
     async getschoolsSchoolvan(){
         return await this.request({endpoint: `ownerauth/getschoolsSchoolvan`, method: `GET`})
     }
+    async updatesclvanDetails(credentials){
+        return await this.request({endpoint:`ownerauth/updatesclvanDetails`,method:`POST`,data:credentials})
+    }
+    async removeSchoolstoSchoolvan(credentials){
+        return await this.request({endpoint:`ownerauth/removeSchoolstoSchoolvan`,method:`POST`,data:credentials})
+    }
+    async assignnewdriver(credentials){
+        return await this.request({endpoint:`ownerauth/assignnewdriver`,method:`POST`,data:credentials})
+    }
+    async removeVehicle(credentials){
+        console.log(credentials)
+        return await this.request({endpoint:`ownerauth/removeDriver`,method:`POST`,data:credentials})
+    }
+    async getOwnersAdDetails(){
+        return await this.request({endpoint: `ownerauth/getOwnersAdDetails`, method: `GET`})
+    }
+    async getAllAdDetails(){
+        return await this.request({endpoint: `ownerauth/getAllAdDetails`, method: `GET`})
+    }
+    async getAdDetailsSchools(credentials){
+        return await this.request({endpoint: `ownerauth/getAdDetailsSchools`, method: `POST`,data:credentials})
+    }
+    async getAdDetailsImages(credentials){
+        return await this.request({endpoint: `ownerauth/getAdDetailsImages`, method: `POST`,data:credentials})
+    }
+    async InsertAdImage(credentials){
+        return await this.request({endpoint: `ownerauth/InsertAdImage`, method: `POST`,data:credentials})
+    }
+    async InsertAdDetails(credentials){
+        return await this.request({endpoint: `ownerauth/InsertAdDetails`, method: `POST`,data:credentials})
+    }
+    async getCount(){
+        return await this.request({endpoint: `ownerauth/getCount`, method: `GET`})
+    }
+    async removeAd(credentials){
+        return await this.request({endpoint: `ownerauth/removeAd`, method: `POST`,data:credentials})
+    }
 
 
      //Parent Routes

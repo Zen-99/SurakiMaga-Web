@@ -56,7 +56,7 @@
     border: solid;
     border-width: thin;
 } */
-.owner-vehicle-info img  {
+.rounded-circle {
     width: 200px;
     height: 200px;
     border: solid;
@@ -94,7 +94,7 @@
 .OwnerSclVans-home{
     padding: 5%;
 }
-@media screen and (max-width: 800px){
+@media screen and (max-width: 900px){
     .OwnerSclVans-home{
         display: flex;
         flex-direction: column;
@@ -145,4 +145,16 @@
     flex-wrap: nowrap;
     border-style: solid;
     border-color: #ff8c01;
+}
+.editbutton{
+    width: fit-content;
+    border:none;
+}
+.savebutton{
+    width: fit-content;
+    color: green;
+}
+.cancelbutton{
+    width: fit-content;
+    color: red;
 }

@@ -27,7 +27,6 @@ function OwnerAddNewDriver (){
       });
 
     const submitDetails=()=>{
-        console.log(file.name)
         var nicErr = false
       if(form.nic.length == 10){
         if(form.nic.charAt(9)=='v' || form.nic.charAt(9)=='V'){
@@ -89,19 +88,26 @@ function OwnerAddNewDriver (){
            })
            setFile(null)
            setForm({name:"",mobile: "",nic: "",licenseno: ""})
+           setFormError({name:null,mobile: null,nic : null,licenseno: null,img:null})
            refreshPage()
         })
     }
 
 
     }
-    // console.log(fileName)
+    const cancel = () => {
+        setFile(null)
+           setForm({name:"",mobile: "",nic: "",licenseno: ""})
+           setFormError({name:null,mobile: null,nic : null,licenseno: null,img:null})
+    }
 
     
 
 
     return(
-        <>
+        <>  <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  onClick={cancel}></button>         
+            </div>
             <div className="d-flex flex-column gap-4 align-items-center">
                 {/* <form onSubmit={onSubmitForm}> */}
                 <div className="card p-4 gap-4 d-flex flex-column align-items-center">
@@ -167,7 +173,7 @@ function OwnerAddNewDriver (){
                     </div>
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                     <button type="submit" class="btn btn-success"onClick={submitDetails} >Save</button>
-                    <Link to='/OwnerSchoolVans' className="btn btn-danger">Cancel</Link>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close" onClick={cancel}>Cancel</button>
                 </div>
                 </div>
                 {/* </form> */}
