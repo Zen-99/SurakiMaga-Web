@@ -4,34 +4,53 @@ import '../Home.css';
 import './OwnerDashboard.css';
 import OwnerNavbar from "./OwnerNavbar";
 import BarChart from "../../components/BarChart";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import {Link} from 'react-router-dom';
 import DoughnutChart from "../../components/DoughnutChart";
+import apiClient from '../../Services/ApiClient'
 
 function OwnerDashboard() {
+    const lables = []
+    const Seats = []
+    const avail = []
+    const stu = []
+    useEffect(() => {
+        async function getCount(){
+            const{dataresponse,error} = await apiClient.getCount()
+            console.log(dataresponse.result)
+            dataresponse.result.map(data => {
+                lables.push(data.vehicleno)
+                Seats.push(data.seats)
+                avail.push(data.seats-data.avail)
+                stu.push(data.avail)
+            })
+        }
+        
+        getCount()
+      },[])
 
     const [StCountchartData,setStCountchartData] = useState({
-        labels: ["ABC123","ACD345","BN567"],
+        labels: lables,
         datasets: [
             {
-                label: "Number of Student",
+                label: lables,
                 backgroundColor: ['#FF8C01', '#FF6B18', '#993300'],
-                data: [45,30,60],
+                data: stu,
             }
         ]
     })
     const [chartData,setchartData] = useState({
-        labels: ["ABC123","ACD345","BN567"],
+        labels: lables,
         datasets: [
             {
                 label: "Total Seats",
                 backgroundColor: ['#FF8C01'],
-                data: [50,50,70],
+                data: Seats,
             } ,
             {
                 label: "Available Seats",
                 backgroundColor: ['green'],
-                data: [10,8,12],
+                data:avail,
             }
         ],
         options:[{
@@ -98,6 +117,7 @@ function OwnerDashboard() {
                             <div className="card d-flex p-3">
                                 <div className="d-flex flex-column gap-4 align-items-center chart-wrapper">
                                     <p2>Available Seats</p2>
+                                    {console.log(stu)}
                                     <div className="d-flex align-items-center chart-wrapper"><BarChart chartData={chartData}/></div>
                                 </div>
                             </div>

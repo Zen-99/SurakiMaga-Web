@@ -71,3 +71,9 @@ list-style: none;
     background-color: #f2f2f2;
     text-decoration: none;
 }
+
+@media screen and (max-width:800px) {
+  .nav-menu.active{
+    height: fit-content;
+  }
+}

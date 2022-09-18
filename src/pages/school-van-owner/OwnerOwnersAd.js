@@ -1,9 +1,22 @@
-import React from "react";
+import React,{useEffect,useState}  from "react";
 import './OwnerAdvertisements.css';
+import apiClient from '../../Services/ApiClient'
 
 const vehicleImage = require('../../assests/schoolbus.png');
 
 function OwnerOwnersAd (){
+    const [ads,setAds]=useState([])
+    const[vanid,setvanid]=useState()
+
+    useEffect(() => {
+        async function getOwnersAdDetails(){
+            const{dataresponse,error} = await apiClient.getOwnersAdDetails()
+            console.log(dataresponse.result)
+            setAds(dataresponse.result)
+        }
+        getOwnersAdDetails()
+    },[]);
+
     return(
         <>
         <div className="card p-3 Advertisement-details-card">
@@ -12,40 +25,25 @@ function OwnerOwnersAd (){
                             <i class="fas fa-plus"></i>Post a new Advertisement</button>
                 <h5>Your Advertisements : </h5>
                 <div className="Advertisements-list-owners">
-                    <div className="Advertisement-card" >
+                    {ads.map((data)=>{
+                        return <div className="Advertisement-card" >
                         <div className="Advertisement-image">
-                            <img src={vehicleImage} alt=""/>
+                            <img src={data.frontimage} alt=""/>
                         </div>
                         <div className="Advertisement-details">
                             <div className="d-flex justify-content-end edit-your-ads">
                                 <button class="">Edit</button><button class=""><i class="fas fa-times close-btn"></i></button>
                             </div>
-                            <h4>School Service to D.S and Vishaka</h4>
-                            <p className="Advertisement-details-lication">Pliyandala</p>
-                            <p1>School van</p1>
+                            <h4>{data.title}</h4>
+                            <p className="Advertisement-details-lication">{data.startlocation}</p>
+                            <p1>{data.vehicletype}</p1>
                             <div className="ad-details">
-                                <p2>10 Seats more</p2>
-                                <button class="btn btn-primary btn-sm read-more-btn" type="button" data-bs-toggle="modal" data-bs-target="#Modal">Read More</button>
+                                <p2>{data.seats-data.avail} seats more</p2>
+                                <button class="btn btn-primary btn-sm read-more-btn" type="button" data-bs-toggle="modal" data-bs-target="#Modal" onClick={()=>setvanid(data.id)}>Read More</button>
                             </div>
                         </div>
                     </div>
-                    <div className="Advertisement-card" >
-                        <div className="Advertisement-image">
-                            <img src={vehicleImage} alt=""/>
-                        </div>
-                        <div className="Advertisement-details">
-                            <div className="d-flex justify-content-end edit-your-ads">
-                                <button class="">Edit</button><button class=""><i class="fas fa-times close-btn"></i></button>
-                            </div>
-                            <h4>School Service to D.S and Vishaka</h4>
-                            <p className="Advertisement-details-lication">Pliyandala</p>
-                            <p1>School van</p1>
-                            <div className="ad-details">
-                                <p2>10 Seats more</p2>
-                                <button class="btn btn-primary btn-sm read-more-btn" type="button" data-bs-toggle="modal" data-bs-target="#Modal">Read More</button>
-                            </div>
-                        </div>
-                    </div>
+                    })}
                 </div>
             </div>
         </div>
