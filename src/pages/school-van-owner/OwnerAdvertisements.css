@@ -256,6 +256,9 @@ label.check {
 .Owners-Advertisementz-hide{
     display: none;
 }
+.model {
+    width:fit-content
+}
 .Advertisement-details-card{
     width:100%;
     height: fit-content;
@@ -314,7 +317,17 @@ label.check {
     width: 100%;
     height: fit-content;
 }
-  @media screen and (max-width: 800px) {
+
+.Adimages{
+    width: 200%;
+    height: fit-content;
+    border: solid #28231f;
+    border-width: thin;
+}
+.carousel-indicators{
+    width: 75%;
+}
+  @media screen and (max-width: 1500px) {
     .Advertisements-home{
         gap: 0px;
         flex-direction: column;
@@ -434,4 +447,53 @@ label.check {
     text-decoration: underline; */
     }
 
+  }
+  /* OnwerAddNerAdd */
+.form-details{
+    width:60%;
+}
+.form-images{
+    width:40%;
+}
+  .addmainimages{
+    border:solid;
+    border-width: thin;
+    width: 100%;
+    height:50%;
+    background-color:#ebf0f4
+}
+.addotherimages{
+    width: 100%;
+    height:15%;
+}
+.addimages{
+    border:solid;
+    width: 100%;
+    height:100%;
+    border-width: thin;
+    background-color:#ebf0f4;
+}
+.imgname{
+    white-space: nowrap; 
+    width: 75%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.imgsname{
+    white-space: nowrap; 
+    width: 75%; 
+    max-width:50px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.addimgbtnlable {
+    display: flex;
+    align-items: center;
+     justify-content: center;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 50%;
+    cursor: pointer;
+    height: fit-content; 
+    width: fit-content;
   }

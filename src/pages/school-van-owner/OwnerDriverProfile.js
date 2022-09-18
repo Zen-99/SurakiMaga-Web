@@ -6,7 +6,7 @@ import OwnerNavbar from "./OwnerNavbar";
 import { Link,useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom'
 import apiClient from '../../Services/ApiClient'
-// import { response } from "express";
+import { confirm } from "react-confirm-box";
 
 function OwnerDriverProfile (){
   const location = useLocation();
@@ -119,38 +119,18 @@ function OwnerDriverProfile (){
               image:fetchData.image,
             });
             refreshPage()
-            // const formData=new FormData();
-            // formData.append("file",file); 
-            // formData.append("upload_preset","dskmbhbt"); 
-  
-            // Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
-            // .then((response)=>{
-            //   setform_Data({ ...form_Data, image: response.data.secure_url});
-            //   const { dataresponse, error } =  apiClient.EditOwnerDriverProfile({
-            //     id:form_Data.id,
-            //     fullname:form_Data.fullname,
-            //     contact: form_Data.contact,
-            //     licenceno: form_Data.licenceno,
-            //     nic : form_Data.nic,
-            //     image:response.data.secure_url,
-            //   });
-            // })
-          }
-          // console.log(formError)
-          // console.log(form_Data)
-          
+          }         
       }
       const submitImage = () => {
         setEditdetails(false);
             const formData=new FormData();
             formData.append("file",file); 
             formData.append("upload_preset","dskmbhbt"); 
-  
             Axios.post("https://api.cloudinary.com/v1_1/surakimagaimagecloud/image/upload",formData)
             .then((response)=>{
               setform_Data({ ...form_Data, image: response.data.secure_url});
               const { dataresponse, error } =  apiClient.EditOwnerDriverProfile({
-                id:form_Data.id,
+                id:data,
                 fullname:form_Data.fullname,
                 contact: form_Data.contact,
                 licenceno: form_Data.licenceno,
@@ -167,7 +147,29 @@ function OwnerDriverProfile (){
         setFormError({...formError,[data]:null})
       }
 
+      const popupbox = {
+        render: (message, onConfirm, onCancel) => {
+          return (
+            <>
+              <p>{message} </p>
+              <button className="btn btn-success" onClick={onConfirm}> Yes </button>
+              <button className="btn btn-danger" onClick={onCancel}> No </button>
+            </>
+          );
+        }
+      };
+
+      const onClick = async (popupbox) => {
+        const result = await confirm("Confirm to remove", popupbox);
+        if (result) {
+          removeDriver()
+          return;
+        }
+        console.log("You click No!");
+      };
+
       const removeDriver = async (e)=>{
+        console.log("remove")
         const { dataresponse, error } = await apiClient.removeDriver({
           id:data,
         })
@@ -287,7 +289,7 @@ function OwnerDriverProfile (){
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                     {/* <Link to='/OwnerDriverEditProfile' state={data} type="Button" class="btn btn-primary">
                         <i class="fas fa-pen me-2"></i>Edit Profile</Link> */}
-                        <button type="Button" class="btn btn-primary" onClick={removeDriver}>Remove Driver</button>
+                        <button type="Button" class="btn btn-primary" onClick={onClick}>Remove Driver</button>
                       <Link to='/OwnerSchoolVans' class="btn btn-primary">Back</Link>
                     </div>
                   </div>
