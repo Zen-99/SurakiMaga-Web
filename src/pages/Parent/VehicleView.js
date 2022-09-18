@@ -155,21 +155,21 @@ export default function VehicleView() {
                         <h5 className='text-dark'> Owner Details</h5>
                             <div className='d-flex flex-row'>
                                 <div> Name</div>
-                                <div> Faalil Bary</div>
+                                <div> {schoolvan.ownername}</div>
                             </div>
                             <div className='d-flex flex-row'>
                                 <div > Contact</div>
-                                <div> +94 77 1234567</div>
+                                <div>{schoolvan.ownercontact}</div>
                             </div>
                         <hr class="bg-danger border-2 border-top border-dark"/>
                         <h5 className='text-dark mt-3'> Driver Details</h5>
                             <div className='d-flex flex-row'>
                                 <div> Name</div>
-                                <div> Faalil Bary</div>
+                                <div> {schoolvan.drivername}</div>
                             </div>
                             <div className='d-flex flex-row'>
                                 <div > Contact</div>
-                                <div> +94 77 1234567</div>
+                                <div> {schoolvan.drivercontact}</div>
                             </div>
                             <hr class="bg-danger border-2 border-top border-dark"/>
                             {/* <div>
