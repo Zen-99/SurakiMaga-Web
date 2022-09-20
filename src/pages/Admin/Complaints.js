@@ -1,11 +1,12 @@
 import React from 'react'
 import AdminNavbar from './AdminNavbar'
+import Complain from '../../components/Complain.js'
 
 const Complaints = () => {
   return (
     <>
       <AdminNavbar/>
-      <div>Complaints</div>
+      <Complain />
     </>
     
   )
