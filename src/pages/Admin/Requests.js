@@ -16,9 +16,9 @@ const Requests = () => {
     const [key, setKey] = useState('varification')
 
     return (
-        <>
+        <div className="home">
         <AdminNavbar/>
-        <Container>
+        <Container className='mt-5'>
             <Row className="text-center">
                 <h2>Requests</h2>
             </Row>
@@ -40,7 +40,7 @@ const Requests = () => {
             <Cancelation/>
         </Tab>
         </Tabs>
-        </>
+        </div>
     )
 }
 
