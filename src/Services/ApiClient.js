@@ -183,6 +183,12 @@ class ApiClient{
     async getChildVan(credentials){
         return await this.request({endpoint:`parent/childvandetails`,method:`POST`, data:credentials})
     }
+    async getdestinationSchools(credentials){
+        return await this.request({endpoint:`user/destinationschools`,method:`POST`, data:credentials})
+    }
+    async getrequestSchools(credentials){
+        return await this.request({endpoint:`parent/requestschoolchildren`,method:`POST`, data:credentials})
+    }
     
 }
 

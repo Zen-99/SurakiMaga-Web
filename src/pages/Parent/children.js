@@ -153,7 +153,8 @@ function MyChildren() {
                                 <Card.Title>Amount Payable</Card.Title>
                                 <div > Due 26.08.2022</div>
                                 <Card.Text className='fw-bold'>
-                                Rs .3500/=
+                                    {Vandetails.payment_status ?
+                                 <span>Rs. 0 </span> : <span>Rs {Vandetails.monthly_charge}</span>  }
                                 </Card.Text>
                                 <Button className='w-50'>Pay Now</Button>
                             </Card.Body>

@@ -1,4 +1,4 @@
-import React  from 'react';
+import React ,{useState} from 'react';
 // import { Redirect } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import Button from 'react-bootstrap/Button';
@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import apiClient from '../Services/ApiClient';
 import {useNavigate} from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Alert from 'react-bootstrap/Alert';
 import './Home.css';
 import './Login.css'
 
@@ -13,6 +14,7 @@ const homeImage = require('../assests/schoolbus.png');
 
 function Login() {
   const navigate = useNavigate();
+  const [showerror, setShowError] = useState(false);
 
   const {
     register,
@@ -52,9 +54,10 @@ function Login() {
         }, 2000);
       } else {
         // toast("Email or Password is incorrect!");
-        setTimeout(() => {
-          window.location.href = "/log-in";
-        }, 2000);
+        setShowError(true);
+        // setTimeout(() => {
+        //   window.location.href = "/log-in";
+        // }, 2000);
       }
 
   };
@@ -96,6 +99,13 @@ function Login() {
       <form className="px-5 py-4 login-form"  onSubmit={handleSubmit(onSubmitForm)}>
       <h2 className='mb-4 text-center'>Welcome Back !</h2>
 
+      {/* Error Alert Popup */}
+      <Alert className='mt-0 p-3' show ={showerror} variant="danger" onClose={() => setShowError(false)} dismissible>
+        {/* <Alert.Heading className='mt-0'>Login Failed!</Alert.Heading> */}
+        <p className='mb-0 mt-0'>Invalid Username/Password !</p>
+      </Alert>
+
+    
       <Form.Group className="mb-2" controlId="username">
         <Form.Label>Username</Form.Label>
         <Form.Control 
