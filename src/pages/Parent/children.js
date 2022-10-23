@@ -179,6 +179,8 @@ function MyChildren() {
                                                 />
                                         <Button className='w-50 mx-auto bg-white text-dark reviewmodal' onClick={() => setModalShow(true)}>Leave From this Van</Button>
                                         <LeaveVan
+                                                    status= {Vandetails.payment_status}
+                                                    student={data.id}
                                                     show={modalShow}
                                                     onHide={() => setModalShow(false)}
                                                 />
