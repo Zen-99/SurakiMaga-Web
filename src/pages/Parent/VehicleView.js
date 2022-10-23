@@ -78,7 +78,7 @@ export default function VehicleView() {
                     </Carousel.Item>
     
                     </Carousel>
-                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <hr className="bg-danger border-2 border-top border-danger"/>
                     <div className='mt-3'>
                         <div className='d-flex justify-content-between'>
                         <h4 className='text-dark '>Vehicle Details</h4>
@@ -108,7 +108,7 @@ export default function VehicleView() {
                         
                     </div>
                     </div>
-                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <hr className="bg-danger border-2 border-top border-danger"/>
                     <div className="mt-3">
                         <h4 className='text-dark mb-3'>Vehicle Description</h4>
                         <p> This school van is in a good condition. This goes in the optimum speed which is ideal for 
@@ -116,7 +116,7 @@ export default function VehicleView() {
                             vans. The van will be starting its tour at 5:00 am.
                         </p>
                     </div>
-                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <hr className="bg-danger border-2 border-top border-danger"/>
                     <div className="mt-3">
                         <h4 className='text-dark mb-3 text-center fw-bold'> Share this transport with others</h4>
                         <div className='d-flex justify-content-center gap-2'> 
@@ -141,7 +141,7 @@ export default function VehicleView() {
                             {Vanschools.map((data)=>{
                         // console.log(data)
                         return  (
-                            <li>{data.name}</li>
+                            <li key={data.name}>{data.name}</li>
                         )
                     })}
                             </ul>
@@ -168,7 +168,7 @@ export default function VehicleView() {
                                 <div > Contact</div>
                                 <div> +94 77 1234567</div>
                             </div> */}
-                        <hr class="bg-danger border-2 border-top border-dark"/>
+                        <hr className="bg-danger border-2 border-top border-dark"/>
                         <h5 className='text-dark'> Owner Details</h5>
                             <div className='d-flex flex-row'>
                                 <div> Name</div>
@@ -178,7 +178,7 @@ export default function VehicleView() {
                                 <div > Contact</div>
                                 <div>{schoolvan.ownercontact}</div>
                             </div>
-                        <hr class="bg-danger border-2 border-top border-dark"/>
+                        <hr className="bg-danger border-2 border-top border-dark"/>
                         <h5 className='text-dark mt-3'> Driver Details</h5>
                             <div className='d-flex flex-row'>
                                 <div> Name</div>
@@ -188,7 +188,7 @@ export default function VehicleView() {
                                 <div > Contact</div>
                                 <div> {schoolvan.drivercontact}</div>
                             </div>
-                            <hr class="bg-danger border-2 border-top border-dark"/>
+                            <hr className="bg-danger border-2 border-top border-dark"/>
                             {/* <div>
       <ProgressBar variant="success" now={40} />
       <ProgressBar variant="info" now={20} />

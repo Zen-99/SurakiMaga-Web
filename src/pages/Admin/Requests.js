@@ -1,7 +1,6 @@
 import React ,{useState}from 'react'
 import Cancelation from '../../components/Cancelation'
 import Varification from '../../components/Varification'
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';

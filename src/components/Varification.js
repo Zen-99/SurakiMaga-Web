@@ -21,7 +21,7 @@ const Varification = () => {
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
-    const itemsPerPage = 4;
+    const itemsPerPage = 3;
     const pagination = useRef();
 
     useEffect(() => {
@@ -43,9 +43,46 @@ const Varification = () => {
 
   return (
     <Container>
-        <Row style={{}}>
-            <Col sm={6}></Col>
-            <Col sm={6} >
+            <Row >
+                {currentItems.map((vanData, k) => (
+                    <Col key={k} xs={12} md={6} lg={4} className='mt-5'>
+                        <Card>
+                            <Card.Header>Header</Card.Header>
+                        
+                            <Card.Img variant="top" src="https://via.placeholder.com/150x75" />
+                        <Card.Body>
+                            <Card.Title >Card title</Card.Title>
+                            <Card.Text>
+                                    <div className='d-flex flex-row'>
+                                                <div className=''> Vehicle No</div>
+                                                <div> WP - 9087</div>
+                                    </div>
+                                    <div className='d-flex flex-row'>
+                                                <div className=''> Vehicle Type</div>
+                                                <div> WP - 9087</div>
+                                    </div>
+                                    <div className='d-flex flex-row'>
+                                                <div className=''> Seats</div>
+                                                <div> WP - 9087</div>
+                                    </div>
+                                    <div className='d-flex flex-row'>
+                                                <div className=''> Charge</div>
+                                                <div> WP - 9087</div>
+                                    </div>
+                                    <div className='d-flex flex-row'>
+                                                <div className=''> Contact</div>
+                                                <div> WP - 9087</div>
+                                    </div>
+                                    
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                                <small className="text-muted">Last updated 3 mins ago</small>
+                        </Card.Footer>
+                        </Card>
+                    </Col>
+                                ))}
+                    <Col sm={6} className="mt-5 d-flex justify-content-center" >
              <ReactPaginate
                 ref={pagination}
                 pageCount={pageCount}
@@ -66,65 +103,13 @@ const Varification = () => {
                 nextLabel={<>&raquo;</>}
             />
             </Col>
-
-   
-        </Row>
-            <Row >
-                {currentItems.map((vanData, k) => (
-                    <Col key={k} xs={12} md={4} lg={3} className='mt-5'>
-                        <Card >
-                            
-
-                            <Card.Body>
-                                <Card.Title>{vanData.name}</Card.Title>
-                                <Card.Text>has sent a request</Card.Text>
-                                <Table borderless>
-                                        <tbody>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>: {vanData.name}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>ID No</td>
-                                                <td>: {vanData.name}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Contact</td>
-                                                <td>: {vanData.name}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bank Acc</td>
-                                                <td>: {vanData.name}</td>
-                                            </tr>
-                                            <tr>
-                                                <td colSpan={2}>School van hire permit</td>
-                                            </tr>
-                                            
-                                        </tbody>
-                                </Table>
-                            
-                            <Card.Img className='mb-2'src="https://via.placeholder.com/150x75" />
-                            <Row>
-                                <Col className="text-center">
-                                    <Button variant='primary' block={true} className="btn-block mr-1 mt-1 btn-lg ">
-                                        Call
-                                    </Button>
-                                <Button className="btn-block mr-1 mt-1 btn-lg" variant="success" block={true}>
-                                    Approve
-                                </Button>
-                                <Button variant="danger" block={true} className="btn-block mr-1 mt-1 btn-lg">
-                                    Reject
-                                </Button>
-                            </Col>
-                                                            
-                            </Row>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
             </Row>
             
         </Container>
+
+    // <Container>
+    //     njnjnjc
+    // </Container>
   )
 }
 

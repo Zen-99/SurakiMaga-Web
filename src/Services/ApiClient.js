@@ -189,7 +189,18 @@ class ApiClient{
     async getrequestSchools(credentials){
         return await this.request({endpoint:`parent/requestschoolchildren`,method:`POST`, data:credentials})
     }
-    
+    async requestSchoolVan(credentials){
+        return await this.request({endpoint:`parent/sendrequest`,method:`POST`, data:credentials})
+    }
+    async leaveSchoolVan(credentials){
+        return await this.request({endpoint:`parent/leavevan`,method:`POST`, data:credentials})
+    }
+
+
+    //Admin Routes
+    async getDashboardCount(){
+        return await this.request({endpoint:`admin/dashboardcount`,method:`GET`})
+    }
 }
 
 
