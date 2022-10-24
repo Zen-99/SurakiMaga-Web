@@ -16,16 +16,16 @@ function OwnerNavbar() {
   const closeMobileMenu = () => setClick(false);
   const closeDropdownMenu = () => setClickDropdown(false);
 
-  window.onclick = function (event) {
-    if (document.getElementsByClassName('menu-dropdown-icon')[0].contains(event.target)) {
-        document.getElementById('menu-dropdown-list')
-            .style.display = "flex";
-    } else {
-      document.getElementById('menu-dropdown-list')
-            .style.display = "none";
-            closeDropdownMenu();
-    }
-}
+//   window.onclick = function (event) {
+//     if (document.getElementsByClassName('menu-dropdown-icon')[0].contains(event.target)) {
+//         document.getElementById('menu-dropdown-list')
+//             .style.display = "flex";
+//     } else {
+//       document.getElementById('menu-dropdown-list')
+//             .style.display = "none";
+//             closeDropdownMenu();
+//     }
+// }
 
   return (
     <>
@@ -43,9 +43,9 @@ function OwnerNavbar() {
         </div>
         <div className='nav-menu-items'>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='navbar-item-o'><Link to='/Dashboard' className='navbar-links' onClick={closeMobileMenu}>Dashboard</Link></li>
-          <li className='navbar-item-o'><Link to='/Complaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
-          <li className='navbar-item-o'><Link to='/Requests' className='navbar-links' onClick={closeMobileMenu}>Requests</Link></li>
+          <li className='navbar-item-o'><Link to='/dashboard' className='navbar-links' onClick={closeMobileMenu}>Dashboard</Link></li>
+          <li className='navbar-item-o'><Link to='/admincomplaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
+          <li className='navbar-item-o'><Link to='/adminrequests' className='navbar-links' onClick={closeMobileMenu}>Requests</Link></li>
         </ul>
         <div class="profile">
             <img src={bell} style={{height:'30px', width:'30px'}} alt=""/>

@@ -1,15 +1,25 @@
-import React from 'react'
+import React,{ useState ,useEffect}  from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import{Card,Col} from 'react-bootstrap'
 import AdminNavbar from './AdminNavbar'
-import { useState } from 'react';
-import LineChart from '../../components/LineChart'
+import apiClient from '../../Services/ApiClient'
 import './Dashboard.css'
 import BarChart from '../../components/BarChart';
 import DoughnutChart from '../../components/DoughnutChart';
 
 const Dashboard = () => {
+  const [Dashboardcount,setDashboardcount]=useState([]);
+
+  useEffect(() => {
+    async function getDashboardCount() {
+        const{dataresponse,error} = await apiClient.getDashboardCount({
+
+        })
+        setDashboardcount(dataresponse.result)
+    }
+    getDashboardCount();
+    }, []);
 
   const [IncomechartData,setIncomechartData] = useState({
     labels: ["May","June","July","August"],
@@ -47,7 +57,7 @@ const [RegchartData,setRegchartData] = useState({
               <div className="card-body userEnrollments-card d-flex flex-column align-items-center">
                 <h4 className="font-weight-normal mb-3">School van registered<i className="mdi mdi-chart-line mdi-24px float-right"></i>
                 </h4>
-                <h2 className="mb-1">15,0000</h2>
+                <h2 className="mb-1">{Dashboardcount.schoolvan}</h2>
               </div>
             </Card>
           </Col>
@@ -56,7 +66,7 @@ const [RegchartData,setRegchartData] = useState({
               <div className="card-body userEnrollments-card d-flex flex-column align-items-center">
                 <h4 className="font-weight-normal mb-3">Owners registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
-                <h2 className="mb-1">45,6334</h2>
+                <h2 className="mb-1">{Dashboardcount.owner}</h2>
                 
               </div>
             </Card>
@@ -67,7 +77,7 @@ const [RegchartData,setRegchartData] = useState({
                 
                 <h4 className="font-weight-normal mb-3">Parents registered <i className="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                 </h4>
-                <h2 className="mb-1">65,6834</h2>
+                <h2 className="mb-1">{Dashboardcount.parent}</h2>
                 
               </div>
             </Card>

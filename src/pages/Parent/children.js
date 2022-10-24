@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import './children.css';
 import ParentNavbar from '../../components/ParentNavbar';
-
 import LeaveVan from '../../components/LeaveVan';
 import Review from '../../components/Review';
 import StarRating from '../../components/StarRating';
@@ -13,6 +12,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import ChildProfile from '../../components/ChildProfile';
 import { useLocation } from 'react-router-dom';
+import apiClient from '../../Services/ApiClient'
 
 
 
@@ -28,14 +28,25 @@ function MyChildren() {
 
     const location = useLocation();
     const data = location.state;
-    console.log(data);
+    console.log("Faa"+data.id);
 
     console.log(data.vanid);
 
-    if(data.vanid){
-
+    useEffect(() => {
+    async function getChildVan() {
+        const{dataresponse,error} = await apiClient.getChildVan({
+            studentid : data.id
+        })
+        console.log(dataresponse)
+        setVandetails(dataresponse.result)
+        console.log(Vandetails);
+        
     }
-
+        getChildVan();
+    
+       
+    
+    }, [data.id]);
     // if(Vanid)
     // {
 
@@ -79,30 +90,22 @@ function MyChildren() {
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
-                    {data.vanid ? <h1>No School Vans</h1>  : 
+                    {data.vanid ? 
                     <Container className="p-2 my-2 d-flex flex-column">
                     <div className="d-flex">
                     <Carousel className="bg-white">
                         <Carousel.Item>
                             <img
                             className="d-block w-100 h-auto"
-                            src={homeImage}
+                            src={Vandetails.frontimage}
                             alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                             className="d-block w-100 h-auto"
-                            src={homeImage}
+                            src={Vandetails.backimage}
                             alt="Second slide"
-                            />
-
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                            className="d-block w-100 h-auto"
-                            src={homeImage}
-                            alt="Third slide"
                             />
 
                         </Carousel.Item>
@@ -118,22 +121,22 @@ function MyChildren() {
                                     <div className='attribute'> Driver</div>
                                     <div className='d-flex flex-row'>
                                                 <div>Name</div>
-                                                <div> Roshan Senevirathne</div>
+                                                <div> {Vandetails.drivername}</div>
                                     </div>
                                     
                                     <div className='d-flex flex-row'>
                                                 <div> Contact</div>
-                                                <div> +94 77 1234567</div>
+                                                <div> {Vandetails.drivercontact}</div>
                                     </div>
 
                                     <div className='attribute'> Owner</div>
                                     <div className='d-flex flex-row'>
                                                 <div> Name</div>
-                                                <div> Faalil Bary</div>
+                                                <div> {Vandetails.ownername}</div>
                                     </div>
                                     <div className='d-flex flex-row'>
                                                 <div > Contact</div>
-                                                <div> +94 77 1234567</div>
+                                                <div> {Vandetails.ownercontact}</div>
                                     </div>
                                 </Card.Text>
                             </Card.Body>
@@ -150,7 +153,8 @@ function MyChildren() {
                                 <Card.Title>Amount Payable</Card.Title>
                                 <div > Due 26.08.2022</div>
                                 <Card.Text className='fw-bold'>
-                                Rs .3500/=
+                                    {Vandetails.payment_status ?
+                                 <span>Rs. 0 </span> : <span>Rs {Vandetails.monthly_charge}</span>  }
                                 </Card.Text>
                                 <Button className='w-50'>Pay Now</Button>
                             </Card.Body>
@@ -175,6 +179,8 @@ function MyChildren() {
                                                 />
                                         <Button className='w-50 mx-auto bg-white text-dark reviewmodal' onClick={() => setModalShow(true)}>Leave From this Van</Button>
                                         <LeaveVan
+                                                    status= {Vandetails.payment_status}
+                                                    student={data.id}
                                                     show={modalShow}
                                                     onHide={() => setModalShow(false)}
                                                 />
@@ -183,6 +189,11 @@ function MyChildren() {
                             </Card>
                     </div>
                     </div>
+                    </Container> 
+                    : 
+                    <Container className="p-2 my-2 bg-white w-100 h-100 align-items-center d-flex justify-content-center ">
+                            
+                            <div><h1 className='text-center'>No School Vans</h1></div>
                     </Container>
 }
                 </Col>

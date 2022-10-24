@@ -163,7 +163,7 @@ function App() {
           exact
           path="/adminrequests"
           element={
-            isAuthenticated && userrole === "am" ? (
+            isAuthenticated && userrole === "Admin" ? (
               <AdminRequests />
             ) : (
               <Login />
@@ -173,7 +173,7 @@ function App() {
 
         <Route
           exact
-          path="/adminrequests"
+          path="/admincomplaints"
           element={
             isAuthenticated && userrole === "Admin" ? (
               <AdminComplaints />

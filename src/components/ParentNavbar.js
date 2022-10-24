@@ -22,6 +22,7 @@ export default function ParentNavbar() {
     window.location.href = "/log-in";
   }
 
+  
   useEffect(() => {
     async function getChildrennames() { 
         const{dataresponse,error} = await apiClient.getChildren()
@@ -54,7 +55,7 @@ export default function ParentNavbar() {
               {children.map((data)=>{
                         // console.log(data)
                         return  (
-                        <NavDropdown.Item key='{data.id}'> <Link to='/parentmychildren' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        <NavDropdown.Item key={data.id}> <Link to='/parentmychildren' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
                         )
                     })}
               <NavDropdown.Divider />
@@ -66,7 +67,7 @@ export default function ParentNavbar() {
             {children.map((data)=>{
                         // console.log(data)
                         return  (
-                        <NavDropdown.Item key='{data.id}'> <Link to='/parentroute' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
+                        <NavDropdown.Item key={data.id}> <Link to='/parentroute' className="text-decoration-none text-dark" state={data} >{data.fullname}</Link></NavDropdown.Item> 
                         )
               })}
             </NavDropdown>

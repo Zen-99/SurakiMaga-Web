@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 import ParentNavbar from '../../components/ParentNavbar';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -10,6 +10,7 @@ import { SocialIcon } from 'react-social-icons';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import RequestVan from '../../components/RequestVan';
 import { useLocation } from 'react-router-dom';
+import apiClient from '../../Services/ApiClient'
 
 
 const homeImage = require('../../assests/schoolbus.png');
@@ -19,24 +20,36 @@ const mapImage = require('../../assests/map.jpg');
 
 export default function VehicleView() {
     const [requestvehiclemodalShow, setRequestVehicleModalShow] = useState(false);
-    
-
+    const [Vanschools,setVanschools]=useState([]);
     const location = useLocation();
     const schoolvan = location.state;
+    console.log(schoolvan.id)
+    useEffect(() => {
+        async function getDestinationSchools() {
+            console.log(schoolvan.id)
+            const{dataresponse,error} = await apiClient.getdestinationSchools({
+                vanid : schoolvan.id
+            })
+            console.log(dataresponse)
+            setVanschools(dataresponse.result)
+            console.log(Vanschools);
+            
+        }
+            getDestinationSchools();   
+        
+        }, [schoolvan.id]);
     
-
-
-
   return (
     <div>
        <ParentNavbar/>
        <Container className='border mb-3'>
         <div className='d-flex mb-1'>
         <div className='my-auto fixed'><h3 className="fw-bold">{schoolvan.title}</h3></div>
-        <Button onClick={() => setRequestVehicleModalShow(true)} className='w-25 m-2 p-2'>Request Vehicle</Button>
+        <Button onClick={() => setRequestVehicleModalShow(true)}  className='w-25 m-2 p-2'>Request Vehicle</Button>
         <RequestVan
             show={requestvehiclemodalShow}
             onHide={() => setRequestVehicleModalShow(false)}
+            vanid={schoolvan.id}
         />
         </div>
             <Row>
@@ -65,7 +78,7 @@ export default function VehicleView() {
                     </Carousel.Item>
     
                     </Carousel>
-                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <hr className="bg-danger border-2 border-top border-danger"/>
                     <div className='mt-3'>
                         <div className='d-flex justify-content-between'>
                         <h4 className='text-dark '>Vehicle Details</h4>
@@ -95,7 +108,7 @@ export default function VehicleView() {
                         
                     </div>
                     </div>
-                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <hr className="bg-danger border-2 border-top border-danger"/>
                     <div className="mt-3">
                         <h4 className='text-dark mb-3'>Vehicle Description</h4>
                         <p> This school van is in a good condition. This goes in the optimum speed which is ideal for 
@@ -103,7 +116,7 @@ export default function VehicleView() {
                             vans. The van will be starting its tour at 5:00 am.
                         </p>
                     </div>
-                    <hr class="bg-danger border-2 border-top border-danger"/>
+                    <hr className="bg-danger border-2 border-top border-danger"/>
                     <div className="mt-3">
                         <h4 className='text-dark mb-3 text-center fw-bold'> Share this transport with others</h4>
                         <div className='d-flex justify-content-center gap-2'> 
@@ -125,8 +138,12 @@ export default function VehicleView() {
                         <Card.Title>Destination Schools</Card.Title>
                         <Card.Text>
                             <ul>
-                                <li>Visakha Vidyalaya</li>
-                                <li>Royal College Colombo 07</li>
+                            {Vanschools.map((data)=>{
+                        // console.log(data)
+                        return  (
+                            <li key={data.name}>{data.name}</li>
+                        )
+                    })}
                             </ul>
                         </Card.Text>
                         {/* <Button variant="primary">Go somewhere</Button> */}
@@ -151,27 +168,27 @@ export default function VehicleView() {
                                 <div > Contact</div>
                                 <div> +94 77 1234567</div>
                             </div> */}
-                        <hr class="bg-danger border-2 border-top border-dark"/>
+                        <hr className="bg-danger border-2 border-top border-dark"/>
                         <h5 className='text-dark'> Owner Details</h5>
                             <div className='d-flex flex-row'>
                                 <div> Name</div>
-                                <div> Faalil Bary</div>
+                                <div> {schoolvan.ownername}</div>
                             </div>
                             <div className='d-flex flex-row'>
                                 <div > Contact</div>
-                                <div> +94 77 1234567</div>
+                                <div>{schoolvan.ownercontact}</div>
                             </div>
-                        <hr class="bg-danger border-2 border-top border-dark"/>
+                        <hr className="bg-danger border-2 border-top border-dark"/>
                         <h5 className='text-dark mt-3'> Driver Details</h5>
                             <div className='d-flex flex-row'>
                                 <div> Name</div>
-                                <div> Faalil Bary</div>
+                                <div> {schoolvan.drivername}</div>
                             </div>
                             <div className='d-flex flex-row'>
                                 <div > Contact</div>
-                                <div> +94 77 1234567</div>
+                                <div> {schoolvan.drivercontact}</div>
                             </div>
-                            <hr class="bg-danger border-2 border-top border-dark"/>
+                            <hr className="bg-danger border-2 border-top border-dark"/>
                             {/* <div>
       <ProgressBar variant="success" now={40} />
       <ProgressBar variant="info" now={20} />
