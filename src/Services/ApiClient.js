@@ -165,7 +165,48 @@ class ApiClient{
     async removeAd(credentials){
         return await this.request({endpoint: `ownerauth/removeAd`, method: `POST`,data:credentials})
     }
-
+    async getRequestDetails(){
+        return await this.request({endpoint: `ownerauth/getRequestDetails`, method: `GET`})
+    }
+    async EditMonthlyCharge(credentials){
+        return await this.request({endpoint: `ownerauth/EditMonthlyCharge`, method: `POST`,data:credentials})
+    }
+    async AcceptRequest(credentials){
+        return await this.request({endpoint: `ownerauth/AcceptRequest`, method: `POST`,data:credentials})
+    }
+    async RejectRequest(credentials){
+        return await this.request({endpoint: `ownerauth/RejectRequest`, method: `POST`,data:credentials})
+    }
+    async getTotalIncome(){
+        return await this.request({endpoint: `ownerauth/getTotalIncome`, method: `GET`})
+    }
+    async getCurrentIncome(){
+        return await this.request({endpoint: `ownerauth/getCurrentIncome`, method: `GET`})
+    }
+    async getYetToPayList(){
+        return await this.request({endpoint: `ownerauth/getYetToPayList`, method: `GET`})
+    }
+    async getUnpaidList(){
+        return await this.request({endpoint: `ownerauth/getUnpaidList`, method: `GET`})
+    }
+    async BanAStudent(credentials){
+        return await this.request({endpoint: `ownerauth/BanAStudent`, method: `POST`,data:credentials})
+    }
+    async RemoveAStudent(credentials){
+        return await this.request({endpoint: `ownerauth/removeAStudent`, method: `POST`,data:credentials})
+    }
+    async UnbanAStudent(credentials){
+        return await this.request({endpoint: `ownerauth/UnbanAStudent`, method: `POST`,data:credentials})
+    }
+    async getcomplaints(){
+        return await this.request({endpoint: `ownerauth/getcomplaints`, method: `GET`})
+    }
+    async getReviews(){
+        return await this.request({endpoint: `ownerauth/getReviews`, method: `GET`})
+    }
+    async getStudentDetails(credentials){
+        return await this.request({endpoint: `ownerauth/getStudentDetails`, method: `POST`,data:credentials})
+    }
 
      //Parent Routes
     async getChildren(){

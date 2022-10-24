@@ -44,3 +44,6 @@
 .nav-tabs .nav-link:hover{
     color: #ff8c10;
 }
+.banned{
+    color:red;
+}
