@@ -6,15 +6,16 @@
     color: #28231f;
     width: fit-content;
 }
+.OwnerPayments-col{
+    width:50%
+}
 .OwnerPayments-row{
     display: flex;
     flex-direction: row;
     width:100%;
+    height: 100%;
 }
-.OwnerPayments-col{
-    width:50%
-}
-.OwnerPayments-col table{
+.OwnerPayments-row table{
     table-layout: fixed;
     width: 100%;
 }
@@ -22,7 +23,7 @@
     width: fit-content;
 }
 .payment-tbl-column2{
-    width:60%;
+    width:fit-content;
 }
 .payment-tbl-column3{
     width: fit-content;
@@ -39,6 +40,9 @@
 .ownerPayment-pay p3{
     font-size: larger;
     font-weight: bold;
+}
+.banned{
+    color:red;
 }
 @media screen and (max-width: 800px){
     .OwnerPayments-home{

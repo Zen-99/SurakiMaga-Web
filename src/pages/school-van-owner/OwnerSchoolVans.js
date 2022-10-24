@@ -414,6 +414,13 @@ const CancelEdit = (data,fetch) => {
                                     )}
                             </div>
                             <hr/>
+                            <div class="row justify-content-evenly">
+                                <div class="col-sm-3"><h6 class="mb-0">Students</h6></div>
+                                <div class="col-sm-5 text-secondary d-flex flex-row justify-content-between align-items-center">
+                                    <Link to='/OwnerStudentList' state={data.id} class="btn btn-primary">Student List</Link>    
+                                </div>
+                            </div>
+                            <hr/>
                         </div>
                         </div>
                          ) }
