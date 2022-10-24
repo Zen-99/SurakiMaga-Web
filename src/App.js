@@ -42,7 +42,7 @@ import NewChildren from './pages/Parent/Childrennovan';
 import AdminDashboard from './pages/Admin/Dashboard';
 import AdminComplaints from './pages/Admin/Complaints';
 import AdminRequests from './pages/Admin/Requests';
-import AdminNavbar from './pages/Admin/AdminNavbar';
+import AdminOwnerDetails from './pages/Admin/OwnerDetails';
 
 
 
@@ -179,6 +179,18 @@ function App() {
           element={
             isAuthenticated && userrole === "Admin" ? (
               <AdminComplaints />
+            ) : (
+              <Login />
+            )
+          }
+        />
+
+        <Route
+          exact
+          path="/adminownerdetails"
+          element={
+            isAuthenticated && userrole === "Admin" ? (
+              <AdminOwnerDetails />
             ) : (
               <Login />
             )

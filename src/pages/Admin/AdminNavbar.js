@@ -46,6 +46,7 @@ function OwnerNavbar() {
           <li className='navbar-item-o'><Link to='/dashboard' className='navbar-links' onClick={closeMobileMenu}>Dashboard</Link></li>
           <li className='navbar-item-o'><Link to='/admincomplaints' className='navbar-links' onClick={closeMobileMenu}>Complaints</Link></li>
           <li className='navbar-item-o'><Link to='/adminrequests' className='navbar-links' onClick={closeMobileMenu}>Requests</Link></li>
+          <li className='navbar-item-o'><Link to='/adminownerdetails' className='navbar-links' onClick={closeMobileMenu}>Owners</Link></li>
         </ul>
         <div class="profile">
             <img src={bell} style={{height:'30px', width:'30px'}} alt=""/>
