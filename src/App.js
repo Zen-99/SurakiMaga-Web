@@ -17,7 +17,6 @@ import Signup from './pages/Signup';
 
 import OwnerAdvertisements from './pages/school-van-owner/OwnerAdvertisements';
 import OwnerProfile from './pages/school-van-owner/OwnerProfile';
-import OwnerEditProfile from './pages/school-van-owner/OwnerEditProfile'
 import OwnerDashboard from './pages/school-van-owner/OwnerDashboard';
 import OwnerSchoolVans from './pages/school-van-owner/OwnerSchoolVans';
 import OwnerAddNewVehicle from './pages/school-van-owner/OwnerAddNewVehicle';
@@ -26,8 +25,7 @@ import OwnerPayments from './pages/school-van-owner/OwnerPayments';
 import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
 import OwnerDriverProfile from './pages/school-van-owner/OwnerDriverProfile';
-import OwnerDriverEditProfile from './pages/school-van-owner/OwnerDriverEditProfile';
-import OwnerStudentDetails from './pages/school-van-owner/OwnerStudentDetails';
+import OwnerStudentList from './pages/school-van-owner/OwnerStudentList';
 
 
 //ParentComponents
@@ -123,8 +121,8 @@ function App() {
           <Route path='/OwnerDriverProfile' element={<OwnerDriverProfile />}/> */}
           {/* <Route path='/OwnerDashboard' element={<OwnerDashboard/>}/> */}
 
-          <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
-          <Route Path='/OwnerStudentDetails' element={<OwnerStudentDetails/>}/>
+
+          {/* <Route Path='/OwnerStudentDetails' element={<OwnerStudentDetails/>}/> */}
 
           {/* <Route path='/OwnerDriverEditProfile' element={<OwnerDriverEditProfile />}/>
 >>>>>>> 323d6429695d44b1d4867cf793fdeb0dbff0cfea
@@ -349,6 +347,18 @@ function App() {
           element={
             isAuthenticated && userrole === "Owner" ? (
               <OwnerDriverProfile />
+            ) : (
+              <Login />
+            )
+          }
+        />
+
+        <Route
+          exact
+          path="/ownerStudentList"
+          element={
+            isAuthenticated && userrole === "Owner" ? (
+              <OwnerStudentList />
             ) : (
               <Login />
             )
