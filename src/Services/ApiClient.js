@@ -242,6 +242,15 @@ class ApiClient{
     async getDashboardCount(){
         return await this.request({endpoint:`admin/dashboardcount`,method:`GET`})
     }
+    async getpendingRequest(){
+        return await this.request({endpoint:`admin/pendingrequest`,method:`GET`})
+    }
+    async acceptRequest(credentials){
+        return await this.request({endpoint:`admin/acceptrequest`,method:`POST`,data:credentials})
+    }
+    async getOwnersDetails(){
+        return await this.request({endpoint:`admin/ownersdetails`,method:`GET`})
+    }
 }
 
 
