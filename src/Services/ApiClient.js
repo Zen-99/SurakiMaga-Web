@@ -219,7 +219,7 @@ class ApiClient{
         return await this.request({endpoint:`user/schoolvanadvertisement`,method:`GET`})
     }
     async addChild(credentials){
-        return await this.request({endpoint:`user/schoolvanadvertisement`,method:`POST`,data:credentials})
+        return await this.request({endpoint:`parent/addChild`,method:`POST`,data:credentials})
     }
     async getChildVan(credentials){
         return await this.request({endpoint:`parent/childvandetails`,method:`POST`, data:credentials})
