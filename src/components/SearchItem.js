@@ -25,13 +25,16 @@ function SearchItem(props){
       <div className="siDesc">
         <h1 className="siTitle">{props.result.title}</h1>
         <span className="siDistance">{props.result.vehicletype}</span>
-        <span className="siTaxiOp">Hey</span>
-        <span className="siSubtitle">
+        {props.result.avail ?
+        <span className="siTaxiOp">{props.result.avail} Seats Available</span> :
+        <span className="siTaxiOl">No Seats Available</span> 
+          }
+        {/* <span className="siSubtitle">
           Hybrid Van with Air conditioning
         </span>
         <span className="siFeatures">
           Royal College • Thurstan College • D S Senanayake College
-        </span>
+        </span> */}
         {/* <span className="siCancelOp">Rs.5000/Month</span> */}
         {/* <span className="siCancelOpSubtitle">
           You can cancel later, so lock in this great price today!
