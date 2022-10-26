@@ -260,6 +260,9 @@ class ApiClient{
     async getOwnersVanDetails(credentials){
         return await this.request({endpoint:`admin/adminownersvandetails`,method:`POST`, data:credentials})
     }
+    async getAdminComplaints(){
+        return await this.request({endpoint:`admin/admincomplaints`,method:`GET`})
+    }
 }
 
 

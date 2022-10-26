@@ -15,7 +15,7 @@ function OwnerComplaints (){
     var i = 0
     useEffect(() => {
         async function getcomplaints(){
-            const{dataresponse,error} = await apiClient.getcomplaints()
+            const{dataresponse,error} = await apiClient.getAdminComplaints()
             setComplaints(dataresponse.result.complaints)
             setPending(dataresponse.result.pending.count)
             setUrgent(dataresponse.result.urgent.count)

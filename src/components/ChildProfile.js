@@ -37,12 +37,15 @@ export default function () {
                                                 <div> </div>
                                             </div>
                                             <div className='attribute-group mt-4 '>
+                                                {data.vanid ?
+                                                <div>
                                             <Button onClick={() => setabsentModalShow(true)}>Mark Absent</Button>
                                             <MarkAbsent
                                                     student={data.id}
                                                     show={absentmodalShow}
                                                     onHide={() => setabsentModalShow(false)}
-                                                />
+                                                /> </div>:<div></div>
+                                                    }
                                             </div>
                                         </Card.Text>
                                 </Card.Body>

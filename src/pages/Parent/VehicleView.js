@@ -7,15 +7,11 @@ import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import { SocialIcon } from 'react-social-icons';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 import RequestVan from '../../components/RequestVan';
 import { useLocation } from 'react-router-dom';
 import apiClient from '../../Services/ApiClient'
 
 
-const homeImage = require('../../assests/schoolbus.png');
-const bus1Image = require('../../assests/schoolbus1.jpg');
-const bus2Image = require('../../assests/schoolbus2.jpg');
 const mapImage = require('../../assests/map.jpg');
 
 export default function VehicleView() {

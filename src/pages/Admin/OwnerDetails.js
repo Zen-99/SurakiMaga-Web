@@ -3,6 +3,7 @@ import AdminNavbar from './AdminNavbar'
 import Table from 'react-bootstrap/Table';
 import { Container,Button,Modal } from 'react-bootstrap';
 import apiClient from '../../Services/ApiClient'
+import './OwnerDetails.css'
 
 
 function OwnerDetails() {
@@ -62,14 +63,14 @@ const handleselected = async (selected) => {
             <Container className="  mt-4">
                 <h4>Owners</h4>
                 <div className='p-3'>
-                    <table className="table bg-white table-hover">
+                    <table className="table bg-white table-hover table-fixed">
                         <thead>
                         <tr>
                             <th>Fullname</th>
                             <th>Contact</th>
-                            <th>Vans</th>
-                            <th>Email</th>
-                            <th>-</th>
+                            <th>NIC</th>
+                            <th>Van Count</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -78,10 +79,10 @@ const handleselected = async (selected) => {
                         return  (
                             <tr>
                             <td>{data.name}</td>
-                            <td>{data.email}</td>
                             <td>{data.contact}</td>
-                            <td>Doe</td>
-                            <td><Button onClick={() => handleOwner(data)}>View More</Button></td>
+                            <td >{data.nic}</td>
+                            <td>{data.count}</td>
+                            <td><Button className="w-50" onClick={() => handleOwner(data)}>View More</Button></td>
                             </tr>
                         )
                     })}
