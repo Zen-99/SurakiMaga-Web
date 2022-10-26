@@ -22,7 +22,6 @@ import OwnerSchoolVans from './pages/school-van-owner/OwnerSchoolVans';
 import OwnerAddNewVehicle from './pages/school-van-owner/OwnerAddNewVehicle';
 import OwnerComplaints from './pages/school-van-owner/OwnerComplaints';
 import OwnerPayments from './pages/school-van-owner/OwnerPayments';
-import OwnerRequests from './pages/school-van-owner/OwnerRequests';
 import OwnerReviews from './pages/school-van-owner/OwnerReviews';
 import OwnerDriverProfile from './pages/school-van-owner/OwnerDriverProfile';
 import OwnerStudentList from './pages/school-van-owner/OwnerStudentList';
@@ -323,18 +322,6 @@ function App() {
           element={
             isAuthenticated && userrole === "Owner" ? (
               <OwnerPayments />
-            ) : (
-              <Login />
-            )
-          }
-        />
-
-        <Route
-          exact
-          path="/ownerrequests"
-          element={
-            isAuthenticated && userrole === "Owner" ? (
-              <OwnerRequests />
             ) : (
               <Login />
             )

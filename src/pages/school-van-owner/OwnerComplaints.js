@@ -32,7 +32,7 @@ function OwnerComplaints (){
             {
                 label: "School vans",
                 backgroundColor: ['green', 'aqua', '#ff8c01'],
-                data: complaintdata,
+                data: [2,1,1],
             }
         ],
         labels: ["Pending","Urgent","Closed"],

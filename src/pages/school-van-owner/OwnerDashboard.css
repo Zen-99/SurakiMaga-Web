@@ -29,6 +29,9 @@
 }
 .chart-wrapper{
     height: 100%;
+}.fa-check, .fa-times-circle ,.fa-phone{
+    width: fit-content;
+    color: #fff;
 }
 @media screen and (max-width: 800px){
     .ownerDashboard-cards{

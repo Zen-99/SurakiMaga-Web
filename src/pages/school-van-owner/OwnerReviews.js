@@ -113,7 +113,7 @@ function OwnerReviews (){
                         <tr>
                         <td>{data.date.slice(0,10)}</td>
                         <td>{data.vehicleno}</td>
-                        <td>{data.name}</td>
+                        <td>{data.fullname}</td>
                         <td><Rating rate={data.review}/></td>
                         <td>
                             <button class="" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseExample${i}`} aria-expanded="false" aria-controls="collapseExample1">

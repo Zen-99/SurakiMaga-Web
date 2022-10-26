@@ -47,27 +47,27 @@ function OwnerDashboard() {
     },[]);
 
     const [StCountchartData,setStCountchartData] = useState({
-        labels: lables,
+        labels: ['ABC123','ABC198','CDE987'],
         datasets: [
             {
-                label: lables,
+                label: ['ABC123','ABC198','CDE987'],
                 backgroundColor: ['#FF8C01', '#FF6B18', '#993300'],
-                data: stu,
+                data: [5,2,1],
             }
         ]
     })
     const [chartData,setchartData] = useState({
-        labels: lables,
+        labels: ['ABC123','ABC198','CDE987'],
         datasets: [
             {
                 label: "Total Seats",
                 backgroundColor: ['#FF8C01'],
-                data: Seats,
+                data: [15,20,21],
             } ,
             {
                 label: "Available Seats",
                 backgroundColor: ['green'],
-                data:avail,
+                data:[10,18,20],
             }
         ],
         options:[{
@@ -163,9 +163,9 @@ function OwnerDashboard() {
                         <div>
                             <ul class="list-group gap-2 p-4">
                                 {requests.map(data=>{
-                                    return <li class="list-group-item d-flex flex-row gap-2 justify-content-between align-items-center">
-                                    <p>{data.parentname} sent a request to {data.vehicleno}</p>
-                                    <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal"  onClick={()=>viewReq(data.id,data.monthlycharge)}>view</button>
+                                    return <li class="list-group-item d-flex flex-column gap-2 justify-content-between align-items-center">
+                                    <p>{data.studentname} sent a request to {data.vehicleno}</p>
+                                    <button type="button" class="btn btn-primary Request-view"data-bs-toggle="modal" data-bs-target="#OwnerRequestModal"  onClick={()=>viewReq(data.id,data.monthlycharge)}>View</button>
                                 </li>
                                 })}
                             </ul>
@@ -253,15 +253,15 @@ function OwnerDashboard() {
                                         <div class="col-sm-5 text-secondary">{data.school}</div>
                                     </div>
                                     <hr/>
-                                    <div class="d-flex flex-row justify-content-evenly">
+                                    {/* <div class="d-flex flex-row justify-content-evenly">
                                         <div class="col-sm-5">
                                             <h6 class="mb-0">Pick up location</h6>
                                         </div>
                                         <div class="col-sm-5 text-secondary">
-                                            {/* <div className="OwnerRequest-map">..location</div> */}
+                                            <div className="OwnerRequest-map">..location</div>
                                         </div>
                                     </div>
-                                    <hr/>
+                                    <hr/> */}
                                     <div class="d-flex flex-row justify-content-evenly">
                                         <div class="col-sm-5">
                                             <h6 class="mb-0">Monthly Charge</h6>
