@@ -163,7 +163,7 @@ function OwnerAddNewAd (){
                     </div>
                     <div class="col-12 d-flex flex-row gap-2 flex-nowrap">
                         <button type="submit" class="btn btn-success" onClick={submitDetails}>Save</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"  onClick={cancel}></button>         
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"  onClick={cancel}>Cancel</button>         
                     </div>
                 </div>
                 <div className='form-images d-flex flex-column p-4 gap-4 justify-content-center'>
