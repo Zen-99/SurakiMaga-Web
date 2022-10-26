@@ -157,7 +157,7 @@ const handleselected = async (selected) => {
                                 
                                     <div>
                                     <div className=' p-2 d-flex justify-content-center mt-3 mb-3'>
-                                        <img className='mx-auto w-25 ' src={schooldata.frontimage} />
+                                        <img className='mx-auto w-50 ' src={schooldata.frontimage} />
                                         </div>
                                 <div className='d-flex flex-row mb-1'>
                                                         <div className='fw-bold'> Vehicle Number</div>

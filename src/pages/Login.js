@@ -51,7 +51,7 @@ function Login() {
         apiClient.setToken(dataresponse.token);
         setTimeout(() => {
           window.location.href = "/dashboard";
-        }, 2000);
+        }, 1000);
       } else {
         // toast("Email or Password is incorrect!");
         setShowError(true);

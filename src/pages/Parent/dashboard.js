@@ -88,11 +88,6 @@ const ParentDashboard = () => {
                   label="Air Conditioned"
                   name="Air Conditioned"
                 />
-                 <Form.Check
-                  inline
-                  label="FM Radio"
-                  name="FM Radio"
-                />
           </Form.Group>
             </div>
             <Button className="mt-2">Search</Button>

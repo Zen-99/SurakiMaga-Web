@@ -42,8 +42,8 @@ function SearchItem(props){
       </div>
       <div className="siDetails">
         <div className="siRating">
-          <span>Excellent</span>
-          <button>8.9</button>
+          {/* <span>Excellent</span> */}
+          <button>{props.result.rating}</button>
         </div>
         <div className="siDetailTexts">
           <span className="siPrice">{props.result.charge} per Km</span>
