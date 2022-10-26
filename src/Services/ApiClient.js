@@ -236,6 +236,9 @@ class ApiClient{
     async leaveSchoolVan(credentials){
         return await this.request({endpoint:`parent/leavevan`,method:`POST`, data:credentials})
     }
+    async markAbsent(credentials){
+        return await this.request({endpoint:`parent/markabsent`,method:`POST`, data:credentials})
+    }
 
 
     //Admin Routes
@@ -245,11 +248,17 @@ class ApiClient{
     async getpendingRequest(){
         return await this.request({endpoint:`admin/pendingrequest`,method:`GET`})
     }
+    async getcancelledRequest(){
+        return await this.request({endpoint:`admin/cancelledrequest`,method:`GET`})
+    }
     async acceptRequest(credentials){
         return await this.request({endpoint:`admin/acceptrequest`,method:`POST`,data:credentials})
     }
     async getOwnersDetails(){
         return await this.request({endpoint:`admin/ownersdetails`,method:`GET`})
+    }
+    async getOwnersVanDetails(credentials){
+        return await this.request({endpoint:`admin/adminownersvandetails`,method:`POST`, data:credentials})
     }
 }
 

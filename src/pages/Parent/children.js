@@ -24,29 +24,29 @@ function MyChildren() {
     const [modalShow, setModalShow] = useState(false);
     const [ReviewModal, setReviewModal] = useState(false);
     const [rating, setRating] = useState(0) // initial rating value
-    const [Vandetails,setVandetails]=useState([]);
+    // const [Vandetails,setVandetails]=useState([]);
 
     const location = useLocation();
-    const data = location.state;
-    console.log("Faa"+data.id);
+    const Vandetails = location.state;
+    // console.log("Faa"+data.id);
 
-    console.log(data.vanid);
+    // console.log(data.vanid);
 
-    useEffect(() => {
-    async function getChildVan() {
-        const{dataresponse,error} = await apiClient.getChildVan({
-            studentid : data.id
-        })
-        console.log(dataresponse)
-        setVandetails(dataresponse.result)
-        console.log(Vandetails);
+    // useEffect(() => {
+    // async function getChildVan() {
+    //     const{dataresponse,error} = await apiClient.getChildVan({
+    //         studentid : data.id
+    //     })
+    //     console.log(dataresponse)
+    //     setVandetails(dataresponse.result)
+    //     console.log(Vandetails);
         
-    }
-        getChildVan();
+    // }
+    //     getChildVan();
     
        
     
-    }, [data.id]);
+    // }, [data.id]);
     // if(Vanid)
     // {
 
@@ -86,11 +86,11 @@ function MyChildren() {
                                 </Card.Body>
                         </Card>
                     </Container> */}
-                    <ChildProfile state={data}/>
+                    <ChildProfile state={Vandetails}/>
                 </Col>
 
                 <Col xs={12} md={9} className="border children_profile" >
-                    {data.vanid ? 
+                    {Vandetails.vanid ? 
                     <Container className="p-2 my-2 d-flex flex-column">
                     <div className="d-flex">
                     <Carousel className="bg-white">
@@ -180,7 +180,7 @@ function MyChildren() {
                                         <Button className='w-50 mx-auto bg-white text-dark reviewmodal' onClick={() => setModalShow(true)}>Leave From this Van</Button>
                                         <LeaveVan
                                                     status= {Vandetails.payment_status}
-                                                    student={data.id}
+                                                    student={Vandetails.id}
                                                     show={modalShow}
                                                     onHide={() => setModalShow(false)}
                                                 />

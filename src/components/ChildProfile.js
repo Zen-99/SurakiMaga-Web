@@ -39,6 +39,7 @@ export default function () {
                                             <div className='attribute-group mt-4 '>
                                             <Button onClick={() => setabsentModalShow(true)}>Mark Absent</Button>
                                             <MarkAbsent
+                                                    student={data.id}
                                                     show={absentmodalShow}
                                                     onHide={() => setabsentModalShow(false)}
                                                 />

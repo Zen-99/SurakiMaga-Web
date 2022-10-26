@@ -82,7 +82,10 @@ export default function VehicleView() {
                     <div className='mt-3'>
                         <div className='d-flex justify-content-between'>
                         <h4 className='text-dark '>Vehicle Details</h4>
-                        <h5 className='bg-success w-50 text-center p-2 inline-block rounded'>5 Seats Available</h5>
+                        {schoolvan.avail ?
+                            <h5 className='bg-success w-50 text-center p-2 inline-block rounded'>{schoolvan.avail} Seats Available</h5> :
+                            <h5 className='bg-danger w-50 text-center p-2 inline-block rounded'>No Seats Available</h5> 
+                            }
                         </div>
                         <div className='d-flex gap-1'>
                         <Row  >
