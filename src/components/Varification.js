@@ -8,10 +8,12 @@ import apiClient from '../Services/ApiClient';
 const Varification = () => {
     const [vanData, setVanData] = useState([]);
     const [show, setShow] = useState(false);
+    const [image, setImage] = useState("");
     const [vehicle, setVehicle] = useState("");
   const handleName = (name) => {
     setVehicle(name);
     setShow(true);
+    setImage(name.frontimage)
   };
 
 
@@ -48,6 +50,22 @@ async function getRequests() {
     const itemsPerPage = 3;
     const pagination = useRef();
 
+    const handleselected = async (selected) => {
+        console.log(selected)
+        if(selected=="frontimage"){
+        setImage(vehicle.frontimage);
+        }
+        else if(selected=="backimage"){
+            setImage(vehicle.backimage);
+        }
+        else if(selected=="licensefront"){
+            setImage(vehicle.licensefront);
+        }
+        else if(selected=="licenseback"){
+            setImage(vehicle.licenseback);
+        }
+      };
+
     useEffect(() => {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
@@ -73,7 +91,9 @@ async function getRequests() {
                         <Card>
                             <Card.Header>{vanData.vehicleno} </Card.Header>
                         
+                        <div style={{width: "100%",height:"250px"}}>
                             <Card.Img variant="top" src={vanData.frontimage} />
+                        </div>
                         <Card.Body>
                             {/* <Card.Title >{vanData.name} sent a request</Card.Title> */}
                             <Card.Text>
@@ -126,7 +146,13 @@ async function getRequests() {
                                 <Modal.Body>
                                     <Container className="d-flex gap-5">
                                         <div>
-                                            <img src={vehicle.frontimage} />
+                                        <select id="inputSchoolvan" className="form-select w-50 mb-4" placeholder="Choose.." onChange={(e) => handleselected(e.target.value)}  >
+                                        <option value="frontimage">Front Image</option>
+                                        <option value="backimage">Back  Image</option>
+                                        <option value="licencefront">License Front</option>
+                                        <option value="licenseback">License Back</option>
+                                        </select>
+                                            <img src={image} />
                                         </div>
                                         <div>
                                             <div className="mb-2">Vehicle Details</div>

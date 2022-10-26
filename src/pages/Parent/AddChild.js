@@ -6,10 +6,16 @@ import Form from 'react-bootstrap/Form';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import apiClient from '../../Services/ApiClient';
 import Axios from "axios";
+import Alert from 'react-bootstrap/Alert';
 
 function AddChild() {
+    const [showsuccess, setShowSuccess] = useState(false);
     function refreshPage() {
-        window.location.reload(false);
+        setShowSuccess(true);
+        setTimeout(() => {
+            window.location.reload(false);
+          }, 2000);
+       
       }
     const [value, setValue] = useState(null);
     const [school,setSchool]=useState([])
@@ -103,6 +109,10 @@ const submitDetails = () => {
                 </div>
                 <div>
                 <Container className="px-5 py-3">
+                        <Alert className='mt-0 p-3' show ={showsuccess} variant="success" onClose={() => setShowSuccess(false)} dismissible>
+                            <p className='mb-0 mt-0'>Successfully Added !</p>
+                        </Alert>
+
                     <h4 className='mb-4'>Add the Details of your Child</h4>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name of the Child</Form.Label>

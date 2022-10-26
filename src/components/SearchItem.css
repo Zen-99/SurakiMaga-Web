@@ -77,7 +77,7 @@
   
   .siRating{
     display: flex;
-    justify-content: space-between
+    justify-content: flex-end
   }
   
   .siRating>span{
@@ -86,9 +86,10 @@
   .siRating>button{
    background-color: #ff8c01;
    color: black;
-   padding: 5px;
+   padding: 3px;
    font-weight: bold;
    border: none;
+   width: 100px;
   }
   
   .siDetailTexts{
