@@ -68,7 +68,7 @@ export default function RequestVan (props) {
         {Requestschools.map((child)=>{
                         // console.log(data)
                         return  (
-                          <ListGroup.Item key ={child.id} className='d-flex justify-content-around my-2 p-3 fw-bold bg-secondary bg-light border-bottom'><span>{child.fullname}</span><span>Rs.400/=</span> <span>{(child.vanid == props.vanid) ?<Button className='bg-warning'>Leave</Button>:<Button className='' onClick={() =>requestSchoolVan(child.id,child.charge,child.vanid)}>Request</Button>}</span></ListGroup.Item>
+                          <ListGroup.Item key ={child.id} className='d-flex justify-content-around my-2 p-3 fw-bold bg-secondary bg-light border-bottom'><span>{child.fullname}</span><span>{child.monthly_charge}</span> <span>{(child.vanid == props.vanid) ?<Button className='bg-warning'>Leave</Button>:<Button className='' onClick={() =>requestSchoolVan(child.id,child.monthly_charge,child.vanid)}>Request</Button>}</span></ListGroup.Item>
                         )
                     })}
       </ListGroup>

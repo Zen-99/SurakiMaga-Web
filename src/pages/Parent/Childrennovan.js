@@ -6,11 +6,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import './children.css';
-import ChildProfile from '../../components/ChildProfile';
 
 
 
-const mapImage = require('../../assests/maps.png');
+
+
 const profileImage = require('../../assests/avatar7.png');
 
 function NewChildren() {

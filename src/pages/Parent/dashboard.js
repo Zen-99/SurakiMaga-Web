@@ -14,7 +14,7 @@ const ParentDashboard = () => {
 
   const [pageNumber, setPageNumber] = useState(0);
 
-  const adsPerPage = 2;
+  const adsPerPage = 3;
   const pagesVisited = pageNumber * adsPerPage;
 
   const displayads = ad

@@ -19,13 +19,8 @@ export default function Review(props) {
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label >Complaint Type</Form.Label>
-              <Form.Select aria-label="Default select example">
-                <option>Select the type of Complaint</option>
-                <option value="1">Misbehaviour of Driver</option>
-                <option value="2">Late arrival to the school</option>
-                <option value="3">Discomfort in the Vehicle</option>
-                <option value="4">Other</option>
-            </Form.Select>
+              <Form.Control type="date" placeholder="Enter Age" />
+                        {/* <div className="errors">{formError.dob}</div> */}
             </Form.Group>
             <Form.Group
               className="mb-3"

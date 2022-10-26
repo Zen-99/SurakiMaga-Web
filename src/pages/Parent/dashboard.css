@@ -78,6 +78,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  .previousBttn {
+    margin-right: 4px;
+  }
   
   .paginationBttns a {
     padding: 10px;
