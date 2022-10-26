@@ -69,7 +69,7 @@ return(
     <div className="home">
         <OwnerNavbar/>
             <div className="Advertisements-home gap-3 p-4 pt-5">
-                <div className="card d-felx advertistment-search">
+                {/* <div className="card d-felx advertistment-search">
                     <div className="OwnerlistSearch p-3">
             <h1 className="lsTitle text-center">Search</h1>
             <div className="lsItem">
@@ -120,7 +120,7 @@ return(
             </div>
             <Button className="mt-2">Search</Button>
           </div>
-                    </div>
+                    </div> */}
                 <div className="Advertisements-new">
                 <ul class="nav nav-tabs d-flex flex-row flex-nowrap" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
