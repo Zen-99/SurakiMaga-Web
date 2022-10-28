@@ -15,8 +15,9 @@ function OwnerComplaints (){
     var i = 0
     useEffect(() => {
         async function getcomplaints(){
-            const{dataresponse,error} = await apiClient.getAdminComplaints()
+            const{dataresponse,error} = await apiClient.getcomplaints()
             setComplaints(dataresponse.result.complaints)
+            console.log(dataresponse.result.pending.count)
             setPending(dataresponse.result.pending.count)
             setUrgent(dataresponse.result.urgent.count)
             setClosed(dataresponse.result.closed.count)
@@ -32,7 +33,7 @@ function OwnerComplaints (){
             {
                 label: "School vans",
                 backgroundColor: ['green', 'aqua', '#ff8c01'],
-                data: [2,1,1],
+                data: complaintdata,
             }
         ],
         labels: ["Pending","Urgent","Closed"],

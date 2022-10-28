@@ -47,27 +47,27 @@ function OwnerDashboard() {
     },[]);
 
     const [StCountchartData,setStCountchartData] = useState({
-        labels: ['ABC123','ABC198','CDE987'],
+        labels: lables,
         datasets: [
             {
-                label: ['ABC123','ABC198','CDE987'],
+                label: lables,
                 backgroundColor: ['#FF8C01', '#FF6B18', '#993300'],
-                data: [5,2,1],
+                data: stu,
             }
         ]
     })
     const [chartData,setchartData] = useState({
-        labels: ['ABC123','ABC198','CDE987'],
+        labels: lables,
         datasets: [
             {
                 label: "Total Seats",
                 backgroundColor: ['#FF8C01'],
-                data: [15,20,21],
+                data: Seats,
             } ,
             {
                 label: "Available Seats",
                 backgroundColor: ['green'],
-                data:[10,18,20],
+                data:avail,
             }
         ],
         options:[{
